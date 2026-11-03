@@ -1,0 +1,26 @@
+@font-face{font-family:'Sora';font-style:normal;font-weight:100 800;font-display:swap;src:url(fonts/sora.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(fonts/dm-sans.woff2) format('woff2')}
+:root{color-scheme:light;--base:#EFEDF9;--hi:#FFFFFF;--lo:#D2CCE8;--ink:#1F1B3C;--text:#2A2650;--muted:#4F4A74;--iris:#7040E9;
+--raise-sm:6px 6px 14px var(--lo),-6px -6px 14px var(--hi)}
+*{box-sizing:border-box}
+html{scroll-padding-top:90px}
+body{margin:0;background:var(--base);color:var(--text);font:17px/1.6 'DM Sans','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--base) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.wrap{width:min(100% - 40px,820px);margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:'Sora',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.01em}
+.brand img{width:40px;height:26px;display:block}
+.brand span span{color:var(--iris)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--iris);color:#fff;font-weight:700;font-size:14px;text-decoration:none;box-shadow:var(--raise-sm)}
+main{padding:40px 0 80px}
+h1{font-family:'Sora',sans-serif;font-size:clamp(32px,5vw,46px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);margin:0 0 8px}
+.updated{color:var(--muted);font-size:14px;margin:0 0 32px}
+h2{font-family:'Sora',sans-serif;font-size:24px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin:40px 0 12px}
+h3{font-size:17px;font-weight:700;color:var(--ink);margin:24px 0 6px}
+p,li{max-width:70ch}
+ul{padding-left:22px}li{margin:6px 0}
+a{color:var(--iris)}
+.card{background:var(--base);border-radius:24px;box-shadow:var(--raise-sm);padding:22px 26px;margin:28px 0}
+.card p{margin:6px 0}
+.foot{padding:28px 0 40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
