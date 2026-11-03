@@ -1,0 +1,1815 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EFEDF9">
+<title>CampusWave · The AI-powered school app</title>
+<link rel="canonical" href="https://campus-wave.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CampusWave">
+<meta property="og:title" content="CampusWave · The AI-powered school app for future-ready schools">
+<meta property="og:description" content="Attendance, homework, exams, fees, transport and parent updates in one app for management, teachers, students and parents.">
+<meta property="og:url" content="https://campus-wave.com/">
+<meta property="og:image" content="https://campus-wave.com/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<style>
+@font-face{font-family:'Sora';font-style:normal;font-weight:100 800;font-display:swap;src:url(fonts/sora.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(fonts/dm-sans.woff2) format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif.woff2) format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-italic.woff2) format('woff2')}
+</style>
+<meta name="description" content="CampusWave is the AI-powered school app for future-ready schools. Attendance, homework, exams, fees, transport and parent updates in one app for management, teachers, students and parents.">
+<style>
+/* Light, soft-clay single page: photo landing with drifting mist, a sticky two-screen "school day",
+   then raised neumorphic sections that settle into place as you scroll, ending in the demo band. */
+:root{
+  color-scheme:light;
+  --base:#EFEDF9; --hi:#FFFFFF; --lo:#D2CCE8;
+  --ink:#1F1B3C; --muted:#4F4A74; --faint:#625C86;
+  --iris:#7040E9; --iris-soft:#E6DDFC; --aqua:#11808F; --aqua-soft:#D3F1F5; --peach:#B8501F; --peach-soft:#FFE3D3; --mint:#0F6E5C; --mint-soft:#D5F2E6;
+  --glow-1:rgba(112,64,233,.26); --glow-2:rgba(54,194,214,.26); --glow-3:rgba(255,170,130,.26);
+  --band-1:#7040E9; --band-2:#2FB0C6;
+  --f-display:'Sora','Avenir Next','Segoe UI',sans-serif;
+  --f-body:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  --f-accent:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --raise:10px 10px 26px var(--lo),-10px -10px 26px var(--hi);
+  --raise-sm:6px 6px 14px var(--lo),-6px -6px 14px var(--hi);
+  --press:inset 6px 6px 14px var(--lo),inset -6px -6px 14px var(--hi);
+  --press-sm:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi);
+  --r-lg:32px; --r-md:22px;
+  --text:#2A2650;
+  --fs-sm:14px; --fs-ui:var(--fs-sm); --fs-body:17px; --fs-lead:var(--fs-body); --fs-sub:clamp(24px,2vw,28px); --fs-h2:clamp(30px,3.6vw,52px); --fs-display:clamp(46px,7vw,96px);
+}
+@property --v{syntax:'<number>'; inherits:false; initial-value:0}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+html:has(dialog[open]){overflow:hidden}
+body{margin:0; background:var(--base); color:var(--ink); font-family:var(--f-body); font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased}
+body::after{content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(60% 50% at 0% 10%,rgba(176,156,255,.20),transparent 70%),radial-gradient(50% 45% at 100% 40%,rgba(110,214,232,.18),transparent 70%),radial-gradient(60% 50% at 30% 100%,rgba(255,196,168,.18),transparent 70%)}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:60; background:var(--base)}
+img{max-width:100%; display:block}
+a{color:var(--iris)}
+h1,h2,h3,h4{font-family:var(--f-display); font-weight:600; margin:0; text-wrap:balance; letter-spacing:-.02em}
+p,ul,ol{margin:0}
+
+
+
+.nw{white-space:nowrap}
+.wrap{max-width:1200px; margin:0 auto; padding-left:max(20px,env(safe-area-inset-left,0px)); padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+.lead{font-size:var(--fs-lead); color:var(--text); max-width:62ch; text-wrap:pretty}
+.lbl{display:block; font-family:var(--f-body); font-size:var(--fs-sm); font-weight:600; letter-spacing:0; text-transform:none; color:var(--faint); margin-bottom:10px}
+.sec{position:relative; padding-block:clamp(88px,9vw,124px) clamp(40px,5vw,72px)}
+@media (min-width:901px) and (max-height:760px){ .sec{padding-top:92px} }
+.sec-head{display:flex; flex-direction:column; gap:14px; margin-bottom:clamp(30px,4vw,48px)}
+.sec-head h2{font-size:var(--fs-h2); line-height:1.05}
+.sec-head.split{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,400px); align-items:end; gap:14px 56px; margin-bottom:clamp(28px,3vw,36px)}
+.sec-head.split > div{display:flex; flex-direction:column; gap:14px}
+.sec-head.split h2{font-size:var(--fs-h2)}
+@media (max-width:980px){ .sec-head.split{grid-template-columns:1fr} }
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.skip{position:fixed; left:16px; top:12px; transform:translateY(-72px); z-index:100; padding:10px 16px; border-radius:12px; background:var(--ink); color:#fff; font-weight:600; text-decoration:none; transition:transform .2s cubic-bezier(.23,1,.32,1)}
+.skip:focus{transform:none}
+:focus-visible{outline:2px solid var(--iris); outline-offset:3px}
+
+/* buttons */
+.btn{appearance:none; border:0; cursor:pointer; font:600 var(--fs-ui)/1 var(--f-body); color:var(--ink); background:var(--base); padding:15px 22px; border-radius:999px; box-shadow:var(--raise-sm); display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; white-space:nowrap; transition:box-shadow .2s, transform .16s cubic-bezier(.23,1,.32,1), background .3s, color .3s}
+
+.btn:active{box-shadow:var(--press-sm); transform:scale(.97)}
+.btn-primary{background:var(--iris); color:#fff; box-shadow:var(--raise-sm)}
+.btn-light{background:#fff; box-shadow:0 8px 24px rgba(30,24,80,.12)}
+.btn-ink{background:var(--ink); color:#fff; box-shadow:0 10px 26px rgba(27,24,56,.28)}
+.btn svg{width:18px; height:18px}
+.ico{width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+
+/* content that starts below the fold rises in when it arrives */
+.reveal{transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.pre{opacity:0; transform:translateY(32px)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:50}
+.nav > .wrap{position:relative}
+.nav::before{content:""; position:absolute; inset:0 0 -28px; z-index:-1; pointer-events:none; background:linear-gradient(180deg,color-mix(in srgb,var(--base) 88%,transparent) 0%,color-mix(in srgb,var(--base) 70%,transparent) 60%,transparent 100%); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent); mask-image:linear-gradient(180deg,#000 55%,transparent); opacity:0; transition:opacity .4s}
+.nav.scrolled::before{opacity:1}
+.nav.on-band::before{background:linear-gradient(90deg,rgba(106,75,255,.94),rgba(92,96,240,.92) 50%,rgba(66,150,212,.9))}
+.nav-bar{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding-block:12px; min-height:68px}
+.nav-bar > :last-child{justify-self:end}
+.brand{justify-self:start; display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-family:var(--f-display); font-weight:600; font-size:17px; white-space:nowrap; transition:color .3s}
+.brand-mark{height:36px; width:auto; flex:none; display:block; transition:filter .3s}
+.wordmark{height:27px; width:auto; flex:none; display:block; overflow:visible}
+.cw{white-space:nowrap; font-weight:700; letter-spacing:-.01em}
+.cw > span{color:var(--iris)}
+
+.band .cw > span{color:#E2D6FF}
+.nav.on-band .brand-mark{filter:brightness(0) invert(1)}
+.nav.on-band .wordmark{--wm-a:#fff; --wm-b:#E2D6FF}
+.brand small{font-family:var(--f-body); font-weight:500; font-size:var(--fs-sm); color:var(--muted); margin-left:2px; transition:color .3s}
+.nav-bar .btn{padding:11px 20px; font-size:var(--fs-ui); font:600 var(--fs-ui)/1 var(--f-body)}
+.nav-links{display:flex; gap:2px}
+.nav-links a{position:relative; color:var(--muted); text-decoration:none; font-size:var(--fs-ui); font-weight:500; padding:8px 11px; transition:color .3s}
+.nav-links a:hover,.nav-links a.on{color:var(--ink)}
+.nav-links a::after{content:""; position:absolute; left:50%; bottom:0; width:4px; height:4px; margin-left:-2px; border-radius:50%; background:var(--iris); opacity:0; transition:opacity .2s}
+.nav-links a.on::after{opacity:1}
+.nav.on-band .brand,.nav.on-band .brand small,.nav.on-band .nav-links a{color:#fff; font-size:var(--fs-ui)}
+.nav.on-band .nav-links a::after{background:#fff}
+.nav.on-band .btn-ink{background:#fff; color:var(--ink); box-shadow:0 8px 22px rgba(20,10,80,.25)}
+.nav-end{display:flex; align-items:center; gap:10px}
+.nav .menu-btn{display:none; width:44px; height:44px; background:var(--base)}
+.menu{position:absolute; top:calc(100% - 4px); right:max(20px,env(safe-area-inset-right,0px)); width:min(320px,calc(100vw - 32px)); padding:10px; border-radius:24px; background:var(--base); box-shadow:var(--raise),0 24px 60px rgba(40,24,120,.18); display:grid; gap:2px; transform-origin:top right; animation:pop .2s cubic-bezier(.23,1,.32,1)}
+.menu a{display:flex; justify-content:space-between; align-items:center; padding:13px 14px; border-radius:14px; color:var(--ink); text-decoration:none; font-weight:600; font-size:var(--fs-body)}
+.menu a:hover,.menu a.on{background:var(--base); box-shadow:var(--press-sm)}
+.menu a.on::after{content:""; width:7px; height:7px; border-radius:50%; background:var(--iris)}
+.menu a.go{margin-top:6px; justify-content:center; color:#fff; background:var(--iris); box-shadow:none}
+.nav.on-band .menu-btn{background:rgba(255,255,255,.16); color:#fff; box-shadow:none}
+@media (max-width:1060px){ .nav-links{display:none} .nav-bar{grid-template-columns:1fr auto} .nav .menu-btn{display:grid} }
+@media (max-width:600px){ .nav-bar .btn{padding:11px 16px; font-size:var(--fs-ui); font:600 var(--fs-ui)/1 var(--f-body)} .brand small{display:none; font-size:var(--fs-sm)} .nav .brand-mark{height:30px} .nav .wordmark{height:22px} }
+@media (max-width:400px){ .nav-bar{gap:8px} .brand{font-size:16px; gap:6px} .nav .brand-mark{height:27px} .nav .wordmark{height:19px} .nav-end{gap:8px} .nav .menu-btn{width:44px; height:44px} .nav-bar .btn{padding:10px 13px; font-size:var(--fs-ui); font:600 var(--fs-ui)/1 var(--f-body)} .nav-bar .btn .xs-hide{display:none} }
+
+/* ---------- landing ---------- */
+.landing{position:relative; height:100vh; height:100svh; min-height:620px; margin-top:-68px; overflow:hidden; isolation:isolate}
+.landing .scene{position:absolute; inset:0; z-index:-2}
+.landing .scene img{width:100%; height:100%; object-fit:cover; object-position:50% 60%}
+.landing::before{content:""; position:absolute; inset:0; z-index:-1; background:
+  linear-gradient(180deg,rgba(246,245,252,.92) 0%,rgba(246,245,252,.74) 24%,rgba(246,245,252,.50) 44%,rgba(246,245,252,.22) 60%,rgba(246,245,252,0) 72%),
+  linear-gradient(0deg,var(--base) 0%,rgba(239,237,249,.92) 10%,rgba(239,237,249,.55) 24%,rgba(239,237,249,0) 42%)}
+.mist{position:absolute; left:0; right:0; pointer-events:none; background:url(img/mist.webp) repeat-x; background-size:auto 100%; will-change:background-position}
+.mist.m0{top:-4%; height:74%; opacity:.34; background-size:auto 115%; animation:mistdrift 110s linear infinite, mistwave 14s ease-in-out infinite}
+.mist.m1{top:34%; height:20%; opacity:.18; animation:mistdrift 140s linear infinite, mistwave 18s ease-in-out infinite -6s}
+.mist.m2{top:50%; height:14%; opacity:.12; background-size:auto 150%; background-position:-900px 0; animation:mistdrift2 200s linear infinite, mistwave 16s ease-in-out infinite -3s; filter:blur(2px)}
+.mist.m3{top:22%; height:12%; opacity:.10; background-size:auto 160%; background-position:-1500px 0; animation:mistdrift3 170s linear infinite}
+@keyframes mistdrift{from{background-position:0 0} to{background-position:-2400px 0}}
+@keyframes mistdrift2{from{background-position:-900px 0} to{background-position:-3300px 0}}
+@keyframes mistdrift3{from{background-position:-1500px 0} to{background-position:-3900px 0}}
+@keyframes mistwave{0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)}}
+.land-copy{position:absolute; left:0; right:0; top:clamp(96px,15vh,150px); display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(14px,2vh,22px); opacity:calc(1 - var(--h,0)*1.6); transform:translateY(calc(var(--h,0)*-60px))}
+.land-copy::before{content:""; position:absolute; left:50%; top:46%; width:min(1100px,110%); height:130%; translate:-50% -50%; z-index:-1; background:radial-gradient(closest-side,rgba(248,247,253,.7),rgba(248,247,253,.36) 55%,transparent); pointer-events:none}
+
+
+
+.landing h1{font-family:var(--f-accent); font-weight:400; font-size:var(--fs-display); line-height:1; letter-spacing:-.02em; color:var(--ink)}
+.landing h1 em{display:block; font-style:italic}
+.landing .lead{max-width:44ch; margin:0 auto; color:var(--text); font-weight:500; text-wrap:balance; font-size:var(--fs-lead)}
+.land-ctas{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+
+
+
+
+@media (max-width:640px){ .landing .scene img{object-position:42% 60%} .mist{background-size:auto 80%} }
+
+/* ---------- bridge ---------- */
+.bridge{position:relative; z-index:3; padding-block:0 8px}
+.wavelines{position:absolute; left:0; width:100%; pointer-events:none; overflow:hidden}
+.wavelines path{fill:none; stroke-linecap:round; vector-effect:non-scaling-stroke}
+.wavelines g{animation:drift var(--dur,26s) linear infinite}
+@keyframes drift{to{transform:translateX(calc(-1 * var(--per,720px)))}}
+.bridge .wavelines{top:-210px; height:420px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.bridge-in{position:relative; display:flex; flex-direction:column; align-items:center; gap:clamp(22px,3vw,34px); text-align:center}
+.bridge-line{font-family:var(--f-accent); font-size:var(--fs-h2); line-height:1.1; color:var(--ink); max-width:26ch; text-wrap:balance}
+.bridge-line em{color:var(--iris)}
+.pills{display:flex; flex-wrap:wrap; justify-content:center; gap:14px 18px}
+.pills span{display:inline-flex; align-items:center; gap:10px; padding:10px 18px 10px 10px; border-radius:999px; background:var(--base); box-shadow:var(--raise-sm); font-size:var(--fs-ui); font-weight:600; color:var(--ink); animation:bob 6s ease-in-out infinite}
+.pills span:nth-child(2){animation-delay:-1.5s} .pills span:nth-child(3){animation-delay:-3s} .pills span:nth-child(4){animation-delay:-4.5s}
+.pills i{width:34px; height:34px; border-radius:50%; display:grid; place-items:center; box-shadow:var(--press-sm)}
+.pills i svg{width:17px; height:17px}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@media (max-width:520px){ .pills span{font-size:var(--fs-ui)} .bridge .wavelines{top:-150px; height:300px} }
+
+/* ---------- intro: the school day (two screens of scroll) ---------- */
+.intro{position:relative; height:200vh; height:200svh; margin-top:-12vh; margin-top:-12svh}
+.intro .snap-pt{position:absolute; left:0; right:0; height:0; pointer-events:none; visibility:hidden}
+.intro .sp1{top:12vh; top:12svh}
+.intro .sp2{top:100vh; top:100svh}
+.stage{position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; display:flex; align-items:center}
+.stage .blob{position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none}
+.stage .b1{width:560px; height:560px; left:-160px; top:22%; background:var(--glow-1)}
+.stage .b2{width:520px; height:520px; right:-120px; top:20%; background:var(--glow-2)}
+.stage .b3{width:600px; height:420px; left:25%; bottom:-200px; background:var(--glow-3)}
+.stage-grid{position:relative; width:100%; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(20px,3vw,40px); align-items:center; padding-top:72px; padding-bottom:16px}
+.copy{display:grid; min-width:0}
+.copy > .state{grid-area:1/1; display:flex; flex-direction:column; gap:22px}
+
+
+@keyframes beat{50%{box-shadow:0 0 0 8px transparent}}
+.state h2{font-size:var(--fs-h2); line-height:1.05; letter-spacing:-.03em}
+.state .lead{font-size:var(--fs-lead); color:var(--text)}
+.ctas{display:flex; flex-wrap:wrap; gap:14px}
+.visual{position:relative; aspect-ratio:1/1; width:100%; max-width:min(100%, calc(100svh - 150px)); justify-self:center; min-width:0}
+.visual .vwave{left:-30%; width:160%; top:22%; height:60%; transform:rotate(calc(-12deg + var(--p,0)*12deg)); -webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent); mask-image:radial-gradient(closest-side,#000 55%,transparent)}
+
+.o1{width:17%; left:0; top:4%}
+.o2{width:15%; right:0; bottom:2%; animation-delay:-3s}
+.o3{width:16%; right:4%; top:0; animation-delay:-1.5s}
+
+.console{--rot:-5deg; position:absolute; left:52%; top:52%; width:80%; height:92%; translate:-50% -50%; padding:14px; border-radius:34px; background:var(--base); box-shadow:var(--raise); transform:rotate(calc(var(--rot) * (1 - var(--p,0)))) scale(calc(.95 + var(--p,0)*.05)); display:flex}
+.screen{flex:1; min-width:0; border-radius:24px; box-shadow:var(--press); padding:14px; display:flex; flex-direction:column; gap:10px; overflow:hidden}
+.scr-top{display:flex; justify-content:space-between; align-items:center}
+.scr-top b{font-family:var(--f-display); font-size:16px}
+.app-id{display:flex; align-items:center; gap:8px}
+.app-ic{height:20px; width:auto; display:block}
+.live{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--mint)}
+.live i{width:7px; height:7px; border-radius:50%; background:#2BB673; box-shadow:0 0 0 3px rgba(43,182,115,.2); animation:none}
+.ring-row{display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:16px; box-shadow:var(--raise-sm)}
+.ring{--v:0; width:52px; height:52px; border-radius:50%; background:conic-gradient(var(--iris) calc(var(--v)*1%),var(--iris-soft) 0); display:grid; place-items:center; flex:none; transition:--v .4s}
+.ring::after{content:""; width:38px; height:38px; border-radius:50%; background:var(--base); box-shadow:var(--press-sm)}
+.ring-row p{font-size:12px; color:var(--muted)}
+.ring-row strong{display:block; font-size:16px; font-variant-numeric:tabular-nums; white-space:nowrap}
+.ring-row .cnt{margin-left:auto; font-size:12px; font-weight:700; color:var(--iris); padding:5px 10px; border-radius:999px; box-shadow:var(--press-sm); font-variant-numeric:tabular-nums; white-space:nowrap}
+.feed{position:relative; flex:1; min-height:0; overflow:hidden; -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent); mask-image:linear-gradient(180deg,#000 82%,transparent)}
+.feed ol{list-style:none; margin:0; padding:3px 3px 40px; display:grid; gap:7px; transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fi{display:grid; grid-template-columns:auto auto minmax(0,1fr); align-items:center; gap:9px; padding:7px 10px; border-radius:12px; color:var(--faint); transition:background .35s, box-shadow .35s, color .35s}
+.fi .ft{font-size:11px; font-weight:600; width:56px; white-space:nowrap; font-variant-numeric:tabular-nums}
+.fi .fic{width:26px; height:26px; border-radius:9px; display:grid; place-items:center; box-shadow:var(--press-sm); transition:background .35s, color .35s, box-shadow .35s}
+.fi .fic svg{width:14px; height:14px}
+.fi .fx{min-width:0}
+.fi b{display:block; font-size:12.5px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.fi small{display:block; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.fi.done{color:var(--muted)} .fi.done b{color:var(--ink)}
+.fi.done .fic{background:var(--c); color:#fff; box-shadow:none}
+.fi.now{background:var(--base); box-shadow:var(--raise-sm)}
+
+
+
+.c1{left:-2%; top:16%} .c2{right:-4%; top:30%} .c3{left:-2%; bottom:14%} .c4{right:-2%; bottom:20%}
+
+@media (min-width:901px) and (max-height:820px){ .state h2{font-size:var(--fs-h2)} .state{gap:16px} .state .lead{font-size:var(--fs-lead); color:var(--text)} }
+@media (min-width:901px) and (max-width:1180px){ .state h2{font-size:var(--fs-h2)} }
+@media (max-width:900px){
+  .stage-grid{grid-template-columns:1fr; gap:14px; padding-top:72px; padding-bottom:14px}
+  .visual{order:-1; aspect-ratio:auto; width:100%; max-width:480px; height:clamp(170px, calc(100svh - var(--ch,380px) - 104px), 430px)}
+  .visual .vwave{display:none}
+  .console{--rot:-2deg; left:50%; top:50%; width:100%; height:100%; padding:10px; border-radius:26px}
+  .o1{width:64px; left:-16px; top:-14px} .o2{width:56px; right:-14px; bottom:-12px} .o3{width:60px; right:16px; top:-22px}
+  .screen{padding:12px; gap:8px; border-radius:18px}
+  .ring-row{padding:8px 10px} .ring{width:42px; height:42px} .ring::after{width:30px; height:30px}
+  .fi{padding:6px 8px; gap:8px} .fi .ft{width:50px; font-size:10.5px} .fi .fic{width:24px; height:24px} .fi b{font-size:12px} .fi small{font-size:10.5px}
+
+  .state{gap:14px}
+  .state h2{font-size:var(--fs-h2)}
+}
+@media (max-width:600px){ .state .ctas .btn:not(.btn-primary){display:none} }
+@media (max-width:900px) and (max-height:760px){
+
+  .state .ctas .btn:not(.btn-primary){display:none}
+  .state .lead{font-size:var(--fs-lead); color:var(--text)}
+  .state h2{font-size:var(--fs-h2)}
+  .stage-grid{padding-top:66px; gap:12px}
+}
+@media (max-height:620px){ .intro{height:auto; margin-top:0} .intro .sp1{top:0} .intro .sp2{display:none} .stage{position:relative; height:auto; min-height:100svh; padding-block:24px} #stB{display:none} #stA{opacity:1 !important; transform:none !important} }
+
+/* ---------- feature ticker ---------- */
+.ticker{padding-block:clamp(88px,9vw,124px) clamp(24px,4vw,48px)}
+.ticker-head{display:flex; justify-content:space-between; align-items:flex-end; gap:16px 40px; flex-wrap:wrap; margin-bottom:22px}
+.ticker-head h2{font-size:var(--fs-h2); line-height:1.06}
+.ticker-head p{color:var(--text); max-width:44ch; font-size:var(--fs-body)}
+.rows{display:grid; gap:4px; overflow:hidden; padding-block:22px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.row{padding-block:6px}
+.rows .track{display:flex; gap:14px; width:max-content; animation:slide var(--t,90s) linear infinite}
+.row.rev .track{animation-direction:reverse}
+.rows:hover .track{animation-play-state:paused}
+.feat{display:inline-flex; align-items:center; gap:9px; padding:11px 18px 11px 14px; border-radius:999px; background:var(--base); box-shadow:5px 5px 12px color-mix(in srgb,var(--lo) 80%,transparent),-5px -5px 12px var(--hi); font-size:var(--fs-ui); font-weight:500; white-space:nowrap}
+.feat i{width:8px; height:8px; border-radius:50%; flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- why switch: before / after ---------- */
+.story-grid{display:grid; grid-template-columns:minmax(0,.86fr) minmax(0,1.3fr); gap:clamp(32px,5vw,64px); align-items:center}
+.story-copy{display:flex; flex-direction:column; gap:18px; align-items:flex-start}
+.story-copy h2{font-size:var(--fs-h2); line-height:1.06}
+.story-photo{position:relative; margin:4px 0 0; width:100%; max-width:560px; aspect-ratio:2/1; border-radius:24px; overflow:hidden; background:var(--base); box-shadow:var(--raise)}
+.story-photo img{width:100%; height:100%; object-fit:cover; object-position:50% 34%; filter:grayscale(.8) contrast(.96) brightness(1.03); transition:filter .4s cubic-bezier(.23,1,.32,1)}
+#story[data-mode="new"] .story-photo img{filter:none}
+.sp-toast{position:absolute; left:14px; bottom:14px; display:flex; align-items:center; gap:10px; padding:9px 14px 9px 9px; border-radius:16px; background:#fff; box-shadow:0 12px 30px rgba(30,24,80,.18); max-width:calc(100% - 28px)}
+.sp-toast.pop{animation:toastpop .3s cubic-bezier(.23,1,.32,1)}
+@keyframes toastpop{from{opacity:0; transform:translateY(10px) scale(.96)}}
+.sp-ic{width:34px; height:34px; border-radius:11px; display:grid; place-items:center; color:#fff; background:#A29EBB; flex:none; transition:background .3s cubic-bezier(.23,1,.32,1)}
+.sp-ic svg{width:17px; height:17px}
+#story[data-mode="new"] .sp-ic{background:#fff; box-shadow:0 2px 10px rgba(30,24,80,.14)}
+.sp-ic img{width:26px; height:auto; display:block}
+.sp-t{min-width:0}
+.sp-t b{display:block; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.sp-t small{display:block; font-size:12.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.cmp{padding:clamp(14px,2vw,22px); border-radius:34px; background:var(--base); box-shadow:var(--raise); display:grid; gap:11px}
+.cmp-row{display:grid; grid-template-columns:minmax(140px,188px) minmax(0,1fr); gap:18px; align-items:center; padding:14px 18px; border-radius:20px; box-shadow:var(--press-sm); transition:box-shadow .3s cubic-bezier(.23,1,.32,1) calc(var(--k)*50ms)}
+.cmp[data-mode="new"] .cmp-row{box-shadow:var(--raise-sm)}
+.cmp-k{display:flex; align-items:center; gap:12px; font-weight:700; font-size:var(--fs-body)}
+.cmp-k .ci{width:38px; height:38px; border-radius:12px; display:grid; place-items:center; flex:none; box-shadow:var(--raise-sm); color:var(--muted); transition:background .3s cubic-bezier(.23,1,.32,1) calc(var(--k)*50ms), color .3s cubic-bezier(.23,1,.32,1) calc(var(--k)*50ms), box-shadow .3s cubic-bezier(.23,1,.32,1) calc(var(--k)*50ms)}
+.cmp-k .ci svg{width:19px; height:19px}
+.cmp[data-mode="new"] .cmp-k .ci{background:var(--iris); color:#fff; box-shadow:none}
+.cmp-v{display:grid; min-width:0}
+.cmp-v p{grid-area:1/1; font-size:var(--fs-body); line-height:1.5; transition:opacity .3s cubic-bezier(.23,1,.32,1) calc(var(--k)*50ms), transform .3s cubic-bezier(.23,1,.32,1) calc(var(--k)*50ms)}
+.cmp-v .old{color:var(--muted)}
+.cmp-v .new{color:var(--ink); opacity:0; transform:translateY(10px)}
+.cmp[data-mode="new"] .cmp-v .old{opacity:0; transform:translateY(-10px); color:var(--muted)}
+.cmp[data-mode="new"] .cmp-v .new{opacity:1; transform:none}
+@media (max-width:1100px){ .story-grid{grid-template-columns:1fr} }
+@media (max-width:640px){
+  .cmp-row{grid-template-columns:1fr; gap:8px; padding:14px 16px}
+  .cmp-seg{display:grid; grid-template-columns:1fr 1fr; width:100%; border-radius:22px}
+  .cmp-seg button{text-align:center; padding:11px 8px; font-size:var(--fs-ui)}
+}
+
+/* segmented control (shared) */
+.seg{display:inline-flex; gap:6px; padding:7px; border-radius:999px; box-shadow:var(--press); flex-wrap:wrap; max-width:100%}
+.seg button{all:unset; box-sizing:border-box; cursor:pointer; font-weight:600; font-size:var(--fs-ui); padding:11px 18px; border-radius:999px; color:var(--muted); transition:box-shadow .25s, color .25s, background .25s}
+.seg button[aria-selected="true"],.seg button[aria-pressed="true"]{color:var(--ink); background:var(--base); box-shadow:var(--raise-sm)}
+.seg button:focus-visible{outline:2px solid color-mix(in srgb,var(--iris) 60%,transparent); outline-offset:2px}
+
+/* ---------- AI tools + automation bento ---------- */
+.bento{display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:24px}
+.w{all:unset; box-sizing:border-box; cursor:pointer; position:relative; display:flex; flex-direction:column; gap:14px; padding:26px; border-radius:var(--r-lg); background:var(--base); box-shadow:var(--raise); transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s; min-width:0; overflow:hidden}
+.w::before{content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; background:radial-gradient(420px circle at var(--mx,50%) var(--my,-30%),rgba(255,255,255,.65),transparent 45%); opacity:0; transition:opacity .3s}
+
+
+.w:active{box-shadow:var(--press)}
+.w:focus-visible{outline:2px solid var(--iris); outline-offset:4px}
+.w h3{font-size:var(--fs-lead); line-height:1.2}
+.w p{font-size:var(--fs-body); color:var(--text)}
+.w .tag{align-self:flex-start; font-size:var(--fs-sm); font-weight:700; letter-spacing:0; text-transform:none; color:var(--iris); padding:5px 10px; border-radius:999px; box-shadow:var(--press-sm)}
+.w .more{margin-top:auto; display:inline-flex; align-items:center; gap:8px; font-size:var(--fs-ui); font-weight:600; color:var(--iris)}
+.w .more span{width:28px; height:28px; border-radius:50%; box-shadow:var(--raise-sm); display:grid; place-items:center; transition:transform .3s}
+.w .more span svg{width:14px; height:14px}
+
+.w .viz{border-radius:20px; box-shadow:var(--press); padding:16px; height:172px; position:relative; overflow:hidden}
+.w1,.w2,.w3,.w4,.w5,.w6{grid-column:span 2}
+.w7{grid-column:1 / -1}
+@media (max-width:1000px){ .w1,.w2,.w3,.w4,.w5,.w6{grid-column:span 3} }
+@media (max-width:640px){ .bento{grid-template-columns:minmax(0,1fr); gap:20px} .w1,.w2,.w3,.w4,.w5,.w6,.w7{grid-column:auto} }
+
+
+
+
+
+
+/* messages */
+.alerts{display:flex; flex-direction:column; gap:8px; padding:12px 16px 16px}
+.al-top{display:flex; align-items:center; justify-content:space-between; font-size:13px; font-weight:700; letter-spacing:0; text-transform:none; color:var(--faint)}
+.bell{position:relative; width:32px; height:32px; border-radius:50%; background:var(--base); box-shadow:var(--raise-sm); display:grid; place-items:center; color:var(--iris); flex:none}
+.bell svg{width:16px; height:16px; animation:ring 3s infinite; transform-origin:50% 10%}
+.bell::before,.bell::after{content:""; position:absolute; inset:0; border-radius:50%; border:2px solid var(--iris); opacity:0; animation:pulse 3s infinite}
+.bell::after{animation-delay:1s}
+.bell b{position:absolute; top:-5px; right:-6px; min-width:17px; height:17px; padding:0 4px; border-radius:999px; background:var(--peach); color:#fff; font-size:11px; line-height:17px; text-align:center}
+@keyframes ring{0%,60%,100%{transform:rotate(0)} 64%{transform:rotate(14deg)} 70%{transform:rotate(-12deg)} 76%{transform:rotate(8deg)}}
+@keyframes pulse{0%{transform:scale(1); opacity:.5} 100%{transform:scale(1.9); opacity:0}}
+.toasts{display:grid; gap:7px; min-width:0}
+.toast{display:flex; align-items:center; gap:9px; padding:7px 11px; border-radius:11px; background:var(--base); box-shadow:var(--raise-sm); font-size:12.5px; animation:none; min-width:0}
+.toast span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.toast i{width:8px; height:8px; border-radius:50%; flex:none}
+.toast:nth-child(2){animation-delay:0s} .toast:nth-child(3){animation-delay:0s}
+
+/* automation */
+.auto{display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.62fr); gap:clamp(20px,3vw,36px); align-items:stretch}
+.auto-copy{display:flex; flex-direction:column; gap:14px; padding-block:4px}
+.auto-copy h3{font-size:var(--fs-sub); line-height:1.14}
+.w7 .auto-viz{height:auto; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px 18px; padding:18px}
+.acol{display:flex; flex-direction:column; gap:9px; min-width:0}
+.acol .lbl{margin:0 0 2px 4px; font-size:var(--fs-sm); font-weight:600; letter-spacing:0; text-transform:none}
+.job,.srow{position:relative; display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:12px; padding:9px 12px; border-radius:14px; background:var(--base); box-shadow:var(--raise-sm); overflow:hidden}
+.ji{width:32px; height:32px; border-radius:10px; display:grid; place-items:center; box-shadow:var(--press-sm); color:var(--iris); transition:background .3s, color .3s, box-shadow .3s}
+.ji svg{width:16px; height:16px}
+.jt{min-width:0}
+.jt b{display:block; font-size:13.5px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.jt small{display:block; font-size:12px; color:var(--faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.js{display:grid; font-size:12px; font-weight:700; white-space:nowrap}
+.js > span{grid-area:1/1; justify-self:end; padding:5px 10px; border-radius:999px; transition:opacity .3s}
+.js .q{color:var(--faint); box-shadow:var(--press-sm)}
+.js .r{color:var(--iris); background:var(--iris-soft); opacity:0}
+.js .d{color:var(--mint); background:var(--mint-soft); opacity:0}
+.job.run .q,.job.ok .q{opacity:0} .job.run .r{opacity:1} .job.ok .d{opacity:1}
+.job.ok .ji{background:var(--mint-soft); color:var(--mint); box-shadow:none}
+.jb{position:absolute; left:0; bottom:0; height:3px; width:100%; background:var(--iris); transform:scaleX(0); transform-origin:left}
+.job.run .jb{transform:scaleX(1); transition:transform 1.3s cubic-bezier(.45,0,.2,1)}
+.job.ok .jb{width:100%; opacity:0; transition:opacity .8s}
+.when{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--muted); padding:5px 10px; border-radius:999px; box-shadow:var(--press-sm); white-space:nowrap}
+.when svg{width:13px; height:13px}
+@media (max-width:1180px){ .auto{grid-template-columns:1fr} .auto-copy .more{margin-top:4px} }
+@media (max-width:640px){ .w7 .auto-viz{grid-template-columns:1fr; padding:14px} .auto-viz .jt b,.auto-viz .jt small{white-space:normal} }
+
+/* ---------- every screen (smart boards) ---------- */
+.screens{position:relative; display:flex; align-items:center; min-height:clamp(620px,88vh,820px); padding-block:clamp(88px,9vw,120px)}
+.screens-grid{width:100%}
+.screens-copy{position:relative; z-index:2; width:min(100%,440px); display:flex; flex-direction:column; gap:18px; align-items:flex-start}
+.screens-copy h2{font-size:var(--fs-h2); line-height:1.06}
+.devs{list-style:none; padding:0; margin:4px 0 0; display:flex; flex-wrap:wrap; gap:10px}
+.devs li{display:inline-flex; align-items:center; gap:8px; padding:9px 14px 9px 10px; border-radius:999px; background:var(--base); box-shadow:var(--raise-sm); font-size:var(--fs-ui); font-weight:600}
+.devs svg{width:18px; height:18px; color:var(--iris)}
+.screens-photo{position:absolute; top:clamp(56px,7vw,88px); bottom:clamp(40px,5vw,64px); left:calc(50% - 40px); right:0; margin:0; border-radius:40px 0 0 40px; overflow:hidden; background:var(--base); box-shadow:var(--raise)}
+.screens-photo img{width:100%; height:100%; object-fit:cover; object-position:58% 40%}
+.sb-chip{position:absolute; display:flex; align-items:center; gap:10px; padding:9px 14px 9px 9px; border-radius:16px; background:#fff; box-shadow:0 14px 34px rgba(30,24,80,.18); animation:float 7s ease-in-out infinite}
+.sb-chip .ci{width:34px; height:34px; border-radius:11px; display:grid; place-items:center; color:#fff; flex:none}
+.sb-chip .ci svg{width:17px; height:17px}
+.sb-chip b{display:block; font-size:13.5px} .sb-chip small{display:block; font-size:12px; color:var(--muted)}
+.sb1{left:26px; top:26px}
+.sb2{left:26px; bottom:26px; animation-delay:-3.5s}
+@media (max-width:1100px){
+  .screens{display:block; min-height:0}
+  .screens-copy{width:auto; max-width:620px}
+  .screens-photo{position:relative; inset:auto; margin:32px max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px)); border-radius:28px; aspect-ratio:16/10}
+}
+@media (max-width:560px){ .screens-photo{margin-top:28px; aspect-ratio:4/3} .sb-chip{padding:7px 11px 7px 7px} .sb-chip .ci{width:30px; height:30px} .sb1{left:12px; top:12px} .sb2{left:12px; bottom:12px} .sb-chip b{font-size:12.5px} .sb-chip small{font-size:11px} }
+
+/* ---------- module tour ---------- */
+.tour{display:grid; gap:20px}
+.hs-tabs{display:flex; gap:6px; padding:8px; border-radius:24px; box-shadow:var(--press); overflow-x:auto; scrollbar-width:none; overscroll-behavior-x:contain}
+.hs-tabs::-webkit-scrollbar{display:none}
+.hs-tabs button{all:unset; box-sizing:border-box; cursor:pointer; flex:1 0 auto; display:flex; justify-content:center; align-items:center; gap:9px; padding:11px 14px; border-radius:16px; font-size:var(--fs-sm); font-weight:600; color:var(--muted); white-space:nowrap; transition:box-shadow .25s, color .25s, background .25s}
+.hs-tabs button small{font-size:var(--fs-sm); font-weight:700; color:var(--faint); min-width:24px; text-align:center; padding:3px 7px; border-radius:999px; box-shadow:var(--press-sm); font-variant-numeric:tabular-nums}
+.hs-tabs button[aria-selected="true"]{color:var(--ink); background:var(--base); box-shadow:var(--raise-sm)}
+.hs-tabs button[aria-selected="true"] small{color:#fff; background:var(--iris); box-shadow:none}
+.hs-tabs button:focus-visible{outline:2px solid color-mix(in srgb,var(--iris) 60%,transparent); outline-offset:-2px}
+@media (min-width:641px) and (max-width:1100px){ .hs-tabs{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); overflow:visible} }
+@media (max-width:640px){ .hs-tabs{border-radius:20px; -webkit-mask-image:linear-gradient(90deg,#000 82%,transparent); mask-image:linear-gradient(90deg,#000 82%,transparent)} .hs-tabs button{flex:none} }
+.hs-device{padding:14px; border-radius:32px; background:var(--base); box-shadow:var(--raise); min-width:0}
+.hs-screen{border-radius:22px; box-shadow:var(--press); padding:20px; display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:22px; align-items:stretch}
+.hs-list{display:flex; flex-direction:column; gap:14px; min-width:0}
+.hs-bar{display:flex; justify-content:space-between; align-items:center; gap:12px}
+.hs-bar b{font-family:var(--f-display); font-size:var(--fs-lead)}
+.hs-bar span{font-size:var(--fs-sm); color:var(--faint); padding:6px 11px; border-radius:999px; box-shadow:var(--press-sm); white-space:nowrap}
+.hs-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:14px 8px; align-content:start}
+.hs-dept{margin-top:auto; display:flex; gap:12px; align-items:flex-start; padding:14px 16px; border-radius:18px; box-shadow:var(--press-sm); font-size:var(--fs-body); line-height:1.5; color:var(--text)}
+.hs-dept svg{width:18px; height:18px; color:var(--iris); flex:none; margin-top:1px}
+.tile{all:unset; box-sizing:border-box; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; padding:6px 2px; border-radius:16px; animation:tilein .22s cubic-bezier(.23,1,.32,1) both; animation-delay:calc(var(--k,0) * 18ms)}
+.tile .ti{width:56px; height:56px; border-radius:18px; display:grid; place-items:center; background:var(--base); box-shadow:var(--raise-sm); color:var(--c,var(--iris)); transition:transform .25s, box-shadow .25s, background .25s, color .25s}
+.tile .ti svg{width:23px; height:23px}
+.tile span{font-size:var(--fs-sm); line-height:1.25; font-weight:600; color:var(--muted)}
+
+.tile.spot .ti{background:var(--iris); color:#fff; box-shadow:var(--raise-sm); transform:translateY(-3px) scale(1.05)}
+.tile.spot span{color:var(--ink)}
+.tile:focus-visible{outline:2px solid var(--iris); outline-offset:2px}
+@keyframes tilein{from{opacity:0; transform:translateY(6px) scale(.97)}}
+.hd{position:relative; display:flex; flex-direction:column; gap:16px; padding:24px 28px; border-radius:24px; background:var(--base); box-shadow:var(--raise-sm); min-width:0}
+.hd-top{display:flex; align-items:center; gap:16px}
+.hd-top > div{flex:1; min-width:0}
+.hd .si{width:60px; height:60px; border-radius:19px; display:grid; place-items:center; color:#fff; background:var(--iris); box-shadow:none; flex:none}
+.hd .si svg{width:27px; height:27px}
+.cat{display:block; font-size:var(--fs-sm); font-weight:700; color:var(--iris); letter-spacing:0; margin-bottom:0; margin-top:4px}
+.hd h3{font-size:var(--fs-sub); line-height:1.12}
+.hd-pos{align-self:flex-start; font-size:var(--fs-sm); font-weight:700; color:var(--faint); padding:6px 11px; border-radius:999px; box-shadow:var(--press-sm); white-space:nowrap; font-variant-numeric:tabular-nums}
+.hd-desc{color:var(--text); font-size:var(--fs-body); text-wrap:pretty}
+.checks{display:grid; gap:12px; padding:0; list-style:none}
+.checks li{display:flex; gap:12px; align-items:flex-start}
+.checks li::before{content:""; flex:none; width:22px; height:22px; margin-top:1px; border-radius:8px; background:var(--base); box-shadow:var(--raise-sm); background-image:radial-gradient(circle,var(--iris) 0 4px,transparent 5px)}
+.checks.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px 22px}
+.hd .checks li{font-size:var(--fs-body); line-height:1.45}
+.hd-meta{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+.tags{display:flex; flex-wrap:wrap; gap:8px}
+.tags > *{font:600 var(--fs-sm)/1 var(--f-body); padding:8px 12px; border-radius:999px; box-shadow:var(--press-sm); color:var(--ink); white-space:nowrap}
+.tags button{all:unset; font:600 var(--fs-sm)/1 var(--f-body); padding:8px 12px; border-radius:999px; box-shadow:var(--raise-sm); color:var(--iris); cursor:pointer; white-space:nowrap; transition:box-shadow .2s}
+.tags button:hover{box-shadow:var(--press-sm)}
+.tags button:focus-visible{outline:2px solid var(--iris); outline-offset:2px}
+.hd-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:auto; padding-top:2px}
+.hd-actions .btn{padding:13px 18px; font-size:var(--fs-ui); font:600 var(--fs-ui)/1 var(--f-body)}
+.hd .bar{height:4px; border-radius:4px; box-shadow:var(--press-sm); overflow:hidden}
+.hd .bar i{display:block; height:100%; width:0; background:var(--iris); border-radius:4px}
+.hd .bar i.run{animation:fill 7s linear forwards}
+
+.hd.swap{animation:swapin .25s cubic-bezier(.23,1,.32,1)}
+@keyframes swapin{from{opacity:.25; transform:translateY(8px)}}
+@media (max-width:1000px){ .hs-screen{grid-template-columns:1fr} .hs-grid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))} }
+@media (max-width:640px){
+  .hs-device{padding:10px; border-radius:26px}
+  .hs-screen{padding:14px; gap:16px}
+  .hs-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px 6px}
+  .tile .ti{width:50px; height:50px; border-radius:16px}
+  .tile span{font-size:var(--fs-sm)}
+  .hd{padding:18px; gap:14px}
+  .hd .si{width:50px; height:50px; border-radius:16px}
+  .hd-pos{display:none; font-size:var(--fs-sm)}
+  .hd-feats,.hd-meta,.hs-dept{display:none}
+  .hd-desc{font-size:var(--fs-body)}
+}
+
+/* ---------- roles ---------- */
+.role-panel{margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px); align-items:center}
+.role-panel h3{font-size:var(--fs-sub); line-height:1.1}
+.role-copy{display:flex; flex-direction:column; gap:18px}
+.role-visual{position:relative; padding:30px 30px 46px 40px; min-width:0}
+.role-photo{position:relative; aspect-ratio:1/1; width:100%; max-width:440px; margin-left:auto; border-radius:var(--r-lg); overflow:hidden; background:var(--base); box-shadow:var(--raise)}
+.role-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.02); transition:opacity .3s cubic-bezier(.23,1,.32,1), transform .4s cubic-bezier(.23,1,.32,1)}
+.role-photo img.on{opacity:1; transform:none}
+.rv-stats{position:absolute; left:0; top:0; display:flex; gap:8px; padding:8px; border-radius:22px; background:var(--base); box-shadow:var(--raise-sm),0 18px 40px rgba(40,24,120,.14)}
+.rv-stats > div{padding:10px 14px; border-radius:15px; box-shadow:var(--press-sm); display:grid; gap:2px; min-width:112px; max-width:150px}
+.rv-stats b{font-family:var(--f-display); font-size:21px; letter-spacing:-.02em; white-space:nowrap}
+.rv-stats span{font-size:12px; line-height:1.3; color:var(--faint)}
+.rv-card{position:absolute; right:0; bottom:0; width:min(318px,76%); padding:16px 16px 14px; border-radius:24px; background:var(--base); box-shadow:var(--raise),0 24px 60px rgba(40,24,120,.16); display:grid; gap:10px}
+
+.rtasks{display:grid; gap:8px}
+.rtask{display:flex; align-items:center; gap:10px; padding:9px 11px; border-radius:14px; box-shadow:var(--press-sm); font-size:13.5px; color:var(--muted)}
+.rtask .tick{width:22px; height:22px; border-radius:50%; flex:none; box-shadow:var(--raise-sm); display:grid; place-items:center}
+.rtask .tick svg{width:13px; height:13px; stroke:#fff; stroke-width:3; fill:none; opacity:0}
+.rtask.done{color:var(--ink)} .rtask.done .tick{background:var(--mint); box-shadow:none} .rtask.done .tick svg{opacity:1}
+.rtask.alert{color:var(--ink)} .rtask.alert .tick{background:var(--peach); box-shadow:none}
+.fade{animation:fadeup .25s cubic-bezier(.23,1,.32,1)}
+@keyframes fadeup{from{opacity:.2; transform:translateY(10px)}}
+@media (max-width:900px){ .role-panel{grid-template-columns:1fr} .role-visual{width:100%; max-width:540px; margin:0 auto} }
+@media (max-width:560px){ .role-visual{padding:22px 0 0} .role-photo{max-width:none} .rv-stats{left:-6px} .rv-stats > div{min-width:0; padding:8px 11px} .rv-stats b{font-size:18px} .rv-card{position:relative; width:auto; margin:-34px 10px 0 22px} }
+@media (max-width:560px){ #roleTabs{display:grid; grid-template-columns:1fr 1fr; width:100%; border-radius:24px} #roleTabs button{text-align:center; padding:11px 8px} }
+
+/* ---------- promise + getting started ---------- */
+.promise{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px}
+.pcard{padding:26px; border-radius:var(--r-lg); box-shadow:var(--raise); display:flex; flex-direction:column; gap:12px}
+.pcard h3{font-size:var(--fs-lead)}
+.pcard p{font-size:var(--fs-body); color:var(--text)}
+
+
+
+
+.start{margin-top:clamp(44px,5vw,64px); display:grid; grid-template-columns:minmax(0,250px) minmax(0,1fr); gap:20px 44px; align-items:center}
+.start-head{display:flex; flex-direction:column; gap:10px}
+.start-head h3{font-size:var(--fs-sub); line-height:1.15}
+.steps{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,40px); counter-reset:st}
+.step{position:relative; padding:0 4px; border-radius:0; box-shadow:none; display:flex; flex-direction:column; gap:8px}
+.step h4{font-size:var(--fs-lead)}
+.step p{font-size:var(--fs-body); color:var(--text)}
+
+@media (max-width:1000px){ .promise{grid-template-columns:repeat(2,minmax(0,1fr))} .start{grid-template-columns:1fr} }
+@media (max-width:760px){ .steps{grid-template-columns:1fr; counter-reset:st} .step::after{display:none} }
+@media (max-width:560px){ .promise{grid-template-columns:1fr} }
+
+/* ---------- proof ---------- */
+.proof{display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:stretch}
+.quote{margin:0; padding:clamp(28px,4vw,44px); border-radius:var(--r-lg); box-shadow:var(--raise); display:flex; flex-direction:column; gap:22px; justify-content:space-between}
+.quote blockquote{margin:0; font-family:var(--f-accent); font-size:var(--fs-sub); line-height:1.3}
+.quote .who{display:flex; align-items:center; gap:14px}
+.avatar{width:52px; height:52px; border-radius:50%; box-shadow:var(--press-sm); display:grid; place-items:center; color:var(--faint); flex:none}
+.stats{display:grid; gap:18px}
+.stat{padding:22px 26px; border-radius:var(--r-md); box-shadow:var(--press); display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.stat b{font-family:var(--f-display); font-weight:600; font-size:var(--fs-sub); color:var(--iris); letter-spacing:-.03em}
+.stat span{font-size:var(--fs-body); color:var(--muted)}
+.logos{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin-top:24px}
+.logos span{height:64px; border-radius:18px; box-shadow:var(--press-sm); display:grid; place-items:center; color:var(--faint); font-size:var(--fs-sm); font-weight:600}
+@media (max-width:860px){ .proof{grid-template-columns:1fr} .logos{grid-template-columns:repeat(3,minmax(0,1fr))} .logos span:nth-child(n+4){display:none} }
+
+/* ---------- faq ---------- */
+.faq-grid{display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.3fr); gap:clamp(32px,5vw,72px); align-items:start}
+.faq-side{position:sticky; top:104px; display:flex; flex-direction:column; gap:18px; align-items:flex-start}
+.faq-side h2{font-size:var(--fs-h2); line-height:1.06}
+.ask{display:flex; align-items:center; gap:14px; padding:16px 20px 16px 16px; border-radius:var(--r-md); box-shadow:var(--raise-sm); text-decoration:none; color:var(--ink)}
+.ask .ai{width:46px; height:46px; border-radius:15px; display:grid; place-items:center; color:#fff; background:var(--iris); flex:none}
+.ask b{display:block; font-family:var(--f-display); font-size:var(--fs-lead); white-space:nowrap}
+.ask span{font-size:var(--fs-ui); color:var(--muted)}
+.faq{display:grid; gap:12px}
+.faq details{border-radius:var(--r-md); box-shadow:var(--raise-sm); padding:0 24px; transition:box-shadow .3s}
+.faq details[open]{box-shadow:var(--press-sm)}
+.faq summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:19px 0; font-weight:600; font-size:var(--fs-body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; width:32px; height:32px; flex:none; border-radius:50%; box-shadow:var(--raise-sm); display:grid; place-items:center; font-size:20px; color:var(--iris); transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:20px; color:var(--text); max-width:68ch}
+@supports (interpolate-size: allow-keywords){ .faq{interpolate-size:allow-keywords} .faq details::details-content{block-size:0; overflow:clip; transition:block-size .25s cubic-bezier(.23,1,.32,1), content-visibility .25s allow-discrete} .faq details[open]::details-content{block-size:auto} }
+@media (max-width:900px){ .faq-grid{grid-template-columns:1fr} .faq-side{position:static} }
+
+/* ---------- demo band ---------- */
+.band{position:relative; margin-top:40px; background:linear-gradient(120deg,#7040E9 0%,#5E58E8 45%,#2FB0C6 100%); overflow:hidden}
+.band::before{content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.18) 1.2px,transparent 1.4px); background-size:22px 22px; -webkit-mask-image:linear-gradient(90deg,#000,transparent 70%); mask-image:linear-gradient(90deg,#000,transparent 70%)}
+.band .bandwave{bottom:0; height:70%; -webkit-mask-image:linear-gradient(90deg,transparent 20%,#000 70%); mask-image:linear-gradient(90deg,transparent 20%,#000 70%)}
+.band-grid{position:relative; display:grid; grid-template-columns:1fr minmax(0,460px); gap:clamp(28px,5vw,72px); align-items:center; padding-block:clamp(96px,9vw,116px) clamp(72px,8vw,104px)}
+.band h2{color:#fff; font-size:var(--fs-h2); line-height:1.05}
+.band .lead{color:#fff; font-size:var(--fs-lead)}
+.perks{display:grid; gap:18px; margin-top:26px}
+.perk{display:flex; gap:16px; align-items:flex-start; color:#fff}
+.perk .pi{width:48px; height:48px; border-radius:16px; background:rgba(255,255,255,.16); border:0; display:grid; place-items:center; flex:none}
+.perk .pi svg{width:22px; height:22px; stroke:#fff}
+.perk b{display:block; font-size:var(--fs-body)} .perk span{font-size:var(--fs-body); color:#fff}
+.form{padding:30px; border-radius:var(--r-lg); background:var(--base); box-shadow:0 30px 70px rgba(20,10,80,.35); display:grid; gap:16px}
+.form h3{font-size:var(--fs-lead)}
+.form-h{display:flex; align-items:center; gap:10px}
+.form-mark{height:26px; width:auto; display:block}
+.band-mark{position:absolute; left:-70px; bottom:-90px; width:min(560px,60vw); opacity:.09; filter:brightness(0) invert(1); pointer-events:none}
+.field{display:grid; gap:7px}
+.field label{font-size:var(--fs-ui); font-weight:600; color:var(--muted)}
+.field input,.field select{font:500 16px var(--f-body); color:var(--ink); border:0; outline:0; padding:14px 16px; border-radius:14px; background:var(--base); box-shadow:var(--press-sm); width:100%}
+.field input:focus-visible,.field select:focus-visible{box-shadow:var(--press-sm),0 0 0 2px var(--iris)}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.form .btn-primary{width:100%; background:var(--iris)}
+.form-out{font-size:var(--fs-ui); color:var(--muted); display:grid; gap:10px}
+.form-out a{font-weight:700}
+.copyrow{display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:var(--fs-ui)}
+.copyrow code{font:600 var(--fs-sm) var(--f-body); padding:8px 12px; border-radius:10px; box-shadow:var(--press-sm); user-select:all}
+.copyrow button{all:unset; cursor:pointer; font-size:var(--fs-ui); font-weight:700; color:var(--iris); padding:8px 12px; border-radius:10px; box-shadow:var(--raise-sm)}
+.copyrow button:focus-visible{outline:2px solid var(--iris); outline-offset:2px}
+.err{color:var(--peach); font-weight:600}
+@media (max-width:900px){ .band-grid{grid-template-columns:1fr} }
+@media (max-width:420px){ .two{grid-template-columns:1fr} }
+
+/* ---------- footer ---------- */
+.foot{padding-block:56px 40px}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px}
+.foot h4{margin:0 0 12px; font-family:var(--f-body); font-size:var(--fs-ui); letter-spacing:0; text-transform:none; color:var(--ink); font-weight:600}
+.foot ul{list-style:none; padding:0; display:grid; gap:0; font-size:var(--fs-ui)}
+.foot a{color:var(--muted); text-decoration:none} .foot a:hover{color:var(--ink)}
+.foot-brand .brand-mark{height:44px} .foot-brand .wordmark{height:32px}
+.foot .fine{margin-top:40px; padding-top:0; border-top:0; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:var(--fs-sm); color:var(--faint)}
+@media (max-width:860px){ .foot-grid{grid-template-columns:1fr 1fr} }
+
+/* ---------- floating guides ---------- */
+.rail{position:fixed; right:max(18px,env(safe-area-inset-right,0px)); top:50%; translate:0 -50%; z-index:40; display:grid; gap:12px; padding:12px 8px; border-radius:999px; background:var(--base); box-shadow:var(--raise-sm); transition:opacity .3s cubic-bezier(.23,1,.32,1), transform .3s cubic-bezier(.23,1,.32,1), visibility .3s}
+.rail.off{opacity:0; transform:translateX(24px); pointer-events:none; visibility:hidden}
+.rail a{width:12px; height:12px; border-radius:50%; box-shadow:var(--press-sm); display:block; position:relative}
+.rail a::before{content:""; position:absolute; inset:-6px; border-radius:50%}
+.rail a.on{background:var(--iris); box-shadow:0 0 0 4px var(--iris-soft)}
+.rail a::after{content:attr(data-label); position:absolute; right:22px; top:50%; translate:0 -50%; white-space:nowrap; font-size:var(--fs-sm); font-weight:600; padding:6px 10px; border-radius:10px; background:var(--base); box-shadow:var(--raise-sm); opacity:0; pointer-events:none; transition:opacity .2s; color:var(--ink)}
+.rail a:hover::after,.rail a:focus-visible::after{opacity:1}
+@media (max-width:1260px){ .rail{display:none} }
+
+
+
+
+@media (max-width:900px){ }
+
+/* ---------- dialog ---------- */
+dialog{border:0; padding:0; background:transparent; color:var(--ink); width:100%; max-width:min(860px,calc(100vw - 32px)); overflow:visible}
+dialog::backdrop{background:rgba(20,16,50,.32); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
+.dlg{background:var(--base); border-radius:var(--r-lg); box-shadow:0 40px 90px rgba(40,24,120,.28),inset 0 1px 0 #fff; padding:clamp(22px,4vw,36px); display:grid; gap:22px; max-height:calc(100vh - 48px); max-height:calc(100svh - 48px); overflow:auto; overscroll-behavior:contain}
+dialog[open] .dlg{animation:pop .24s cubic-bezier(.23,1,.32,1)}
+@keyframes pop{from{transform:scale(.97) translateY(6px); opacity:0}}
+.dlg-top{display:flex; align-items:center; gap:16px}
+.dlg-top > div{flex:1; min-width:0}
+.dlg-top .round{align-self:flex-start}
+.dlg .di{width:58px; height:58px; border-radius:18px; display:grid; place-items:center; color:#fff; background:var(--iris); flex:none}
+.dlg .di svg{width:26px; height:26px}
+.dlg h3{font-size:var(--fs-sub); line-height:1.12}
+.dlg h3:focus{outline:none}
+.dlg-text{color:var(--text); font-size:17px; text-wrap:pretty}
+.dlg-cols{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:start}
+.dlg-box{padding:20px; border-radius:20px; box-shadow:var(--press-sm)}
+.howto{counter-reset:s; list-style:none; padding:0; display:grid; gap:12px}
+.howto li{display:flex; gap:12px; align-items:flex-start; font-size:var(--fs-body); color:var(--text)}
+.howto li::before{counter-increment:s; content:counter(s); width:26px; height:26px; border-radius:50%; box-shadow:var(--raise-sm); display:grid; place-items:center; font-size:var(--fs-sm); font-weight:700; color:var(--iris); flex:none}
+.dlg .checks li{font-size:var(--fs-body); line-height:1.45}
+.rels{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px}
+.rel{all:unset; box-sizing:border-box; cursor:pointer; display:flex; gap:12px; align-items:flex-start; padding:14px; border-radius:16px; background:var(--base); box-shadow:var(--raise-sm); transition:box-shadow .2s, transform .2s}
+
+.rel:active{box-shadow:var(--press-sm); transform:none}
+.rel:focus-visible{outline:2px solid var(--iris); outline-offset:2px}
+.rel .ri{width:38px; height:38px; border-radius:12px; display:grid; place-items:center; color:var(--iris); box-shadow:var(--press-sm); flex:none}
+.rel .ri svg{width:18px; height:18px}
+.rel b{display:block; font-size:var(--fs-ui); margin-bottom:2px}
+.rel small{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:var(--fs-sm); color:var(--muted); line-height:1.4}
+.dlg .acts{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+.dlg .navs{margin-left:auto; display:flex; gap:10px}
+.round{all:unset; box-sizing:border-box; cursor:pointer; width:46px; height:46px; border-radius:50%; box-shadow:var(--raise-sm); display:grid; place-items:center; color:var(--ink); flex:none}
+.round:active{box-shadow:var(--press-sm)} .round:focus-visible{outline:2px solid var(--iris); outline-offset:3px}
+.round svg{width:20px; height:20px}
+@media (max-width:680px){ .dlg-cols{grid-template-columns:1fr} .checks.two{grid-template-columns:1fr} .dlg .di{width:50px; height:50px; border-radius:16px} }
+
+/* AI tools snippets: real interface fragments */
+.w .viz:is(.qp,.lp,.tt2,.cert,.perf){display:flex; flex-direction:column; gap:8px; color:var(--ink)}
+.qp-head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:12px; color:var(--muted); min-width:0}
+.qp-head b{font-size:12.5px; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.qp-head span{white-space:nowrap; font-variant-numeric:tabular-nums}
+.qp-list{margin:0; padding:0; list-style:none; counter-reset:q; display:grid; gap:5px}
+.qp-list li{counter-increment:q; display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:8px; align-items:center; padding:4px 10px; border-radius:10px; background:var(--base); box-shadow:var(--raise-sm); font-size:12px; line-height:1.3}
+.qp-list li::before{content:counter(q) "."; font-weight:700; color:var(--iris)}
+.qp-list span,.lp-list span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.qp-list em{font-style:normal; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums}
+.qp-opt{display:flex; gap:6px; margin-top:auto}
+.qp-opt span{font-size:11.5px; font-weight:700; padding:4px 9px; border-radius:999px; color:var(--muted); box-shadow:var(--press-sm)}
+.qp-opt span.on{color:#fff; background:var(--iris); box-shadow:none}
+.lp-list{margin:0; padding:0; list-style:none; display:grid; gap:8px}
+.lp-list li{display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:9px; align-items:center; font-size:12px; color:var(--muted)}
+.lp-list i{width:16px; height:16px; border-radius:5px; box-shadow:var(--press-sm); position:relative}
+.lp-list li.ok{color:var(--ink)}
+.lp-list li.ok i{background:var(--mint); box-shadow:none}
+.lp-list li.ok i::after{content:""; position:absolute; left:5px; top:2px; width:4px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg)}
+.lp-list em{font-style:normal; font-size:11.5px; color:var(--faint); font-variant-numeric:tabular-nums; white-space:nowrap}
+.ttg{width:calc(100% + 8px); margin:-4px; border-collapse:separate; border-spacing:4px; table-layout:fixed; font-size:11px}
+.ttg th{font-weight:600; color:var(--faint); text-align:left; padding:0 2px; width:26px}
+.ttg tr:first-child th{text-align:center}
+.ttg tr:first-child th:first-child{width:26px}
+.ttg td{padding:5px 1px; border-radius:7px; text-align:center; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.ttg .s1{background:var(--iris-soft); color:#4A2BB0} .ttg .s2{background:var(--aqua-soft); color:var(--aqua)}
+.ttg .s3{background:var(--peach-soft); color:var(--peach)} .ttg .s4{background:var(--mint-soft); color:var(--mint)}
+.ttg .s5{color:var(--muted); box-shadow:var(--press-sm)}
+.qp-head .ok-t{color:var(--mint); font-weight:700}
+.w .viz.cert{justify-content:center; align-items:center}
+.cert-doc{width:min(100%,250px); padding:12px 14px; border-radius:12px; background:#fff; box-shadow:0 10px 24px rgba(30,24,80,.12); border-top:4px solid var(--iris); display:grid; gap:8px; font-size:12px}
+.cert-top{display:flex; justify-content:space-between; align-items:baseline; gap:8px}
+.cert-top b{font-size:12.5px} .cert-top span{font-size:11px; color:var(--faint); white-space:nowrap; font-variant-numeric:tabular-nums}
+.cert-doc dl{margin:0; display:grid; gap:3px}
+.cert-doc dl div{display:grid; grid-template-columns:52px minmax(0,1fr); gap:8px}
+.cert-doc dt{color:var(--faint)} .cert-doc dd{margin:0; font-weight:600}
+.cert-ok{font-size:11px; font-weight:700; color:var(--mint)}
+.pbars{flex:1; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; align-items:end; min-height:0}
+.pbars div{display:grid; grid-template-rows:auto 70px auto; justify-items:center; gap:4px; font-size:11.5px}
+.pbars i{align-self:end; width:100%; max-width:30px; height:var(--bh); border-radius:6px 6px 3px 3px; background:var(--iris)}
+.pbars em{font-style:normal; font-weight:700; font-variant-numeric:tabular-nums}
+.pbars span{color:var(--muted); font-weight:600}
+.pbars .low i{background:var(--peach)} .pbars .low em{color:var(--peach)}
+.toast small{margin-left:auto; padding-left:8px; color:var(--faint); font-size:11.5px; white-space:nowrap}
+
+/* promises: one divided panel */
+.promise{gap:0; padding:10px; border-radius:var(--r-lg); background:var(--base); box-shadow:var(--raise)}
+.pcard{padding:24px 26px 28px; box-shadow:none; border-radius:24px}
+/* steps: numbers from the ordered list */
+.step{counter-increment:st}
+.step h4::before{content:counter(st) ". "; color:var(--iris)}
+/* roles: the photo takes the left side, full height, to the edge of the screen */
+@media (min-width:901px){
+  .role-panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(40px,5vw,72px)}
+  .role-visual{order:-1; padding:0 34px 40px 0; margin-left:calc(-1 * (max(0px, (100vw - 1200px) / 2) + 20px))}
+  .role-photo{max-width:none; margin:0; aspect-ratio:auto; height:clamp(460px,42vw,600px); border-radius:0 var(--r-lg) var(--r-lg) 0}
+  .rv-stats{left:auto; right:0; top:28px}
+  .rv-card{right:auto; left:max(20px, calc((100vw - 1200px) / 2 + 20px))}
+}
+/* footer: the name returns at full width */
+.foot-name{display:block; margin-bottom:clamp(28px,4vw,52px); color:inherit}
+.foot-name svg{display:block; width:100%; height:auto}
+.foot-about{display:flex; gap:14px; align-items:flex-start}
+.foot-about .brand-mark{width:56px; height:auto; flex:none}
+.foot-about p{margin:0; color:var(--muted); max-width:34ch}
+.foot ul li > *{display:inline-block; padding-block:11px; min-width:44px}
+@media (max-width:860px){ .foot-about{grid-column:1 / -1} .foot-grid{gap:8px 24px} }
+
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:scale(.97)}
+  .w:hover{transform:translateY(-4px)}
+  .w:hover::before{opacity:1}
+  .w:hover .more span{transform:rotate(45deg)}
+  .tile:hover .ti{transform:translateY(-3px)}
+  .rel:hover{transform:translateY(-2px)}
+}
+/* looping decoration rests while it is off screen */
+.paused *,.paused *::before,.paused *::after{animation-play-state:paused !important}
+/* progress bars grow with transform, not width */
+.hd .bar i{width:100%; transform:scaleX(0); transform-origin:left}
+@keyframes fill{to{transform:scaleX(1)}}
+/* touch targets */
+.nav-bar .btn{min-height:44px}
+.brand{min-height:44px}
+.copyrow button{min-height:44px; box-sizing:border-box; display:inline-flex; align-items:center}
+@media (pointer:coarse){ .tags button{min-height:44px; display:inline-flex; align-items:center; box-sizing:border-box} }
+
+@media (max-width:380px){ .nav .wordmark{height:17px; width:auto} .nav .brand-mark{height:24px; width:auto} .nav-bar .btn{padding:10px 12px} }
+
+/* timetable snippet: subject text dark enough on its tint */
+.ttg .s2{color:#0B6470} .ttg .s3{color:#963C12}
+/* the list under "What CampusWave handles": heading and line read together */
+.ticker-head{flex-direction:column; align-items:flex-start; gap:10px}
+/* tablet: the FAQ side panel uses the width it has */
+@media (min-width:601px) and (max-width:900px){
+  .faq-side{display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:28px; row-gap:12px; align-items:end}
+  .faq-side h2,.faq-side .lead{grid-column:1}
+  .faq-side .ask{grid-column:2; grid-row:1 / span 2; align-self:center}
+}
+/* phones: departments wrap instead of scrolling off the edge */
+@media (max-width:640px){ .hs-tabs{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); overflow:visible; -webkit-mask-image:none; mask-image:none} .hs-tabs button{flex:auto} }
+
+/* keyboard focus stays clear of the sticky header */
+main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[href],button){scroll-margin-top:88px; scroll-margin-bottom:24px}
+
+.copyval{display:inline-flex; align-items:center; gap:10px}
+
+/* touch targets stay at 44px with the 14px interface text */
+.seg button{min-height:44px}
+.foot ul li > *{min-height:44px; box-sizing:border-box}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important; transition-property:opacity,color,background-color,border-color,box-shadow,filter !important; transition-duration:.15s !important; transition-delay:0s !important}
+  html{scroll-behavior:auto}
+  .reveal.pre{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wm" viewBox="24 24 1870 335"><path style="fill:var(--wm-a,#1F1B3C)" d="M660.62 342.09C660.12 341.77 660.02 321.06 660.12 240.22L660.25 138.75L680.62 138.62L701.00 138.49L701.00 146.24C701.00 150.51 701.19 154.00 701.42 154.00C701.65 154.00 702.27 153.52 702.80 152.94C705.60 149.81 714.27 143.62 718.63 141.62C724.19 139.09 726.68 138.35 735.91 136.53C739.35 135.85 752.96 135.85 756.79 136.52C763.42 137.69 765.46 138.17 770.00 139.59C783.75 143.90 794.61 151.73 803.83 164.00C806.64 167.74 810.58 174.90 812.55 179.88C812.80 180.49 813.20 181.51 813.45 182.12C815.84 188.10 817.65 196.87 818.56 206.91C819.34 215.45 818.48 226.97 816.46 235.12C815.00 241.05 813.92 244.60 813.40 245.22C813.18 245.49 813.00 246.02 813.00 246.42C813.00 248.13 805.05 262.88 803.53 264.00C803.35 264.14 802.87 264.73 802.47 265.31C801.19 267.18 796.83 271.68 793.75 274.31C786.30 280.65 775.11 286.55 767.00 288.42C765.76 288.71 764.19 289.07 763.50 289.24C760.12 290.05 751.22 290.99 746.85 291.00C740.90 291.00 732.95 289.93 728.50 288.53C727.81 288.32 726.35 287.86 725.25 287.51C719.63 285.73 711.89 281.11 706.90 276.55C705.36 275.15 703.86 274.00 703.56 274.00C703.16 274.00 702.97 283.66 702.88 308.12L702.75 342.25L682.00 342.37C670.59 342.44 660.97 342.31 660.62 342.09ZM115.50 291.43C104.42 290.16 95.54 288.04 86.50 284.51C82.63 283.01 74.63 279.06 72.25 277.49C71.15 276.76 69.91 276.05 69.49 275.89C67.77 275.27 58.33 267.81 53.90 263.56C30.25 240.92 19.97 207.90 25.54 172.50C26.80 164.48 28.42 158.56 31.49 150.75C32.55 148.03 36.78 139.45 38.51 136.48C42.49 129.67 50.42 120.06 56.25 114.99C61.45 110.46 68.85 105.00 69.77 105.00C69.95 105.00 70.73 104.55 71.51 103.99C76.33 100.56 90.79 94.62 99.50 92.49C108.00 90.41 119.36 88.99 127.39 89.01C131.41 89.01 144.24 90.13 147.75 90.78C160.19 93.08 170.47 96.82 181.21 102.96C189.36 107.62 200.39 117.05 203.83 122.31L204.70 123.63L190.72 137.29C183.04 144.80 176.62 150.96 176.45 150.98C176.29 150.99 174.27 149.14 171.95 146.87C167.61 142.60 162.91 138.82 159.32 136.70C153.97 133.56 146.56 130.45 142.25 129.55C140.88 129.26 138.69 128.80 137.40 128.51C134.37 127.85 121.13 127.85 118.10 128.51C116.81 128.80 114.62 129.27 113.25 129.56C103.50 131.63 94.00 136.91 86.46 144.46C79.88 151.04 75.65 158.00 72.61 167.25C69.92 175.45 69.00 181.44 69.01 190.71C69.02 197.66 69.63 203.10 70.97 208.00C71.23 208.96 71.65 210.54 71.91 211.50C72.52 213.80 74.94 219.82 76.09 221.88C76.59 222.77 77.47 224.34 78.05 225.38C81.00 230.65 87.98 238.15 93.72 242.22C99.36 246.22 106.44 249.65 112.00 251.06C122.08 253.63 134.41 253.63 143.50 251.06C144.46 250.79 145.81 250.42 146.50 250.24C147.19 250.06 148.26 249.71 148.88 249.46C149.49 249.21 150.51 248.81 151.12 248.57C159.19 245.50 167.84 239.06 174.36 231.28L176.44 228.80L182.59 234.52C185.98 237.67 189.09 240.58 189.50 241.00C189.91 241.41 192.84 244.11 196.00 247.00C203.37 253.74 205.50 255.85 205.50 256.43C205.50 256.68 202.89 259.61 199.71 262.94C187.73 275.44 173.60 283.72 156.25 288.40C144.83 291.48 127.26 292.79 115.50 291.43ZM259.50 290.42C253.37 289.17 252.01 288.85 249.00 287.92C244.86 286.63 240.07 284.36 236.25 281.85C232.53 279.42 224.66 271.44 223.05 268.46C218.30 259.70 217.00 254.55 217.00 244.56C217.00 238.36 217.20 236.75 218.57 232.00C221.68 221.17 229.55 211.96 240.25 206.60C243.79 204.83 251.02 202.38 255.25 201.52C256.90 201.19 258.70 200.81 259.25 200.68C263.00 199.81 272.03 199.35 290.75 199.07L312.25 198.75L312.09 195.00C311.81 188.46 309.54 183.56 304.73 179.06C301.56 176.09 296.96 173.56 293.00 172.61C287.12 171.18 285.69 171.00 280.61 171.00C267.25 171.00 254.18 174.71 242.35 181.84C239.92 183.30 237.79 184.49 237.60 184.49C237.41 184.48 236.78 183.53 236.20 182.36C235.62 181.20 232.27 174.56 228.75 167.61C221.59 153.50 221.87 154.90 225.75 152.17C229.93 149.23 242.49 143.00 244.22 143.00C244.61 143.00 245.06 142.80 245.21 142.56C245.36 142.32 245.99 142.00 246.62 141.84C247.24 141.69 248.54 141.35 249.50 141.08C257.67 138.78 263.71 137.60 273.00 136.46C278.32 135.81 296.81 136.12 301.75 136.94C310.14 138.34 314.08 139.36 319.75 141.60C323.65 143.15 324.63 143.63 328.75 146.03C333.98 149.07 341.84 156.44 345.40 161.61C348.59 166.24 351.72 173.35 353.39 179.75C355.95 189.58 356.08 192.83 355.91 242.75L355.75 288.75L336.50 288.87C325.91 288.94 316.98 288.82 316.65 288.60C316.18 288.31 316.15 286.47 316.52 280.77C316.78 276.67 316.88 273.22 316.76 273.09C316.63 272.96 315.16 274.24 313.49 275.93C309.92 279.55 304.39 283.39 299.65 285.55C297.78 286.40 295.91 287.26 295.50 287.47C294.70 287.86 288.03 289.54 283.59 290.45C280.43 291.10 262.73 291.08 259.50 290.42ZM893.00 290.25C886.31 289.45 883.90 288.92 877.75 286.86C869.29 284.03 860.10 278.02 855.06 272.01C853.79 270.49 852.62 269.14 852.47 269.00C850.57 267.33 845.67 257.71 844.04 252.50C843.40 250.44 842.71 248.19 842.49 247.50C841.98 245.83 841.16 241.55 840.52 237.15C840.19 234.85 840.00 216.49 840.00 186.02L840.00 138.49L861.12 138.62L882.25 138.75L882.52 183.25C882.70 213.78 882.95 228.22 883.33 229.25C883.64 230.07 884.18 231.76 884.54 233.00C887.45 243.06 894.17 249.78 903.85 252.30C908.78 253.58 916.80 253.13 922.25 251.25C929.08 248.90 935.51 243.27 938.68 236.87C940.55 233.07 940.96 231.98 942.27 227.14C943.66 222.01 944.12 206.82 943.88 172.72C943.76 154.50 943.83 139.29 944.03 138.92C944.34 138.37 948.20 138.29 965.58 138.50L986.75 138.75L986.88 213.47C986.98 272.91 986.88 288.27 986.38 288.59C986.03 288.81 977.06 288.99 966.43 288.99C949.27 289.00 947.07 288.91 946.80 288.21C946.64 287.77 946.50 283.95 946.50 279.71C946.50 274.25 946.33 272.00 945.93 272.00C945.61 272.00 943.87 273.46 942.05 275.25C937.74 279.51 933.58 282.58 929.25 284.72C922.35 288.13 918.87 289.09 909.25 290.25C902.30 291.09 900.17 291.09 893.00 290.25ZM1056.75 290.43C1044.72 288.66 1040.53 287.71 1030.50 284.48C1024.59 282.57 1024.89 282.69 1018.25 279.49C1011.45 276.21 1008.02 274.01 1008.01 272.92C1008.00 272.47 1008.44 271.23 1008.98 270.17C1009.52 269.12 1010.90 266.23 1012.04 263.75C1013.18 261.27 1015.01 257.37 1016.09 255.06C1019.59 247.65 1021.00 244.48 1021.00 244.05C1021.00 243.81 1021.34 243.34 1021.75 243.00C1022.37 242.49 1023.05 242.74 1025.62 244.41C1029.54 246.95 1033.24 248.81 1039.75 251.52C1042.07 252.49 1049.04 254.61 1052.50 255.40C1060.85 257.32 1066.63 258.00 1074.57 258.00C1085.82 258.00 1091.53 256.51 1095.52 252.52C1099.48 248.55 1099.97 242.99 1096.72 238.69C1094.64 235.93 1088.26 233.52 1077.75 231.52C1076.10 231.21 1073.74 230.76 1072.50 230.52C1071.26 230.28 1068.79 229.83 1067.00 229.52C1048.13 226.24 1041.70 224.56 1034.00 220.86C1028.29 218.12 1024.85 215.72 1021.19 211.92C1017.82 208.43 1015.70 205.42 1014.18 202.00C1013.23 199.87 1012.81 198.53 1011.54 193.69C1010.78 190.78 1010.87 180.36 1011.70 176.50C1013.49 168.11 1016.20 162.67 1021.77 156.24C1027.74 149.36 1039.08 142.26 1047.75 139.98C1048.58 139.76 1050.49 139.26 1052.00 138.85C1054.73 138.12 1058.22 137.47 1064.54 136.50C1068.90 135.84 1088.07 135.86 1093.47 136.54C1099.39 137.28 1107.58 138.74 1110.00 139.50C1110.69 139.71 1112.26 140.17 1113.50 140.51C1117.01 141.50 1119.52 142.32 1122.50 143.47C1126.32 144.94 1135.00 149.18 1135.00 149.58C1135.00 149.86 1133.33 153.58 1129.77 161.25C1126.84 167.55 1125.52 170.43 1124.50 172.75C1121.44 179.71 1120.92 180.54 1119.81 180.20C1119.23 180.02 1118.19 179.49 1117.50 179.02C1116.35 178.25 1114.72 177.45 1110.75 175.73C1106.10 173.72 1098.43 171.67 1091.00 170.47C1085.56 169.58 1070.05 169.71 1066.07 170.67C1059.40 172.28 1055.25 175.33 1053.71 179.75C1052.77 182.45 1052.82 184.01 1053.94 186.62C1055.27 189.71 1057.45 191.42 1062.75 193.49C1065.45 194.55 1072.76 196.10 1081.75 197.52C1097.46 200.00 1101.46 200.86 1110.00 203.59C1119.38 206.58 1124.76 209.77 1130.35 215.66C1136.96 222.62 1139.98 230.94 1139.99 242.25C1140.02 263.23 1130.05 276.81 1108.25 285.50C1105.84 286.46 1104.01 287.03 1100.50 287.92C1097.00 288.80 1094.84 289.20 1086.46 290.49C1082.52 291.10 1061.00 291.06 1056.75 290.43ZM387.33 288.67C387.15 288.48 387.00 254.62 387.00 213.42L387.00 138.50L407.00 138.50L427.00 138.50L427.00 146.25C427.00 150.51 427.13 154.00 427.29 154.00C427.55 154.00 433.37 149.19 434.00 148.46C434.14 148.30 435.94 147.05 438.00 145.68C444.10 141.62 450.29 139.01 457.25 137.55C458.62 137.26 460.81 136.80 462.10 136.51C465.16 135.84 479.17 135.85 482.59 136.53C488.78 137.75 490.40 138.14 493.25 139.11C502.78 142.33 510.75 148.02 516.60 155.77C517.51 156.98 518.36 157.98 518.50 157.98C518.64 157.99 520.78 156.17 523.25 153.94C531.54 146.44 540.87 141.23 550.75 138.58C553.02 137.97 556.40 137.27 560.71 136.52C567.11 135.40 580.86 136.15 587.62 137.99C588.66 138.27 590.23 138.70 591.12 138.94C600.57 141.48 610.76 148.59 617.36 157.25C619.72 160.35 623.78 168.32 625.25 172.75C629.09 184.31 629.39 189.52 629.45 245.06C629.50 280.74 629.39 287.97 628.82 288.44C628.33 288.85 622.40 288.97 607.69 288.88L587.25 288.75L586.95 244.50C586.78 220.16 586.49 199.46 586.30 198.50C584.46 189.24 582.50 184.49 578.92 180.71C576.56 178.22 572.97 176.04 569.38 174.93C564.97 173.56 555.98 173.54 550.91 174.89C547.50 175.80 541.67 179.03 539.33 181.30C535.63 184.90 532.94 189.31 531.58 194.00C531.30 194.96 530.79 196.65 530.44 197.75C529.95 199.27 529.74 210.38 529.53 244.25L529.25 288.75L508.25 288.75L487.25 288.75L486.95 244.25C486.75 215.35 486.45 198.87 486.10 197.25C484.64 190.48 484.36 189.61 482.21 185.25C479.81 180.37 475.53 176.85 469.71 174.93C464.83 173.32 456.26 173.33 451.31 174.93C446.65 176.45 444.21 177.66 441.26 179.89C437.37 182.84 433.47 188.57 431.94 193.62C428.97 203.35 428.82 206.28 429.19 249.58C429.36 270.39 429.36 287.77 429.20 288.21C428.93 288.91 426.62 289.00 408.28 289.00C396.94 289.00 387.52 288.85 387.33 288.67ZM287.59 261.46C297.45 259.46 305.06 255.03 309.12 248.91C312.16 244.33 313.00 240.87 313.00 232.92L313.00 226.00L296.88 226.02C281.15 226.04 275.28 226.46 270.58 227.93C266.70 229.15 262.23 233.01 260.68 236.50C259.24 239.73 259.00 240.76 259.00 243.61C259.00 247.30 259.66 249.39 261.92 252.90C264.80 257.37 268.11 259.38 276.00 261.45C278.46 262.10 284.43 262.10 287.59 261.46ZM748.09 253.57C748.73 253.33 750.15 252.86 751.25 252.53C756.21 251.04 759.73 248.81 764.27 244.27C769.93 238.61 771.94 234.90 774.57 225.25C775.50 221.81 775.50 205.68 774.57 202.25C772.46 194.51 770.45 190.19 766.57 185.04C764.06 181.70 759.22 177.70 755.69 176.03C750.21 173.44 747.03 172.78 740.00 172.76C733.61 172.75 732.24 172.95 727.25 174.62C718.37 177.58 710.97 184.20 707.09 192.62C706.49 193.92 706.00 195.28 706.00 195.64C706.00 196.01 705.81 196.51 705.58 196.77C704.60 197.89 703.00 207.63 703.00 212.51C703.00 216.26 704.02 224.04 704.96 227.50C705.95 231.14 706.22 231.85 708.08 235.50C710.62 240.51 713.83 244.42 717.89 247.46C723.03 251.31 728.29 253.58 733.50 254.20C736.21 254.52 746.79 254.07 748.09 253.57Z"/><path style="fill:var(--wm-b,#7040E9)" d="M1181.87 356.36C1181.41 355.67 1181.30 354.97 1181.56 354.50C1181.80 354.09 1185.60 342.84 1190.01 329.50C1194.42 316.16 1198.24 304.80 1198.50 304.25C1198.76 303.70 1202.15 293.57 1206.04 281.75C1209.93 269.93 1213.28 259.80 1213.48 259.25C1214.05 257.71 1214.39 256.71 1224.76 225.75C1230.11 209.80 1236.51 190.79 1239.00 183.50C1241.49 176.21 1245.66 163.84 1248.28 156.00C1250.89 148.16 1253.24 141.30 1253.50 140.75C1253.76 140.20 1255.88 134.01 1258.23 127.00C1267.82 98.26 1269.37 93.95 1270.41 92.98C1271.42 92.04 1272.31 92.00 1295.05 92.00C1316.68 92.00 1318.69 92.07 1319.26 92.85C1319.62 93.34 1319.72 94.03 1319.49 94.48C1319.28 94.90 1318.60 96.94 1317.98 99.00C1317.36 101.06 1316.24 104.66 1315.49 107.00C1314.74 109.34 1313.41 113.61 1312.53 116.50C1310.89 121.84 1310.20 123.96 1309.52 125.75C1309.30 126.30 1308.64 128.32 1308.04 130.25C1307.44 132.18 1306.74 134.20 1306.49 134.75C1306.24 135.30 1305.25 138.11 1304.29 141.00C1301.57 149.18 1298.98 156.65 1298.50 157.75C1298.25 158.30 1297.72 159.76 1297.32 161.00C1296.63 163.15 1294.49 168.85 1293.39 171.50C1292.85 172.80 1292.52 173.64 1291.49 176.38C1290.85 178.08 1290.00 178.56 1290.00 177.22C1290.00 176.79 1289.76 176.59 1289.47 176.77C1289.17 176.95 1289.05 177.42 1289.20 177.80C1289.35 178.19 1289.27 178.50 1289.02 178.50C1288.77 178.50 1288.43 179.01 1288.25 179.62C1288.08 180.24 1287.75 181.20 1287.52 181.75C1287.29 182.30 1286.63 184.04 1286.05 185.62C1285.47 187.21 1284.53 189.79 1283.95 191.38C1283.37 192.96 1282.72 194.70 1282.50 195.25C1282.28 195.80 1281.63 197.54 1281.05 199.12C1280.47 200.71 1279.53 203.29 1278.95 204.88C1278.37 206.46 1277.72 208.20 1277.50 208.75C1277.28 209.30 1276.60 211.10 1276.00 212.75C1275.40 214.40 1274.72 216.20 1274.50 216.75C1274.28 217.30 1273.83 218.54 1273.50 219.50C1273.17 220.46 1272.72 221.70 1272.50 222.25C1272.28 222.80 1271.60 224.60 1271.00 226.25C1270.40 227.90 1269.72 229.70 1269.50 230.25C1268.67 232.29 1267.37 235.79 1266.99 237.00C1266.77 237.69 1265.87 240.16 1265.00 242.50C1264.13 244.84 1263.23 247.31 1263.00 248.00C1262.77 248.69 1261.87 251.16 1261.00 253.50C1260.13 255.84 1259.22 258.31 1258.99 259.00C1258.76 259.69 1257.65 262.84 1256.51 266.00C1255.38 269.16 1253.67 274.11 1252.72 277.00C1251.76 279.89 1250.76 282.64 1250.49 283.12C1250.22 283.60 1250.00 284.33 1250.00 284.75C1250.00 285.17 1249.78 285.90 1249.51 286.38C1249.24 286.86 1248.47 288.94 1247.79 291.00C1247.11 293.06 1245.63 297.34 1244.50 300.50C1243.37 303.66 1241.44 309.29 1240.21 313.00C1238.97 316.71 1237.77 320.20 1237.53 320.75C1237.29 321.30 1236.98 322.12 1236.83 322.56C1236.69 323.01 1233.83 325.15 1230.48 327.31C1227.13 329.48 1222.38 332.54 1219.93 334.12C1217.48 335.71 1215.36 337.00 1215.23 337.00C1215.09 337.00 1213.81 337.75 1212.37 338.67C1210.93 339.59 1207.84 341.54 1205.50 343.00C1203.16 344.46 1199.40 346.86 1197.13 348.33C1194.86 349.80 1192.89 351.00 1192.75 351.00C1192.51 351.00 1187.07 354.42 1183.92 356.56C1182.62 357.44 1182.58 357.44 1181.87 356.36ZM1474.50 290.42C1473.26 290.16 1471.01 289.71 1469.50 289.41C1455.23 286.62 1441.88 277.07 1436.08 265.50C1431.84 257.06 1430.16 247.06 1431.54 238.56C1433.09 229.04 1435.94 222.88 1441.68 216.68C1449.60 208.13 1459.18 203.37 1473.25 200.98C1480.90 199.68 1486.69 199.34 1506.25 199.06L1527.25 198.75L1527.09 195.75C1526.52 185.14 1520.00 176.92 1509.25 173.25C1500.64 170.30 1487.75 170.20 1477.38 173.00C1471.14 174.67 1471.03 174.71 1466.38 176.70C1462.11 178.52 1460.58 179.29 1457.20 181.32C1451.54 184.72 1451.98 185.11 1444.21 169.80C1440.59 162.67 1437.67 156.31 1437.67 155.56C1437.67 154.42 1438.28 153.80 1441.46 151.71C1446.18 148.61 1457.57 143.00 1459.14 143.00C1459.51 143.00 1460.01 142.81 1460.27 142.59C1460.54 142.36 1461.76 141.88 1463.00 141.53C1464.24 141.17 1465.81 140.71 1466.50 140.49C1467.69 140.11 1469.89 139.58 1474.62 138.53C1488.18 135.50 1506.69 135.11 1520.00 137.57C1540.21 141.30 1556.04 152.34 1563.89 168.18C1567.48 175.43 1569.02 180.81 1570.25 190.50C1570.84 195.16 1570.98 204.79 1570.99 241.35C1571.00 272.06 1570.83 286.54 1570.48 286.76C1570.19 286.94 1570.10 287.52 1570.26 288.04C1570.56 288.97 1570.07 289.00 1551.66 288.98C1536.73 288.97 1532.57 288.83 1531.88 288.30C1530.89 287.56 1530.78 284.75 1531.46 277.75C1531.67 275.55 1531.75 273.57 1531.63 273.35C1531.51 273.13 1529.77 274.51 1527.77 276.42C1519.71 284.07 1511.70 287.95 1499.25 290.25C1494.73 291.08 1478.25 291.19 1474.50 290.42ZM1327.73 288.62C1327.45 288.42 1326.68 286.56 1326.03 284.50C1325.38 282.44 1324.24 278.84 1323.49 276.50C1322.28 272.71 1319.85 265.03 1316.86 255.50C1316.30 253.71 1315.23 250.34 1314.49 248.00C1313.74 245.66 1312.40 241.39 1311.52 238.50C1310.63 235.61 1309.50 232.01 1309.02 230.50C1308.54 228.99 1307.63 226.06 1307.00 224.00C1306.37 221.94 1305.47 219.01 1305.00 217.50C1304.53 215.99 1303.63 213.06 1303.00 211.00C1302.37 208.94 1301.44 206.00 1300.93 204.47C1299.91 201.43 1299.73 198.48 1300.48 197.12C1300.74 196.64 1301.43 194.79 1302.01 193.00C1302.59 191.21 1303.27 189.30 1303.51 188.75C1303.76 188.20 1304.52 186.06 1305.20 184.00C1305.88 181.94 1307.14 178.34 1308.00 176.00C1308.86 173.66 1309.90 170.74 1310.31 169.50C1310.72 168.26 1311.25 166.80 1311.49 166.25C1312.03 165.03 1314.12 159.07 1315.80 154.00C1316.48 151.94 1317.25 149.80 1317.50 149.25C1317.75 148.70 1318.29 147.24 1318.70 146.00C1321.35 138.12 1322.50 135.25 1323.01 135.25C1323.79 135.25 1323.73 135.05 1330.56 159.75C1330.87 160.85 1331.29 162.31 1331.50 163.00C1331.71 163.69 1332.16 165.26 1332.50 166.50C1332.84 167.74 1333.29 169.31 1333.50 170.00C1333.71 170.69 1334.16 172.26 1334.50 173.50C1334.84 174.74 1335.29 176.31 1335.51 177.00C1335.72 177.69 1336.38 179.94 1336.98 182.00C1337.58 184.06 1338.25 186.31 1338.48 187.00C1338.70 187.69 1339.16 189.26 1339.50 190.50C1339.84 191.74 1340.29 193.31 1340.51 194.00C1340.72 194.69 1341.38 196.94 1341.98 199.00C1342.58 201.06 1343.25 203.31 1343.48 204.00C1343.70 204.69 1344.16 206.26 1344.50 207.50C1344.84 208.74 1345.29 210.31 1345.50 211.00C1345.71 211.69 1346.16 213.26 1346.50 214.50C1346.84 215.74 1347.29 217.31 1347.50 218.00C1347.71 218.69 1348.13 220.15 1348.42 221.25C1349.60 225.65 1350.10 227.00 1350.45 226.78C1350.65 226.66 1351.79 223.56 1352.99 219.90C1354.18 216.24 1357.11 207.29 1359.50 200.00C1361.89 192.71 1365.00 183.15 1366.42 178.75C1373.88 155.65 1375.49 150.69 1379.49 138.50C1381.88 131.21 1388.87 110.10 1395.02 91.58L1406.20 57.90L1408.98 56.02C1410.50 54.99 1413.21 53.25 1415.00 52.15C1416.79 51.06 1420.11 49.00 1422.38 47.58C1438.87 37.26 1442.53 34.99 1444.34 33.96C1445.89 33.08 1446.77 32.53 1455.28 27.08C1457.49 25.66 1459.44 24.50 1459.60 24.50C1460.88 24.50 1459.77 28.70 1453.31 48.20C1449.38 60.05 1441.60 83.59 1436.02 100.50C1430.45 117.41 1425.71 131.70 1425.50 132.25C1425.29 132.80 1420.57 147.09 1415.00 164.00C1409.43 180.91 1404.71 195.20 1404.51 195.75C1404.31 196.30 1403.87 197.65 1403.54 198.75C1403.20 199.85 1402.75 201.20 1402.53 201.75C1402.30 202.30 1400.27 208.49 1398.00 215.50C1395.73 222.51 1393.71 228.70 1393.50 229.25C1393.29 229.80 1391.72 234.64 1390.00 240.00C1388.28 245.36 1386.71 250.20 1386.50 250.75C1385.99 252.08 1379.53 272.05 1376.95 280.25C1375.83 283.82 1374.67 287.26 1374.37 287.88L1373.83 289.00L1351.04 288.99C1338.51 288.99 1328.02 288.82 1327.73 288.62ZM1637.20 286.13C1636.49 284.55 1635.71 282.86 1635.46 282.38C1635.21 281.90 1635.00 281.28 1635.00 281.00C1635.00 280.72 1634.53 279.42 1633.95 278.12C1633.37 276.82 1632.72 275.30 1632.50 274.75C1632.28 274.20 1631.76 272.96 1631.34 272.00C1630.93 271.04 1628.97 266.20 1627.00 261.25C1625.03 256.30 1623.07 251.46 1622.66 250.50C1622.24 249.54 1621.67 248.19 1621.39 247.50C1621.11 246.81 1620.68 245.86 1620.44 245.38C1620.20 244.90 1620.00 244.28 1620.00 244.00C1620.00 243.72 1619.53 242.42 1618.95 241.12C1618.37 239.82 1617.70 238.24 1617.45 237.62C1617.20 237.01 1616.80 235.99 1616.55 235.38C1616.30 234.76 1615.76 233.46 1615.34 232.50C1614.93 231.54 1612.75 226.14 1610.50 220.50C1606.19 209.69 1605.20 207.29 1604.46 205.88C1604.21 205.40 1604.00 204.78 1604.00 204.50C1604.00 204.22 1603.53 202.92 1602.95 201.62C1601.81 199.04 1601.08 197.30 1600.48 195.75C1600.27 195.20 1599.76 193.96 1599.34 193.00C1598.93 192.04 1596.97 187.20 1595.00 182.25C1593.03 177.30 1591.07 172.46 1590.66 171.50C1590.24 170.54 1589.70 169.24 1589.45 168.62C1589.20 168.01 1588.78 166.94 1588.50 166.25C1588.22 165.56 1587.80 164.49 1587.55 163.88C1587.30 163.26 1586.76 161.96 1586.34 161.00C1585.92 160.04 1584.65 156.89 1583.50 154.00C1582.35 151.11 1581.08 147.96 1580.66 147.00C1580.24 146.04 1579.72 144.80 1579.50 144.25C1579.29 143.70 1578.76 142.46 1578.33 141.50C1577.81 140.34 1577.72 139.58 1578.05 139.25C1578.66 138.64 1620.24 138.06 1621.29 138.65C1621.68 138.87 1622.00 139.27 1622.00 139.53C1622.00 139.79 1622.47 141.08 1623.05 142.38C1623.63 143.68 1624.27 145.20 1624.48 145.75C1624.69 146.30 1625.12 147.37 1625.43 148.12C1625.74 148.88 1626.19 150.01 1626.43 150.62C1626.67 151.24 1627.10 152.31 1627.39 153.00C1627.79 153.98 1631.86 164.39 1635.48 173.75C1635.69 174.30 1636.10 175.31 1636.39 176.00C1637.44 178.52 1649.86 210.24 1655.48 224.75C1656.18 226.56 1657.11 228.73 1657.56 229.62C1657.80 230.10 1658.00 230.72 1658.00 231.00C1658.00 231.28 1658.43 232.46 1658.95 233.63C1659.47 234.80 1660.03 236.17 1660.20 236.68C1660.46 237.44 1660.65 237.50 1661.26 237.00C1661.67 236.66 1662.00 236.17 1662.00 235.91C1662.00 235.66 1662.45 234.52 1663.00 233.38C1663.55 232.24 1664.00 231.13 1664.00 230.90C1664.00 230.67 1664.47 229.42 1665.05 228.12C1666.34 225.20 1666.37 225.13 1669.25 217.75C1670.53 214.45 1671.93 210.96 1672.34 210.00C1673.12 208.22 1673.66 206.89 1674.43 204.88C1674.98 203.44 1675.71 201.63 1676.43 199.88C1677.15 198.12 1677.88 196.31 1678.43 194.88C1678.67 194.26 1679.12 193.13 1679.43 192.38C1679.74 191.62 1680.19 190.49 1680.43 189.88C1680.67 189.26 1681.12 188.13 1681.43 187.38C1681.74 186.62 1682.20 185.49 1682.45 184.88C1682.70 184.26 1683.24 182.96 1683.66 182.00C1684.07 181.04 1686.48 175.07 1689.00 168.75C1691.52 162.43 1693.88 156.57 1694.23 155.75C1694.59 154.93 1695.23 153.46 1695.65 152.50C1696.07 151.54 1697.47 148.10 1698.76 144.87C1700.05 141.64 1701.28 138.89 1701.49 138.76C1701.70 138.63 1710.84 138.51 1721.81 138.49L1741.75 138.45L1741.91 139.77C1742.00 140.49 1741.74 141.80 1741.33 142.67C1740.92 143.54 1738.97 148.30 1737.00 153.25C1735.03 158.20 1733.07 163.04 1732.66 164.00C1732.24 164.96 1731.70 166.26 1731.45 166.88C1731.20 167.49 1730.74 168.62 1730.43 169.38C1730.12 170.13 1729.70 171.20 1729.50 171.75C1729.30 172.30 1728.88 173.37 1728.57 174.12C1728.26 174.88 1727.80 176.01 1727.55 176.62C1727.30 177.24 1726.76 178.54 1726.34 179.50C1725.92 180.46 1724.65 183.61 1723.50 186.50C1722.35 189.39 1721.08 192.54 1720.66 193.50C1719.73 195.63 1719.01 197.38 1718.43 198.88C1718.19 199.49 1717.78 200.56 1717.50 201.25C1717.22 201.94 1716.81 203.01 1716.57 203.62C1716.33 204.24 1715.88 205.37 1715.57 206.12C1715.26 206.88 1714.74 208.12 1714.43 208.88C1714.12 209.63 1713.67 210.76 1713.43 211.38C1713.19 211.99 1712.74 213.12 1712.43 213.88C1712.12 214.63 1711.69 215.70 1711.48 216.25C1711.27 216.80 1710.76 218.04 1710.34 219.00C1709.93 219.96 1706.17 229.30 1702.00 239.75C1697.83 250.20 1694.07 259.54 1693.66 260.50C1693.24 261.46 1692.73 262.70 1692.52 263.25C1692.04 264.51 1691.30 266.35 1690.57 268.12C1690.26 268.88 1689.78 270.06 1689.50 270.75C1689.22 271.44 1688.77 272.51 1688.50 273.12C1688.22 273.74 1686.69 277.51 1685.09 281.50L1682.19 288.75L1660.34 288.88L1638.49 289.01L1637.20 286.13ZM1805.00 285.23C1799.87 284.61 1796.52 284.00 1793.00 283.03C1792.04 282.77 1790.46 282.35 1789.50 282.09C1781.04 279.86 1769.71 273.11 1762.48 266.00C1754.36 258.02 1750.31 252.00 1745.33 240.50C1743.76 236.88 1741.75 229.74 1740.41 223.00C1739.54 218.64 1739.54 201.80 1740.41 197.50C1741.82 190.45 1744.42 182.66 1746.95 177.83C1750.08 171.86 1750.99 170.41 1754.24 166.25C1762.93 155.10 1773.84 147.08 1789.25 140.49C1791.90 139.36 1798.82 137.33 1802.75 136.54C1804.12 136.26 1806.26 135.81 1807.50 135.54C1811.35 134.70 1823.42 134.37 1828.75 134.96C1835.88 135.74 1844.14 137.55 1845.23 138.56C1845.49 138.80 1846.01 139.00 1846.40 139.00C1846.78 139.00 1849.05 139.93 1851.42 141.07C1862.26 146.27 1872.36 154.93 1878.67 164.43C1883.15 171.17 1887.39 180.12 1889.02 186.25C1890.86 193.22 1891.71 196.94 1892.16 200.12C1892.45 202.15 1892.08 202.37 1885.50 204.00C1883.83 204.41 1881.94 204.94 1878.38 205.97C1877.48 206.23 1875.85 206.69 1874.75 207.00C1873.65 207.31 1871.96 207.78 1871.00 208.06C1870.04 208.34 1868.46 208.76 1867.50 209.00C1865.83 209.41 1863.94 209.94 1860.38 210.97C1855.29 212.45 1852.29 213.29 1847.75 214.50C1845.55 215.09 1843.02 215.78 1842.12 216.03C1841.23 216.29 1839.71 216.72 1838.75 217.00C1837.79 217.28 1836.27 217.71 1835.38 217.97C1834.48 218.22 1831.95 218.91 1829.75 219.50C1827.55 220.09 1825.02 220.78 1824.12 221.03C1823.23 221.29 1821.77 221.71 1820.88 221.97C1819.98 222.22 1817.45 222.91 1815.25 223.50C1813.05 224.09 1810.58 224.76 1809.75 225.00C1808.28 225.42 1804.09 226.55 1796.88 228.46C1794.88 228.99 1791.95 229.78 1790.35 230.21C1788.76 230.64 1787.35 231.00 1787.23 231.00C1785.93 231.00 1789.29 235.83 1793.52 240.05C1798.32 244.84 1802.78 247.28 1810.40 249.30C1814.01 250.25 1825.19 250.22 1829.90 249.24C1839.35 247.27 1849.17 242.72 1855.22 237.52C1859.29 234.02 1861.10 232.22 1862.99 229.77C1864.12 228.29 1865.34 226.98 1865.69 226.84C1866.04 226.71 1869.12 228.29 1872.54 230.36C1878.63 234.04 1880.24 234.99 1883.75 237.00C1884.71 237.55 1886.29 238.45 1887.25 239.00C1888.21 239.55 1889.84 240.47 1890.88 241.04C1894.46 243.04 1894.47 242.83 1890.47 248.82C1887.18 253.74 1880.18 261.42 1875.21 265.57C1873.37 267.10 1866.89 271.51 1864.18 273.06C1860.12 275.39 1852.27 279.00 1851.27 279.00C1850.88 279.00 1850.44 279.20 1850.29 279.44C1850.14 279.68 1849.51 280.00 1848.88 280.14C1848.26 280.29 1846.17 280.88 1844.25 281.47C1840.89 282.50 1838.35 283.10 1833.50 284.05C1829.67 284.79 1816.92 285.99 1813.50 285.93C1811.71 285.89 1807.89 285.58 1805.00 285.23ZM1502.40 261.47C1508.26 260.14 1509.50 259.74 1513.35 257.89C1520.60 254.41 1525.52 248.48 1527.28 241.09C1527.66 239.53 1527.97 235.49 1527.98 232.12L1528.00 226.00L1511.38 226.01C1489.08 226.02 1484.00 226.87 1478.90 231.44C1476.08 233.97 1474.64 236.52 1473.66 240.72C1472.48 245.78 1474.20 251.47 1478.14 255.49C1480.44 257.83 1485.06 260.25 1489.15 261.25C1492.42 262.05 1499.33 262.17 1502.40 261.47ZM1194.00 260.68C1194.00 260.24 1193.36 257.93 1192.57 255.56C1191.79 253.19 1190.41 248.89 1189.50 246.00C1188.59 243.11 1187.02 238.16 1186.00 235.00C1184.98 231.84 1183.18 226.21 1182.00 222.50C1180.82 218.79 1179.02 213.16 1178.00 210.00C1176.98 206.84 1175.18 201.21 1174.00 197.50C1172.81 193.79 1170.78 187.49 1169.49 183.50C1168.19 179.51 1165.94 172.54 1164.50 168.00C1163.05 163.46 1161.25 157.84 1160.51 155.50C1159.76 153.16 1158.41 148.89 1157.50 146.00C1156.59 143.11 1155.01 138.16 1153.98 135.00C1152.96 131.84 1151.16 126.21 1149.99 122.50C1148.82 118.79 1147.25 113.84 1146.51 111.50C1145.76 109.16 1144.63 105.56 1144.01 103.50C1143.38 101.44 1142.45 98.51 1141.94 97.00C1141.38 95.35 1141.20 94.18 1141.50 94.08C1141.78 93.99 1142.00 93.49 1142.00 92.96C1142.00 92.03 1142.64 92.00 1163.22 92.00C1176.83 92.00 1184.55 92.18 1184.75 92.50C1184.92 92.78 1185.45 93.00 1185.92 93.00C1186.52 93.00 1186.98 93.72 1187.44 95.38C1187.81 96.68 1188.50 98.99 1188.98 100.50C1189.47 102.01 1190.60 105.61 1191.50 108.50C1192.41 111.39 1193.77 115.66 1194.52 118.00C1195.28 120.34 1196.62 124.61 1197.51 127.50C1198.40 130.39 1199.75 134.66 1200.49 137.00C1201.24 139.34 1202.15 142.26 1202.50 143.50C1203.32 146.33 1205.31 152.63 1208.43 162.25C1209.77 166.38 1211.59 172.11 1212.48 175.00C1214.56 181.71 1215.68 185.28 1217.28 190.22L1218.56 194.19L1217.22 198.47C1216.49 200.82 1215.56 203.63 1215.17 204.71C1214.77 205.78 1212.99 211.07 1211.20 216.46C1209.42 221.84 1207.76 226.70 1207.50 227.25C1207.24 227.80 1204.65 235.45 1201.74 244.25C1198.78 253.20 1196.09 260.53 1195.63 260.88C1194.52 261.72 1194.00 261.66 1194.00 260.68ZM1784.00 206.52C1784.69 206.30 1786.26 205.84 1787.50 205.50C1788.74 205.16 1790.31 204.71 1791.00 204.50C1791.69 204.29 1793.26 203.84 1794.50 203.50C1795.74 203.16 1797.31 202.71 1798.00 202.50C1798.69 202.29 1800.26 201.84 1801.50 201.50C1802.74 201.16 1804.31 200.71 1805.00 200.50C1805.69 200.29 1807.15 199.87 1808.25 199.58C1810.50 198.97 1815.54 197.54 1820.75 196.03C1822.67 195.47 1827.51 194.12 1831.50 193.01C1835.49 191.91 1839.42 190.80 1840.25 190.56C1841.08 190.31 1842.85 189.80 1844.19 189.43C1845.53 189.06 1846.73 188.49 1846.85 188.17C1847.05 187.64 1846.33 185.95 1844.34 182.27C1842.92 179.66 1838.52 175.05 1835.59 173.11C1829.42 169.01 1825.33 167.87 1816.80 167.85C1813.20 167.85 1809.46 168.10 1808.50 168.41C1802.23 170.45 1800.02 171.29 1798.01 172.38C1794.95 174.05 1788.76 178.78 1787.85 180.14C1787.44 180.75 1786.68 181.70 1786.16 182.25C1784.78 183.70 1782.23 188.36 1781.24 191.25C1779.39 196.64 1778.56 203.77 1779.49 206.23C1780.01 207.58 1780.58 207.62 1784.00 206.52Z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4z"/><path d="M18 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.4 3.4 0 0 1 0 6.6M18.5 14.8c1.7.7 2.8 2.4 3 5.2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M8 2.5v4M16 2.5v4M3.5 9.5h17M8.5 15l2.3 2.2 4.7-4.7"/></symbol>
+  <symbol id="i-exam" viewBox="0 0 24 24"><path d="M6 2.5h8l4.5 4.5V20a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 20V4A1.5 1.5 0 0 1 6 2.5z"/><path d="M14 2.5V7h4.5M8 13l2.5 2.5L16 10"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3.5 7.5A2.5 2.5 0 0 1 6 5h12.5v3"/><rect x="3.5" y="7.5" width="17" height="12" rx="2.5"/><path d="M16 13.5h2"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2M3 12.5h18"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r=".8"/><circle cx="16" cy="14.5" r=".8"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v17H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H13v17h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></symbol>
+  <symbol id="i-board" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20l2-4M16 20l-2-4M7 8h6M7 11h10"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M15 4.5l4.5 4.5L9 19.5H4.5V15z"/><path d="M13 6.5l4.5 4.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4M8 13h3M13 13h3M8 16.5h3"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8.5 7h7M8.5 10.5h7M8.5 14h4"/><circle cx="15.5" cy="17" r="1.8"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 18.5l1.2-3.6A8 8 0 1 1 8.6 18z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></symbol>
+  <symbol id="i-device" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="10" rx="2"/><rect x="17" y="8" width="5" height="11" rx="1.5"/><path d="M6 18h6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1.5"/><path d="M5 9v9.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V9M10 13h4"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5L12 4l9 5.5M4.5 20h15M6 10.5v7M10 10.5v7M14 10.5v7M18 10.5v7"/></symbol>
+  <symbol id="i-gate" viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6M4 12h16"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14.5 10h4M14.5 13.5h3"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.6 9.6l5.8-.8z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-cake" viewBox="0 0 24 24"><path d="M4 20h16v-6.5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"/><path d="M4 15.5c1.4 1 2.6 1 4 0s2.6-1 4 0 2.6 1 4 0 2.6-1 4 0"/><path d="M12 11.5V8"/><path d="M12 5.8c.9-.8.9-1.8 0-2.8-.9 1-.9 2 0 2.8z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M4.1 7.4l2.2 1.3M17.7 15.3l2.2 1.3M4.1 16.6l2.2-1.3M17.7 8.7l2.2-1.3"/><circle cx="12" cy="12" r="6.6"/></symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l2 5-2.4 1.6a11.5 11.5 0 0 0 5.8 5.8l1.6-2.4 5 2V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<a class="skip" href="#intro">Skip to content</a>
+
+<header class="nav" id="siteNav"><div class="wrap">
+  <nav class="nav-bar" aria-label="Main">
+    <a class="brand" href="#top" aria-label="CampusWave home">
+      <img class="brand-mark" src="img/logo-mark.webp" alt="" width="56" height="36">
+      <svg class="wordmark" viewBox="0 0 1870 335" width="151" height="27" aria-hidden="true"><use href="#wm" width="1870" height="335"/></svg>
+      <small>by Aasarion</small>
+    </a>
+    <div class="nav-links">
+      <a href="#intro">School day</a>
+      <a href="#story">Why switch</a>
+      <a href="#intelligence">AI tools</a>
+      <a href="#modules">Modules</a>
+      <a href="#roles">Roles</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-end">
+      <button class="round menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+      <a class="btn btn-ink" href="#demo"><span>Book a demo</span></a>
+    </div>
+  </nav>
+  <div class="menu" id="menu" hidden>
+    <a href="#intro">School day</a><a href="#story">Why switch</a><a href="#intelligence">AI tools</a><a href="#screens">Every screen</a><a href="#modules">Modules</a><a href="#roles">Roles</a><a href="#promise">What you get</a><a href="#faq">FAQ</a>
+    <a class="go" href="#demo">Book a demo</a>
+  </div>
+</div></header>
+
+<main id="top">
+
+<!-- LANDING -->
+<section class="landing snap" id="landing" aria-label="Welcome">
+  <div class="scene"><img src="img/campus.webp" srcset="img/campus-1200.webp 1200w, img/campus.webp 2400w" sizes="100vw" alt="A school campus with spires, sports grounds and an amphitheatre in a misty hill valley" fetchpriority="high"></div>
+  <div class="mist m0" aria-hidden="true"></div>
+  <div class="mist m3" aria-hidden="true"></div>
+  <div class="mist m1" aria-hidden="true"></div>
+  <div class="mist m2" aria-hidden="true"></div>
+  <div class="wrap land-copy">
+    <h1>Ride the next wave <em>of learning.</em></h1>
+    <p class="lead"><span class="cw">Campus<span>Wave</span></span> is the AI-powered school app for <span class="nw">future-ready schools.</span></p>
+    <div class="land-ctas">
+      <a class="btn btn-light" href="#intro">See a school day</a>
+      <a class="btn btn-ink" href="#demo">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE -->
+<section class="bridge" aria-label="Why schools choose CampusWave">
+  <svg class="wavelines" data-n="5" data-amp="28" data-per="900" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <div class="wrap bridge-in">
+    <p class="bridge-line">From admission day to the alumni list, one app.</p>
+    <div class="pills">
+      <span><i style="color:var(--iris)"><svg class="ico"><use href="#i-spark"/></svg></i>Paperwork in minutes</span>
+      <span><i style="color:var(--aqua)"><svg class="ico"><use href="#i-users"/></svg></i>One login per person</span>
+      <span><i style="color:var(--peach)"><svg class="ico"><use href="#i-chat"/></svg></i>Parents in the loop</span>
+      <span><i style="color:var(--mint)"><svg class="ico"><use href="#i-device"/></svg></i>No new hardware</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO: THE SCHOOL DAY -->
+<section class="intro" id="intro" data-rail="School day" aria-label="A school day on CampusWave">
+  <span class="snap-pt sp1" aria-hidden="true"></span>
+  <span class="snap-pt sp2" aria-hidden="true"></span>
+  <div class="stage">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    <div class="wrap stage-grid">
+      <div class="copy" id="introCopy">
+        <div class="state" id="stA">
+          <h2>One app for the whole school day.</h2>
+          <p class="lead">Management, teachers, students and parents each get their own login, all working from the same live school data.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#demo">Book a demo <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="#story">Why schools switch <svg class="ico"><use href="#i-down"/></svg></a>
+          </div>
+        </div>
+        <div class="state" id="stB" style="opacity:0" inert>
+          <h2>Your whole school, in one flow.</h2>
+          <p class="lead">Attendance marked in class reaches parents the same morning. Marks entered by teachers become report cards. A fee paid at the counter updates the accounts. Nothing is typed twice.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#demo">Book a demo <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="#modules">See all modules</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="true">
+        <svg class="wavelines vwave" data-n="4" data-amp="36" data-per="800" viewBox="0 0 1440 420" preserveAspectRatio="none"></svg>
+        <div class="console" data-ui>
+          <div class="screen">
+            <div class="scr-top"><span class="app-id"><img class="app-ic" src="img/logo-mark.webp" alt="" width="31" height="20"><b>Today</b></span><span class="live"><i></i>Live</span></div>
+            <div class="ring-row"><div class="ring" id="dayRing"></div><div><p>Now</p><strong id="dayNow">7:55 am</strong></div><span class="cnt" id="dayCnt">3/12 done</span></div>
+            <div class="feed"><ol id="feed"></ol></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE TICKER -->
+<section class="ticker snap" id="features" data-rail="Features" aria-labelledby="tickerTitle">
+  <div class="wrap">
+    <div class="ticker-head reveal">
+      <h2 id="tickerTitle">What <span class="cw">Campus<span>Wave</span></span> handles</h2>
+      <p>A sample from every department, every day.</p>
+    </div>
+  </div>
+  <div class="rows" aria-hidden="true">
+    <div class="row" style="--t:130s"><div class="track" id="tk1"></div></div>
+    <div class="row rev" style="--t:140s"><div class="track" id="tk2"></div></div>
+    <div class="row" style="--t:150s"><div class="track" id="tk3"></div></div>
+  </div>
+  <ul class="sr-only" id="tkList"></ul>
+</section>
+
+<!-- WHY SWITCH -->
+<section class="sec snap" id="story" data-rail="Why switch">
+  <div class="wrap">
+  <div class="sec-head reveal"><h2>Same school day, less paperwork.</h2></div>
+  <div class="story-grid">
+    <div class="story-copy reveal">
+      <p class="lead">Most schools still run on paper registers, spreadsheets, WhatsApp groups and a fee ledger only one person understands. Flip the switch to see what changes.</p>
+      <div class="seg cmp-seg" id="cmpSeg" role="group" aria-label="Compare the usual way with CampusWave">
+        <button type="button" data-mode="old" aria-pressed="true">The usual way</button>
+        <button type="button" data-mode="new" aria-pressed="false">With <span class="cw">Campus<span>Wave</span></span></button>
+      </div>
+      <figure class="story-photo">
+        <img src="img/parent-home.webp" alt="A parent reading a school update on his phone at home" width="1200" height="800" loading="lazy" decoding="async">
+        <figcaption class="sp-toast" id="spToast" aria-live="polite" data-ui><span class="sp-ic" id="spIc"></span><span class="sp-t"><b id="spT1"></b><small id="spT2"></small></span></figcaption>
+      </figure>
+    </div>
+    <div class="cmp reveal" id="cmp" data-mode="old">
+      <div class="cmp-row" style="--k:0"><div class="cmp-k"><span class="ci"><svg class="ico"><use href="#i-check"/></svg></span>Attendance</div><div class="cmp-v"><p class="old">A paper register, counted by hand and carried to the office.</p><p class="new">Marked on the teacher’s phone. Parents of absent students hear about it the same morning.</p></div></div>
+      <div class="cmp-row" style="--k:1"><div class="cmp-k"><span class="ci"><svg class="ico"><use href="#i-pencil"/></svg></span>Homework</div><div class="cmp-v"><p class="old">Written on the board. Parents find out at the next meeting.</p><p class="new">Posted to the class with a due date. Students and parents are notified straight away.</p></div></div>
+      <div class="cmp-row" style="--k:2"><div class="cmp-k"><span class="ci"><svg class="ico"><use href="#i-exam"/></svg></span>Exams and results</div><div class="cmp-v"><p class="old">Papers typed from scratch, marks in a spreadsheet, report cards filled in one by one.</p><p class="new">Papers drafted by AI, marks entered once, report cards generated for the whole class.</p></div></div>
+      <div class="cmp-row" style="--k:3"><div class="cmp-k"><span class="ci"><svg class="ico"><use href="#i-wallet"/></svg></span>Fees</div><div class="cmp-v"><p class="old">Receipts written by hand. Dues tracked in a ledger nobody else can read.</p><p class="new">A receipt for every payment, reminders in one click, dues visible class by class.</p></div></div>
+      <div class="cmp-row" style="--k:4"><div class="cmp-k"><span class="ci"><svg class="ico"><use href="#i-bell"/></svg></span>Notices</div><div class="cmp-v"><p class="old">Forwarded across a dozen WhatsApp groups, and someone still misses it.</p><p class="new">One alert to exactly the right parents, students or staff, by app, SMS or email.</p></div></div>
+      <div class="cmp-row" style="--k:5"><div class="cmp-k"><span class="ci"><svg class="ico"><use href="#i-bus"/></svg></span>Transport</div><div class="cmp-v"><p class="old">Parents call the office whenever the bus is late.</p><p class="new">Parents on that route get an alert before they need to ask.</p></div></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- AI TOOLS + AUTOMATION -->
+<section class="sec snap" id="intelligence" data-rail="AI and automation">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>The AI drafts. Teachers decide.</h2>
+      <p class="lead">Question papers, lesson plans, timetables and certificates start as a ready draft that staff review and approve. The repetitive work, from report cards to weekly reviews, runs on its own. Open any card to see how it works.</p>
+    </div>
+    <div class="bento reveal">
+      <button class="w w1" type="button" data-dlg="papers">
+        <div class="viz qp" aria-hidden="true" data-ui>
+          <div class="qp-head"><b>Science · Class 8 · Unit test</b><span>40 marks</span></div>
+          <ol class="qp-list">
+            <li><span>Which parts of a plant cell are missing in an animal cell?</span><em>2</em></li>
+            <li><span>Why do leaves look green?</span><em>3</em></li>
+            <li><span>Draw and label a stoma.</span><em>5</em></li>
+          </ol>
+          <div class="qp-opt"><span class="on">With answers</span><span>Without</span></div>
+        </div>
+        <h3>Question papers, drafted for you</h3>
+        <p>Balanced papers from your syllabus and question bank, in minutes.</p>
+        <span class="more">See how <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+      </button>
+      <button class="w w2" type="button" data-dlg="plans">
+        <div class="viz lp" aria-hidden="true" data-ui>
+          <div class="qp-head"><b>Photosynthesis · Class 7</b><span>40 min</span></div>
+          <ul class="lp-list">
+            <li class="ok"><i></i><span>Outcomes: name what a leaf takes in and gives out</span><em>2 min</em></li>
+            <li class="ok"><i></i><span>Warm-up: why do plants need light?</span><em>8 min</em></li>
+            <li class="ok"><i></i><span>Leaf starch test in groups</span><em>22 min</em></li>
+            <li><i></i><span>Homework and quick review</span><em>8 min</em></li>
+          </ul>
+        </div>
+        <h3>Lesson plans in minutes</h3>
+        <p>A clear structure from a topic and a few details.</p>
+        <span class="more">See how <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+      </button>
+      <button class="w w3" type="button" data-dlg="timetable">
+        <div class="viz tt2" aria-hidden="true" data-ui>
+          <div class="qp-head"><b>Class 7B · this week</b><span class="ok-t">No clashes</span></div>
+          <table class="ttg">
+            <tr><th></th><th>P1</th><th>P2</th><th>P3</th><th>P4</th></tr>
+            <tr><th>Mon</th><td class="s1">Maths</td><td class="s2">Science</td><td class="s3">English</td><td class="s4">Kannada</td></tr>
+            <tr><th>Tue</th><td class="s2">Science</td><td class="s1">Maths</td><td class="s4">Kannada</td><td class="s3">English</td></tr>
+            <tr><th>Wed</th><td class="s3">English</td><td class="s4">Kannada</td><td class="s1">Maths</td><td class="s5">Sports</td></tr>
+          </table>
+        </div>
+        <h3>Timetables without clashes</h3>
+        <p>Teachers, rooms and subjects, balanced for you.</p>
+        <span class="more">See how <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+      </button>
+      <button class="w w4" type="button" data-dlg="docs">
+        <div class="viz cert" aria-hidden="true" data-ui>
+          <div class="cert-doc">
+            <div class="cert-top"><b>Transfer certificate</b><span>TC/2026/118</span></div>
+            <dl>
+              <div><dt>Student</dt><dd>Aarav Kumar</dd></div>
+              <div><dt>Class</dt><dd>7B, 2025–26</dd></div>
+              <div><dt>Issued</dt><dd>14 Oct 2026</dd></div>
+            </dl>
+            <span class="cert-ok">Signed by the principal</span>
+          </div>
+        </div>
+        <h3>Certificates on demand</h3>
+        <p>Transfer and study certificates in your school’s format.</p>
+        <span class="more">See how <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+      </button>
+      <button class="w w5" type="button" data-dlg="insights">
+        <div class="viz perf" aria-hidden="true" data-ui>
+          <div class="qp-head"><b>Maths · Term 1 average</b><span>Class 7</span></div>
+          <div class="pbars">
+            <div style="--bh:78%"><em>78%</em><i></i><span>7A</span></div>
+            <div style="--bh:71%"><em>71%</em><i></i><span>7B</span></div>
+            <div style="--bh:84%"><em>84%</em><i></i><span>7C</span></div>
+            <div class="low" style="--bh:58%"><em>58%</em><i></i><span>7D</span></div>
+            <div style="--bh:81%"><em>81%</em><i></i><span>7E</span></div>
+          </div>
+        </div>
+        <h3>Class performance, at a glance</h3>
+        <p>Marks and attendance turned into simple graphs.</p>
+        <span class="more">See how <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+      </button>
+      <button class="w w6" type="button" data-dlg="alerts">
+        <div class="viz alerts" aria-hidden="true" data-ui>
+          <div class="al-top"><span>Sent today</span><span class="bell"><svg class="ico"><use href="#i-bell"/></svg><b>3</b></span></div>
+          <div class="toasts">
+            <div class="toast"><i style="background:var(--iris)"></i><span>Sports day moved to Friday</span><small>All parents</small></div>
+            <div class="toast"><i style="background:var(--aqua)"></i><span>Class 6 results are out</span><small>Class 6</small></div>
+            <div class="toast"><i style="background:var(--peach)"></i><span>Bus 4 running 10 min late</span><small>Route 4</small></div>
+          </div>
+        </div>
+        <h3>Messages that reach the right people</h3>
+        <p>One notice to a class, a bus route, all parents or all staff.</p>
+        <span class="more">See how <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+      </button>
+      <button class="w w7" type="button" data-dlg="automation">
+        <div class="auto">
+          <div class="auto-copy">
+            <span class="tag">Automation</span>
+            <h3>The routine paperwork runs itself</h3>
+            <p>Report cards, hall tickets, ID cards and certificates are generated for a whole class in one run. Weekly reviews and the principal’s daily report arrive on schedule, without anyone putting them together.</p>
+            <span class="more">See everything that runs automatically <span><svg class="ico"><use href="#i-arrow"/></svg></span></span>
+          </div>
+          <div class="viz auto-viz" aria-hidden="true" data-ui>
+            <div class="acol">
+              <span class="lbl">Generating now</span>
+              <div class="job"><span class="ji"><svg class="ico"><use href="#i-exam"/></svg></span><span class="jt"><b>Report cards</b><small>Class 10, all sections</small></span><span class="js"><span class="q">Queued</span><span class="r">Generating</span><span class="d">Done</span></span><i class="jb"></i></div>
+              <div class="job"><span class="ji"><svg class="ico"><use href="#i-id"/></svg></span><span class="jt"><b>Hall tickets</b><small>Term exams, every class</small></span><span class="js"><span class="q">Queued</span><span class="r">Generating</span><span class="d">Done</span></span><i class="jb"></i></div>
+              <div class="job"><span class="ji"><svg class="ico"><use href="#i-users"/></svg></span><span class="jt"><b>ID cards</b><small>New admissions and staff</small></span><span class="js"><span class="q">Queued</span><span class="r">Generating</span><span class="d">Done</span></span><i class="jb"></i></div>
+              <div class="job"><span class="ji"><svg class="ico"><use href="#i-doc"/></svg></span><span class="jt"><b>Certificates</b><small>Transfer and study</small></span><span class="js"><span class="q">Queued</span><span class="r">Generating</span><span class="d">Done</span></span><i class="jb"></i></div>
+            </div>
+            <div class="acol">
+              <span class="lbl">On schedule</span>
+              <div class="srow"><span class="ji"><svg class="ico"><use href="#i-brief"/></svg></span><span class="jt"><b>Teacher reviews</b><small>Weekly, for every teacher</small></span><span class="when"><svg class="ico"><use href="#i-clock"/></svg>Fri 4:00 pm</span></div>
+              <div class="srow"><span class="ji"><svg class="ico"><use href="#i-chart"/></svg></span><span class="jt"><b>Class reviews</b><small>Weekly, for every class</small></span><span class="when"><svg class="ico"><use href="#i-clock"/></svg>Fri 4:30 pm</span></div>
+              <div class="srow"><span class="ji"><svg class="ico"><use href="#i-bell"/></svg></span><span class="jt"><b>Principal’s daily report</b><small>Attendance, fees, homework</small></span><span class="when"><svg class="ico"><use href="#i-clock"/></svg>5:00 pm</span></div>
+              <div class="srow"><span class="ji"><svg class="ico"><use href="#i-cake"/></svg></span><span class="jt"><b>Birthday wishes</b><small>Students and staff</small></span><span class="when"><svg class="ico"><use href="#i-clock"/></svg>7:45 am</span></div>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- EVERY SCREEN -->
+<section class="screens snap" id="screens" data-rail="Every screen" aria-labelledby="screensTitle">
+  <div class="wrap screens-grid">
+    <div class="screens-copy reveal">
+      <h2 id="screensTitle">Every screen in the school.</h2>
+      <p class="lead">Open lessons, notes and diagrams from <span class="cw">Campus<span>Wave</span></span> on the classroom smart board, mark attendance on your phone, and run the office on the desktop. One login and the same live data on every screen.</p>
+      <ul class="devs" aria-label="Works on">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-mobile"/></svg>Phones</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-tablet"/></svg>Tablets</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-laptop"/></svg>Laptops and desktops</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-board"/></svg>Classroom smart boards</li>
+      </ul>
+    </div>
+  </div>
+  <figure class="screens-photo">
+    <img src="img/smartboard.webp" alt="A teacher explaining a plant cell diagram on the classroom smart board" width="1600" height="1377" loading="lazy" decoding="async">
+    <figcaption class="sb-chip sb1" data-ui><span class="ci" style="background:var(--iris)"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span><span><b>Science · Class 7</b><small>Plant cell, opened from course content</small></span></figcaption>
+    <div class="sb-chip sb2" aria-hidden="true" data-ui><span class="ci" style="background:var(--mint)"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Notes shared with Class 7</b><small>Right after the lesson</small></span></div>
+  </figure>
+</section>
+
+<!-- MODULE TOUR -->
+<section class="sec snap" id="modules" data-rail="Modules">
+  <div class="wrap">
+    <div class="sec-head split reveal">
+      <div>
+        <h2>Every department, one login.</h2>
+      </div>
+      <p class="lead"><span id="modTotal">51</span> modules across eight departments. Pick a module to see what it does, who uses it and what it connects to.</p>
+    </div>
+    <div class="tour reveal">
+      <div class="hs-tabs" role="tablist" aria-label="Departments" id="hsTabs"></div>
+      <div class="hs-device">
+        <div class="hs-screen">
+          <div class="hs-list">
+            <div class="hs-bar"><b id="hsTitle">Academics</b><span id="hsCount"></span></div>
+            <div class="hs-grid" id="hsGrid" role="tabpanel"></div>
+            <p class="hs-dept"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span id="hsDept"></span></p>
+          </div>
+          <article class="hd" id="hsSpot" aria-live="polite">
+            <div class="hd-top"><span class="si" id="spIco"></span><div><h3 id="spTitle"></h3><span class="cat" id="spCat"></span></div><span class="hd-pos" id="spPos"></span></div>
+            <p class="hd-desc" id="spText"></p>
+            <div class="hd-feats"><span class="lbl">What it does</span><ul class="checks two" id="spFeats"></ul></div>
+            <div class="hd-meta">
+              <div><span class="lbl">Used by</span><div class="tags" id="spRoles"></div></div>
+              <div><span class="lbl">Works with</span><div class="tags" id="spRel"></div></div>
+            </div>
+            <div class="hd-actions"><button class="btn btn-primary" type="button" id="spOpen">Module details <svg class="ico"><use href="#i-arrow"/></svg></button><button class="btn" type="button" id="spNext">Next module <svg class="ico"><use href="#i-right"/></svg></button></div>
+            <div class="bar" aria-hidden="true"><i id="spBar"></i></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="sec snap" id="roles" data-rail="Roles">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>A different view for every role.</h2>
+    </div>
+    <div class="reveal">
+      <div class="seg" role="tablist" aria-label="Choose a role" id="roleTabs">
+        <button role="tab" id="t-management" aria-selected="true" aria-controls="rolePanel" data-role="management">Management</button>
+        <button role="tab" id="t-teachers" aria-selected="false" aria-controls="rolePanel" data-role="teachers" tabindex="-1">Teachers</button>
+        <button role="tab" id="t-students" aria-selected="false" aria-controls="rolePanel" data-role="students" tabindex="-1">Students</button>
+        <button role="tab" id="t-parents" aria-selected="false" aria-controls="rolePanel" data-role="parents" tabindex="-1">Parents</button>
+      </div>
+      <div class="role-panel" id="rolePanel" role="tabpanel" aria-labelledby="t-management">
+        <div class="role-copy" id="roleCopy"></div>
+        <div class="role-visual">
+          <div class="role-photo">
+            <img class="on" data-role="management" src="img/role-management.webp" alt="A principal reviewing the school day on his laptop in his office" width="1000" height="1000" loading="lazy" decoding="async">
+            <img data-role="teachers" src="img/role-teachers.webp" alt="A teacher marking attendance on her phone during class" width="1000" height="1000" loading="lazy" decoding="async">
+            <img data-role="students" src="img/role-students.webp" alt="A student checking her homework on her phone at home" width="1000" height="1000" loading="lazy" decoding="async">
+            <img data-role="parents" src="img/role-parents.webp" alt="A parent reading a school alert on her phone at the school gate" width="1000" height="1000" loading="lazy" decoding="async">
+          </div>
+          <div class="rv-stats" id="rcMini" data-ui></div>
+          <div class="rv-card" data-ui><span class="lbl" id="rcLabel"></span><div class="rtasks" id="rcTasks"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE + GETTING STARTED -->
+<section class="sec snap" id="promise" data-rail="What you get">
+  <div class="wrap">
+    <div class="sec-head split reveal">
+      <div>
+        <h2>All modules, no extra bills.</h2>
+      </div>
+      <p class="lead">Every module is included, our team sets everything up for your school, and new features arrive at no extra cost.</p>
+    </div>
+    <div class="promise reveal">
+      <div class="pcard"><h3>Set up your way</h3><p>Your classes, subjects, fee structure, exam pattern, documents and branding, configured to match how your school already works.</p></div>
+      <div class="pcard"><h3>Every module included</h3><p>No per-module pricing and no feature limits. What you see on this page is what you get.</p></div>
+      <div class="pcard"><h3>Updates at no extra cost</h3><p>New features arrive on the app and the desktop software as they are released.</p></div>
+      <div class="pcard"><h3>Use what you have</h3><p>Runs on the phones, tablets, computers and classroom smart boards your school and families already own.</p></div>
+    </div>
+    <div class="start reveal" id="start">
+      <div class="start-head"><h3>Go live in three steps</h3></div>
+      <ol class="steps">
+        <li class="step"><h4>See it in your school</h4><p>Book a live demo. We walk through <span class="cw">Campus<span>Wave</span></span> with your own classes, timetable and questions in mind.</p></li>
+        <li class="step"><h4>We set everything up</h4><p>Share your student, staff and class lists in our templates. Our team loads the data and configures the app.</p></li>
+        <li class="step"><h4>Go live, with support</h4><p>Staff are trained, logins go out to teachers, students and parents, and our support team stays with you.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec snap" id="proof" data-rail="Schools">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Heard from the principal’s office.</h2>
+    </div>
+    <div class="proof reveal">
+      <figure class="quote">
+        <blockquote>“[A line from a principal about what changed for their school after CampusWave.]”</blockquote>
+        <figcaption class="who"><span class="avatar"><svg class="ico"><use href="#i-users"/></svg></span><span><b>[Principal name]</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">[School name], [City]</span></span></figcaption>
+      </figure>
+      <div class="stats">
+        <div class="stat"><b>[XX]+</b><span>schools riding the wave</span></div>
+        <div class="stat"><b>[XX,XXX]</b><span>students and teachers</span></div>
+        <div class="stat"><b>[X] yrs</b><span>building software for schools</span></div>
+      </div>
+    </div>
+    <div class="logos reveal" aria-label="Partner school logos (placeholders)"><span>[School logo]</span><span>[School logo]</span><span>[School logo]</span><span>[School logo]</span><span>[School logo]</span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec snap" id="faq" data-rail="FAQ">
+  <div class="wrap faq-grid">
+    <div class="faq-side reveal">
+      <h2>Questions schools ask us</h2>
+      <p class="lead">Can’t find your answer here? Talk to us directly.</p>
+      <a class="ask" href="tel:+919741821122"><span class="ai"><svg class="ico"><use href="#i-phone"/></svg></span><span><b>+91 97418 21122</b><span>Call us, or message on WhatsApp</span></span></a>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Do we need to buy new hardware?</summary><p>No. <span class="cw">Campus<span>Wave</span></span> runs on the phones, tablets, computers and classroom smart boards your school already has. Teachers, students and parents use the mobile app, and the school office uses the desktop software.</p></details>
+      <details><summary>Can parents and students use it on their phones?</summary><p>Yes. Everyone gets their own login on the mobile app, so a parent sees their child’s attendance, homework, results and notices, and a student sees their timetable, tasks and exam dates.</p></details>
+      <details><summary>Can it be customised for our school?</summary><p>Yes. Classes, subjects, fee structures, exam patterns, documents and branding are set up to match how your school already works, and we keep adapting as you grow.</p></details>
+      <details><summary>What happens to our existing records?</summary><p>Share your student, staff and class lists in our templates and our team loads them for you before go-live.</p></details>
+      <details><summary>Will you train our staff?</summary><p>Yes. We train office staff and teachers during setup, and our support team stays available after go-live.</p></details>
+      <details><summary>Are there extra charges for features or updates?</summary><p>No. Every module is included, and new features arrive at no extra cost.</p></details>
+      <details><summary>How long does it take to go live?</summary><p>Most schools are live within [X] days of sharing their data.</p></details>
+      <details><summary>How is our data kept safe?</summary><p>Your data is stored on secure cloud infrastructure, and everyone signs in with their own login, so each person sees only what their role needs.</p></details>
+      <details><summary>What does it cost?</summary><p>Pricing depends on the size of your school. Book a demo and we’ll send you a clear quote.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="band snap" id="demo" data-rail="Book a demo">
+  <img class="band-mark" src="img/logo-mark.webp" alt="" aria-hidden="true" width="480" height="310" loading="lazy">
+  <svg class="wavelines bandwave" data-n="5" data-amp="34" data-per="900" data-white="1" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <div class="wrap band-grid">
+    <div class="reveal">
+      <h2>See <span class="cw">Campus<span>Wave</span></span> in your school.</h2>
+      <p class="lead" style="margin-top:16px">Book a free live demo. Send your details on WhatsApp and we’ll plan the walkthrough around your school’s questions.</p>
+      <div class="perks">
+        <div class="perk"><span class="pi"><svg class="ico"><use href="#i-play"/></svg></span><div><b>A live walkthrough</b><span>Thirty minutes, at a time that suits you.</span></div></div>
+        <div class="perk"><span class="pi"><svg class="ico"><use href="#i-users"/></svg></span><div><b>For your whole team</b><span>Bring your principal, office staff and teachers.</span></div></div>
+        <div class="perk"><span class="pi"><svg class="ico"><use href="#i-shield"/></svg></span><div><b>No obligation</b><span>A clear quote afterwards, only if you want one.</span></div></div>
+      </div>
+    </div>
+    <form class="form" id="demoForm" novalidate>
+      <h3 class="form-h"><img class="form-mark" src="img/logo-mark.webp" alt="" width="40" height="26">Book your demo</h3>
+      <div class="field"><label for="fName">Your name</label><input id="fName" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required></div>
+      <div class="field"><label for="fSchool">School name</label><input id="fSchool" name="school" autocomplete="organization" placeholder="e.g. Green Valley School" required></div>
+      <div class="two">
+        <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="+91" required></div>
+        <div class="field"><label for="fCity">City</label><input id="fCity" name="city" autocomplete="address-level2" placeholder="Bengaluru"></div>
+      </div>
+      <div class="field"><label for="fRole">You are</label><select id="fRole" name="role"><option>Principal or director</option><option>School administrator</option><option>Teacher</option><option>Trustee or owner</option><option>Other</option></select></div>
+      <button class="btn btn-primary" type="submit"><svg class="ico"><use href="#i-chat"/></svg>Continue on WhatsApp</button>
+      <div class="form-out" id="formOut" aria-live="polite">
+        <div class="copyrow">Or message us directly: <span class="copyval"><code id="phoneTxt">+91 97418 21122</code><button type="button" id="copyPhone">Copy</button></span></div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="foot-name" href="#top" aria-label="CampusWave home"><svg viewBox="0 0 1870 335" aria-hidden="true"><use href="#wm" width="1870" height="335"/></svg></a>
+    <div class="foot-grid">
+      <div class="foot-about"><img class="brand-mark" src="img/logo-mark.webp" alt="" width="68" height="44"><p>The AI-powered school app for future-ready schools. A product of Aasarion.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="#intro">The school day</a></li><li><a href="#story">Why switch</a></li><li><a href="#intelligence">AI tools</a></li><li><a href="#modules">Modules</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+919741821122">+91 97418 21122</a></li><li><span style="color:var(--muted)">[hello@campuswave.com]</span></li><li><span style="color:var(--muted)">Bengaluru, India</span></li></ul></div>
+      <div><h4>Get the app</h4><ul><li><a href="#top">[Google Play link]</a></li><li><a href="#top">[App Store link]</a></li><li><a href="#top">[LinkedIn link]</a></li></ul></div>
+    </div>
+    <div class="fine"><span>© 2026 Aasarion. All rights reserved.</span><span>[Privacy policy] · [Terms]</span></div>
+  </div>
+</footer>
+
+<nav class="rail off" id="rail" aria-label="Page sections"></nav>
+
+<dialog id="dlg" aria-labelledby="dlgTitle" aria-describedby="dlgText">
+  <div class="dlg" id="dlgBox">
+    <div class="dlg-top"><span class="di" id="dlgIco"></span><div><h3 id="dlgTitle" tabindex="-1"></h3><span class="cat" id="dlgCat"></span></div><button class="round" id="dlgClose" type="button" aria-label="Close"><svg class="ico"><use href="#i-close"/></svg></button></div>
+    <p class="dlg-text" id="dlgText"></p>
+    <div id="dlgBody" style="display:grid; gap:22px"></div>
+    <div class="acts">
+      <a class="btn btn-primary" href="#demo" id="dlgDemo">Book a demo</a>
+      <button class="btn" id="dlgBack" type="button"><svg class="ico"><use href="#i-left"/></svg>Back</button>
+      <div class="navs" id="dlgNav"><button class="round" id="dlgPrev" type="button" aria-label="Previous module"><svg class="ico"><use href="#i-left"/></svg></button><button class="round" id="dlgNext" type="button" aria-label="Next module"><svg class="ico"><use href="#i-right"/></svg></button></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  const $=id=>document.getElementById(id);
+  const icon=n=>`<svg class="ico"><use href="#i-${n}"/></svg>`;
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const bw=s=>String(s).replace(/CampusWave/g,'<span class="cw">Campus<span>Wave</span></span>');
+  const onView=(el,fn,opts)=>{ if(!('IntersectionObserver' in window)){ fn(true); return; } new IntersectionObserver(es=>es.forEach(e=>fn(e.isIntersecting,e)),opts||{}).observe(el); };
+
+  /* ---------- flowing line waves ---------- */
+  document.querySelectorAll('svg.wavelines').forEach((svg,si)=>{
+    const n=+svg.dataset.n||5, amp=+svg.dataset.amp||30, per=+svg.dataset.per||900, white=!!svg.dataset.white;
+    const NS='http://www.w3.org/2000/svg', id='wl'+si;
+    const defs=document.createElementNS(NS,'defs');
+    defs.innerHTML=white?`<linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity=".3"/></linearGradient>`
+      :`<linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="#7A4CF0"/><stop offset=".45" stop-color="#36C2D6"/><stop offset=".75" stop-color="#9C7BFF"/><stop offset="1" stop-color="#FF9E7A"/></linearGradient>`;
+    svg.appendChild(defs);
+    const g=document.createElementNS(NS,'g'); g.style.setProperty('--per',per+'px'); g.style.setProperty('--dur',(40+si*6)+'s');
+    const H=420, mid=H/2;
+    for(let k=0;k<n;k++){
+      const t=k/(n-1||1), a=amp*(0.7+0.3*Math.sin(t*Math.PI)), ph=t*0.9, off=(t-.5)*H*.22;
+      let d=''; for(let x=-40;x<=1440+per+40;x+=8){ const y=mid+off+a*Math.sin((x/per)*2*Math.PI+ph); d+=(d?'L':'M')+x+' '+y.toFixed(1); }
+      const p=document.createElementNS(NS,'path'); p.setAttribute('d',d); p.setAttribute('stroke',`url(#${id})`);
+      p.setAttribute('stroke-width',1); p.setAttribute('opacity',(white?.22:.14)+(white?.18:.22)*Math.sin(t*Math.PI));
+      g.appendChild(p);
+    }
+    svg.appendChild(g);
+  });
+
+  /* ---------- feature ticker ---------- */
+  const FEATS=[
+    ['Attendance marking','Absentee alerts to parents','Staff attendance','Leave requests and approvals','Admissions','Student profiles','Alumni archive','Class and section setup','Class captains','Subject and chapter mapping','Syllabus coverage tracking','Lesson completion tracking','Timetable generation','Homework and tasks','Homework timetable','Lesson plan drafting','Course content','Resource sharing','Class reports','Remarks and conduct notes','Teacher profiles','Roles and permissions'],
+    ['Question bank','Question paper generation','Answer keys','Exam schedules','Hall tickets','Marks entry','Report cards','Result publishing','Result graphs','Weekly class reviews','Weekly teacher reviews','Daily principal report','Fee collection','Fee receipts','Fee reminders','Outstanding dues','Expense tracking','Bank accounts','Payroll','Payslips','Admin dashboard'],
+    ['Transport routes','Stops and distances','Route-wise fees','Bus dispatch alerts','Bus delay alerts','Fleet management','Vehicle document expiry alerts','Driver records','Visitor entry log','Visitor approvals','Library catalogue','Book issue and return','Overdue fines','Inventory and stock','ID card generation','Transfer certificates','Study certificates','Birthday greetings','Smart board lessons','Morning school alerts','Holiday and event calendar','School wall posts','Achievements wall','Parent feedback']
+  ];
+  const COLS=['var(--iris)','var(--aqua)','var(--peach)','var(--mint)'];
+  FEATS.forEach((row,r)=>{ const html=row.map((t,i)=>`<span class="feat"><i style="background:${COLS[(i+r)%4]}"></i>${t}</span>`).join(''); $('tk'+(r+1)).innerHTML=html+html; });
+  $('tkList').innerHTML=FEATS.flat().map(t=>`<li>${t}</li>`).join('');
+
+  /* ---------- reveal on arrival ---------- */
+  if('IntersectionObserver' in window && !reduce){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }),{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>{ if(el.getBoundingClientRect().top>innerHeight*0.92){ el.classList.add('pre'); io.observe(el); } });
+  }
+
+  /* ---------- intro: the school day ---------- */
+  const DAY=[
+    ['7:30 am','bell','Holiday and event alerts sent','To all parents and staff','var(--iris)'],
+    ['7:45 am','cake','Birthday wishes sent','3 students, 1 teacher','var(--peach)'],
+    ['7:55 am','bus','Buses dispatched','Parents alerted on every route','var(--aqua)'],
+    ['8:05 am','check','Attendance marked','Class 8B, 2 absent','var(--mint)'],
+    ['8:06 am','chat','Parents notified','Parents of absent students','var(--iris)'],
+    ['10:20 am','board','Lesson activity done','Science, Class 7A','var(--aqua)'],
+    ['11:30 am','book','Lesson marked complete','Maths, Chapter 6','var(--mint)'],
+    ['12:40 pm','doc','Resource shared','History notes, Class 9','var(--peach)'],
+    ['2:15 pm','pencil','Homework given','Students and parents notified','var(--iris)'],
+    ['2:30 pm','cal','Homework timetable updated','Plan for next week','var(--aqua)'],
+    ['3:35 pm','bus','Return buses dispatched','Bus 4 running 10 minutes late','var(--peach)'],
+    ['5:00 pm','chart','Daily reports generated','For the principal and management','var(--mint)']
+  ];
+  const feed=$('feed');
+  feed.innerHTML=DAY.map(d=>`<li class="fi" style="--c:${d[4]}"><span class="ft">${d[0]}</span><span class="fic">${icon(d[1])}</span><span class="fx"><b>${d[2]}</b><small>${d[3]}</small></span></li>`).join('');
+  const items=[...feed.children];
+  const intro=$('intro'), stage=intro.querySelector('.stage'), copyEl=$('introCopy'), stA=$('stA'), stB=$('stB');
+  const chips=[...intro.querySelectorAll('.chip')];
+  chips.forEach(c=>{ c._f=c.dataset.from.split(',').map(Number); });
+  const ring=$('dayRing'), dayNow=$('dayNow'), dayCnt=$('dayCnt');
+  let lastDone=-1;
+  const consoleEl=intro.querySelector('.console'), vwave=intro.querySelector('.vwave'); let conRot=-5;
+  function measureIntro(){ stage.style.setProperty('--ch',copyEl.offsetHeight+'px'); conRot=parseFloat(getComputedStyle(consoleEl).getPropertyValue('--rot'))||0; }
+  function introFrame(){
+    const r=intro.getBoundingClientRect(), span=intro.offsetHeight-innerHeight;
+    const p=span>0?clamp(-r.top/span):0;
+    consoleEl.style.transform=reduce?'none':`rotate(${(conRot*(1-p)).toFixed(3)}deg) scale(${(.95+p*.05).toFixed(4)})`;
+    if(vwave) vwave.style.transform=`rotate(${(-12+p*12).toFixed(2)}deg)`;
+    const a=1-clamp((p-.40)/.08), b=clamp((p-.49)/.09);
+    stA.style.opacity=a; stB.style.opacity=b;
+    stA.style.transform=reduce?'none':`translateY(${-(1-a)*24}px)`; stB.style.transform=reduce?'none':`translateY(${(1-b)*24}px)`;
+    stA.inert=a<.5; stB.inert=b<.5; stA.style.visibility=a<.02?'hidden':''; stB.style.visibility=b<.02?'hidden':'';
+    stA.style.pointerEvents=a<.5?'none':''; stB.style.pointerEvents=b<.5?'none':'';
+    const done=Math.round(lerp(3,DAY.length,clamp((p-.12)/.8)));
+    if(done!==lastDone){
+      lastDone=done;
+      items.forEach((li,i)=>{ li.classList.toggle('done',i<done); li.classList.toggle('now',i===done-1); });
+      dayNow.textContent=DAY[Math.max(0,done-1)][0]; dayCnt.textContent=done+'/'+DAY.length+' done';
+      ring.style.setProperty('--v',Math.round(done/DAY.length*100));
+      const step=items[1].offsetTop-items[0].offsetTop || 46;
+      const vis=Math.max(1,Math.floor((feed.parentElement.clientHeight-24)/step));
+      const off=Math.max(0,Math.min(done-Math.ceil(vis*0.7), DAY.length-vis));
+      feed.style.transform=`translateY(${-off*step}px)`;
+    }
+    // chips settle into place as the stage arrives, so they are at rest by the first stop
+    const ap=clamp((innerHeight-r.top)/(innerHeight*1.12)), e=1-Math.pow(1-ap,3), k=innerWidth<1180?.3:.5;
+    chips.forEach(c=>{ const f=c._f; c.style.transform=`translate(${f[0]*(1-e)*k}px,${f[1]*(1-e)*k}px) rotate(${f[2]*(1-e)}deg)`; });
+  }
+
+  /* ---------- why switch: before / after ---------- */
+  const cmp=$('cmp'), cmpBtns=[...document.querySelectorAll('#cmpSeg button')], storySec=$('story'), spToast=$('spToast');
+  let cmpTouched=false, cmpAuto=false;
+  function setCmp(mode){
+    cmp.dataset.mode=mode;
+    cmpBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===mode));
+    cmp.querySelectorAll('.old').forEach(p=>p.setAttribute('aria-hidden',mode!=='old'));
+    cmp.querySelectorAll('.new').forEach(p=>p.setAttribute('aria-hidden',mode!=='new'));
+    storySec.dataset.mode=mode;
+    const t=mode==='new'?['app','Homework posted','CampusWave · Maths, Class 8B, due Friday']:['chat','Class 8B parents group','47 unread messages'];
+    if(spToast.dataset.mode!==mode){ spToast.dataset.mode=mode; $('spIc').innerHTML=t[0]==='app'?'<img src="img/logo-mark.webp" alt="" width="28" height="18">':icon(t[0]); $('spT1').textContent=t[1]; $('spT2').textContent=t[2]; spToast.classList.remove('pop'); void spToast.offsetWidth; spToast.classList.add('pop'); }
+  }
+  cmpBtns.forEach(b=>b.addEventListener('click',()=>{ cmpTouched=true; setCmp(b.dataset.mode); }));
+  setCmp('old');
+  onView(cmp,(vis)=>{ if(vis && !cmpAuto){ cmpAuto=true; setTimeout(()=>{ if(!cmpTouched) setCmp('new'); }, reduce?0:900); } },{rootMargin:'0px 0px -45% 0px'});
+
+  /* ---------- bento: labels, soft light that follows the pointer ---------- */
+  document.querySelectorAll('.w').forEach((w,i)=>{
+    const h=w.querySelector('h3'), p=w.querySelector('p');
+    if(h) w.setAttribute('aria-label',h.textContent+'. Open details');
+    if(p){ p.id='wd'+i; w.setAttribute('aria-describedby',p.id); }
+    w.addEventListener('pointermove',e=>{ const r=w.getBoundingClientRect(); w.style.setProperty('--mx',(e.clientX-r.left)+'px'); w.style.setProperty('--my',(e.clientY-r.top)+'px'); });
+  });
+
+  /* ---------- automation: jobs run one after another while the card is on screen ---------- */
+  const jobs=[...document.querySelectorAll('.job')];
+  let jobStep=0, jobTimer=null;
+  function jobTick(){
+    if(jobStep<jobs.length){ const j=jobs[jobStep]; j.classList.add('run'); setTimeout(()=>{ j.classList.remove('run'); j.classList.add('ok'); },1350); }
+    else if(jobStep>=jobs.length+3){ jobs.forEach(j=>j.classList.remove('ok','run')); jobStep=-1; }
+    jobStep++;
+  }
+  if(reduce) jobs.forEach(j=>j.classList.add('ok'));
+  else onView(document.querySelector('.w7'),(vis)=>{ clearInterval(jobTimer); if(vis){ jobTick(); jobTimer=setInterval(jobTick,1600); } },{threshold:.25});
+
+  /* ---------- module tour ---------- */
+  const CATS={
+    aca:['Academics','var(--iris)','Classes, subjects, the syllabus, timetables, homework and notes, connected so teachers plan once and everyone stays in step.'],
+    exm:['Exams','var(--aqua)','From the exam calendar to the report card: schedules, the question bank, hall tickets, marks and results in one flow.'],
+    ppl:['People','var(--peach)','Every student, teacher and staff member, from admission day to the alumni list, with attendance and leave built in.'],
+    fin:['Finance','var(--mint)','Fees, receipts, reminders, dues, expenses, bank accounts and payroll, kept in one set of books.'],
+    cmp:['Campus','var(--aqua)','Buses and routes, visitors, the library, stock and ID cards: the day-to-day running of the campus, on record.'],
+    com:['Communication','var(--peach)','Alerts, the school wall, the calendar and feedback, so every notice reaches exactly the right people.'],
+    ai:['AI tools','var(--iris)','Drafts for question papers, lesson plans, timetables and certificates that your staff review and approve.'],
+    auto:['Automation','var(--mint)','The repetitive work that now runs on its own: bulk documents, alerts, birthday wishes, daily reports and weekly reviews.']};
+  const M=(c,n,i,d,f,h,r,w)=>({c,n,i,d,f,h,r,w});
+  const MODS=[
+    M('aca','Classes and sections','board','Every class and section in one place, with its class teacher, classroom, subjects and student list.',
+      ['Set up classes and sections for each academic year','Assign a class teacher and classroom to every section','See and download the full student list','Open a class to view its timetable, tasks and reports','Add sections as the school grows'],
+      ['Create the year’s classes and sections','Assign class teachers, subjects and students','Attendance, exams and timetables build on this structure'],['Management','Office staff','Teachers'],['Subjects and chapters','Timetable','Student profiles']),
+    M('aca','Subjects and chapters','book','Subjects organised by grade, each broken into chapters and topics, so the syllabus has one home.',
+      ['A subject list for every grade','Chapters and topics under each subject','Chapter count per subject at a glance','Subject teachers mapped to each class','Shared by syllabus tracking, notes and question papers'],
+      ['Add subjects for each grade','Break every subject into chapters and topics','Map teachers so they see their own subjects'],['Management','Teachers'],['Syllabus tracking','Course content','Question bank']),
+    M('aca','Syllabus tracking','check','A subject-by-subject view of how much each class has covered and what is still to come.',
+      ['Teachers mark chapters as completed','Coverage for every subject and class','Students see what’s covered and what’s next','Management spots classes that are falling behind','Feeds the weekly class review'],
+      ['A teacher finishes a chapter and marks it complete','Coverage updates for that class straight away','The principal checks progress across classes'],['Teachers','Management','Students'],['Subjects and chapters','AI lesson plans','Weekly class reviews']),
+    M('aca','Timetable','cal','Day-wise periods, subjects and teachers for every class, on the app and the desktop.',
+      ['Weekly timetable for every class and teacher','Period timings with subject and teacher','Today’s schedule on everyone’s phone','Draft a fresh timetable with AI','Changes reach everyone straight away'],
+      ['Build the timetable, or let AI draft it','Publish it to classes and teachers','Edit any period; everyone sees the latest version'],['Management','Teachers','Students','Parents'],['AI timetables','Classes and sections','Teacher profiles']),
+    M('aca','Homework and tasks','pencil','Set homework, projects and reminders with a due date. Students and parents are notified as soon as it’s posted.',
+      ['Tasks with a description, due date and subject','Notifications to students and parents','Track submissions and pending work','Class tasks listed on the class page','Homework history for every student'],
+      ['The teacher creates a task for a class','Students and parents get a notification','The teacher reviews submissions and follows up'],['Teachers','Students','Parents'],['Course content','Remarks','Alerts']),
+    M('aca','Course content','doc','Chapter-wise notes and resources for every subject, on students’ phones whenever they need them.',
+      ['Content organised by subject, chapter and topic','Teachers share notes and resources','Students open material at any time','Stays available for revision before exams','Linked to syllabus tracking'],
+      ['The teacher adds material to a chapter','Students find it under that subject','It stays there for revision'],['Teachers','Students'],['Subjects and chapters','Homework and tasks','Syllabus tracking']),
+    M('aca','Class reports','chart','One page per class with its performance trend, subject scores, attendance and task completion.',
+      ['Overall performance trend for the class','Subject-wise scores','Attendance statistics','Homework and task completion rates','Class teacher and class captains listed'],
+      ['Attendance, marks and tasks flow in during the term','The class report updates on its own','Teachers and management review it any time'],['Teachers','Management'],['Result analysis','Weekly class reviews','Student attendance']),
+    M('aca','Remarks','chat','Teachers record comments on academics, behaviour, participation and conduct for each student.',
+      ['Personal remarks for each student','Covers academics, behaviour and participation','Visible to parents and the student','Builds a record across the year','Useful in parent–teacher meetings'],
+      ['A teacher adds a remark to a student','Parents and the student can read it','It stays on the student’s profile'],['Teachers','Parents','Students'],['Student profiles','Report cards','Homework and tasks']),
+
+    M('exm','Exam schedules','cal','Plan exams with dates, subjects and timings, and show which results are already published.',
+      ['An exam calendar for every class','Subject-wise dates and timings','Result status: published or pending','Students and parents see upcoming exams','Feeds hall tickets and marks entry'],
+      ['Create the exam and its timetable','Publish it to students and parents','Hall tickets and marks entry pick it up'],['Management','Teachers','Students','Parents'],['Hall tickets','Marks entry','Report cards']),
+    M('exm','Question bank','book','Subject-wise questions sorted by chapter, difficulty and marks, built up over the years and reused for every test.',
+      ['Questions by subject, chapter, difficulty and marks','AI suggests answers and rewords questions','Search and reuse past questions','Shared by teachers of the same subject','Feeds AI question papers'],
+      ['Teachers add questions as they teach','AI helps with answers and wording','Papers are built from the bank in minutes'],['Teachers'],['AI question papers','AI answer help','Subjects and chapters']),
+    M('exm','Hall tickets','id','Hall tickets with student details, exam schedule and roll number, in your school’s branding.',
+      ['Generated for a whole class or exam at once','Student details, roll number and exam timetable','School logo and branding','Download and print instantly','Verification details on every ticket'],
+      ['Pick the exam and the classes','Hall tickets are generated for every student','Download, print or share them'],['Office staff','Management','Students'],['Exam schedules','Bulk documents','Student profiles']),
+    M('exm','Marks entry','pencil','Teachers enter marks for the whole paper or question by question. Totals and averages are worked out for them.',
+      ['Marks by exam, class and subject','Question-wise or whole-paper entry','Totals and class averages calculated','Review before results are published','Feeds report cards and result analysis'],
+      ['Teachers enter marks after the exam','Totals and averages are calculated','Results are published when the school is ready'],['Teachers','Management'],['Report cards','Result analysis','Exam schedules']),
+    M('exm','Report cards','exam','Report cards with subject-wise marks and grades, published straight to parents’ phones.',
+      ['Generated for every student once marks are in','Subject-wise marks and grades','Performance graphs','On the parent app, and ready to print','Saved on the student’s profile'],
+      ['Marks entry is completed','Report cards are generated for the class','Parents see them on the app'],['Teachers','Management','Parents','Students'],['Marks entry','Bulk documents','Result analysis']),
+    M('exm','Result analysis','chart','Graphs of class and subject performance that show who is doing well and who needs help.',
+      ['Marks distribution for every exam','Subject-wise averages','Compare sections and classes','Student trends across exams','Ready for staff and board meetings'],
+      ['Marks are entered','Graphs update automatically','Teachers plan support for students who need it'],['Management','Teachers'],['Marks entry','Class reports','Weekly class reviews']),
+
+    M('ppl','Admissions','users','Record a new admission once and build the student’s profile from the first day.',
+      ['Admission details captured once','Student profile created automatically','Class and section assigned','Parent contacts and documents stored','App logins issued to the student and parents'],
+      ['Enter the admission details','Assign the class and section','Logins go out to the student and parents'],['Office staff','Management'],['Student profiles','ID cards','Fee collection']),
+    M('ppl','Student profiles','users','A complete record for every student: personal details, attendance, marks, achievements and documents.',
+      ['Personal and contact details','Attendance summary: present, absent and leave','Report cards and subject-wise performance','Achievements in academics, sports and activities','Download the study certificate from the profile'],
+      ['The profile starts at admission','Attendance, marks and remarks add to it every day','Management, teachers and parents each see the right parts'],['Management','Teachers','Parents','Students'],['Admissions','Student attendance','Report cards']),
+    M('ppl','Student attendance','check','Mark a class present, absent or on leave in seconds. Parents of absent students hear about it the same morning.',
+      ['Class-wise marking on the app','Present, absent and leave','Absentee alerts to parents','Daily and monthly attendance reports','An attendance summary on every profile'],
+      ['The class teacher marks attendance in the first period','Parents of absent students are alerted','Reports update for the office and the principal'],['Teachers','Parents','Management'],['Absentee alerts','Class reports','Student profiles']),
+    M('ppl','Teacher profiles','brief','Each teacher’s qualifications, subjects, timetable, attendance, leave and achievements in one profile.',
+      ['Qualifications and contact details','Subjects and classes handled','Personal timetable','Attendance and leave taken','Achievements and recognition'],
+      ['Add the teacher once','Assign subjects and classes','Attendance, leave and reviews build up over time'],['Management','Teachers'],['Staff attendance','Leave management','Weekly teacher reviews']),
+    M('ppl','Staff records','brief','Records for non-teaching staff with their role, department, staff ID and contact details.',
+      ['Staff list with roles and departments','Staff ID and contact details','Add new staff in one form','A profile for every staff member','Linked to attendance, leave and payroll'],
+      ['Add the staff member','Assign a role and department','Attendance, leave and payroll pick them up'],['Management','Office staff'],['Payroll','Staff attendance','Leave management']),
+    M('ppl','Staff attendance','clock','Daily attendance for teaching and non-teaching staff, with monthly reports for management.',
+      ['Daily attendance for all staff','Approved leave taken into account','Monthly attendance reports','Visible on each staff profile','Used for payroll and reviews'],
+      ['Staff attendance is marked each day','Approved leave is accounted for','Monthly totals are ready for payroll'],['Management','Office staff'],['Leave management','Payroll','Teacher profiles']),
+    M('ppl','Leave management','sun','Staff apply for leave, approvers accept or reject it, and every request is tracked.',
+      ['Apply, approve, reject or cancel','Pending, approved and rejected views','Filters to find any request','Leave taken shown on the profile','A clear view of who is available'],
+      ['A staff member applies for leave','The approver accepts or rejects it','Everyone sees the updated status'],['Teachers','Office staff','Management'],['Staff attendance','Teacher profiles','Timetable']),
+    M('ppl','Alumni archive','archive','Records of students who have graduated, transferred or left, kept safe and easy to look up.',
+      ['Records of graduated and transferred students','Full history preserved','Easy to look up for reference','Useful for certificates and verification requests','Keeps current class lists clean'],
+      ['A student graduates or leaves','Their record moves to the archive','Find it whenever it’s needed'],['Office staff','Management'],['Student profiles','AI certificates']),
+
+    M('fin','Fee collection','wallet','Collect fees by class and term, with a receipt generated for every payment.',
+      ['Fee structures for each class','Collect at the counter','Instant receipts','Payment history for every student','Dues update automatically'],
+      ['Set up the fee structure','Record payments as they come in','Receipts are issued and dues update'],['Accounts','Management','Parents'],['Fee reminders','Outstanding dues','Bank accounts']),
+    M('fin','Fee reminders','bell','Remind parents about pending fees in one go, by app, SMS or email.',
+      ['Reminders to parents with dues','Pick a class or the whole school','App, SMS or email','Receipts follow once paid','Fewer calls to the office'],
+      ['Choose who should be reminded','Send the reminder','Parents pay, and dues and receipts update'],['Accounts','Parents'],['Outstanding dues','Fee collection','Alerts']),
+    M('fin','Outstanding dues','chart','See exactly who owes what, class by class, at any moment.',
+      ['Pending fees by class and student','Totals for the term','Follow up with reminders','Ready for management reviews','Updated with every payment'],
+      ['Payments are recorded','Dues are recalculated straight away','The accounts team follows up'],['Accounts','Management'],['Fee reminders','Fee collection']),
+    M('fin','Expenses','wallet','Record school expenses as they happen and keep the books in order.',
+      ['Record expenses with category and date','Spending by category','Monthly summaries','One place for the accounts team','Part of financial reports for management'],
+      ['Record each expense','See spending by category','Review monthly summaries'],['Accounts','Management'],['Bank accounts','Outstanding dues']),
+    M('fin','Bank accounts','bank','Track the school’s bank accounts and transactions in one place.',
+      ['All school accounts listed','Transactions recorded against each account','Balances at a glance','Linked with fee collection and expenses','Reports for management'],
+      ['Add the school’s accounts','Transactions are recorded against them','Management reviews balances and reports'],['Accounts','Management'],['Fee collection','Expenses','Payroll']),
+    M('fin','Payroll','brief','Salary calculations, deductions and payslips for every staff member.',
+      ['Salary details for every staff member','Deductions and tax calculated','Payslips generated every month','Linked to staff records','Salary history kept'],
+      ['Set salary details once','Run payroll each month','Payslips are ready for staff'],['Accounts','Management','Teachers','Office staff'],['Staff records','Staff attendance','Bank accounts']),
+
+    M('cmp','Transport routes','bus','Routes, stops, distances and the students on each bus, with route-wise fees.',
+      ['Routes with stops and distances','Students assigned to each route','Route-wise transport fees','Pickup and drop details for parents','Route alerts to parents'],
+      ['Set up routes and stops','Assign students to routes','Parents get alerts for their route'],['Transport staff','Management','Parents'],['Fleet management','Alerts','Fee collection']),
+    M('cmp','Fleet management','bus','Every vehicle and driver on record, with alerts before vehicle documents expire.',
+      ['Details for every vehicle','Driver records','Document expiry alerts','Vehicles mapped to routes','Simpler daily transport coordination'],
+      ['Add vehicles, drivers and documents','Map vehicles to routes','Get alerted before any document expires'],['Transport staff','Management'],['Transport routes','Alerts']),
+    M('cmp','Visitor management','gate','Log every visitor with their purpose and host, with approval before entry.',
+      ['Name, contact, purpose and host recorded','Approval by the right person before entry','A full visit log with timestamps','Approval status for every visit','A safer, accountable campus'],
+      ['The front desk logs the visitor','The host or principal approves','The visit is recorded with time and status'],['Front desk','Management'],['Alerts','Staff records']),
+    M('cmp','Library','book','Catalogue every book, issue and return in seconds, and track overdue books and fines.',
+      ['Catalogue with title, author and ISBN','Issue and return tracking','Overdue lists and fines','Search for any book','Available and issued counts'],
+      ['Add books to the catalogue','Issue and return at the desk','Overdue books and fines are tracked'],['Librarian','Students','Teachers'],['Student profiles','Inventory']),
+    M('cmp','Inventory','box','School assets, supplies and stock levels, kept up to date.',
+      ['Assets and supplies in one list','Current stock levels','Updated as items are used or added','A clear view for purchasing decisions','Part of management reports'],
+      ['List assets and supplies','Update stock as it changes','Review levels before buying'],['Office staff','Management'],['Library','Expenses']),
+    M('cmp','ID cards','id','Student and staff ID cards generated from their profiles, ready to print.',
+      ['Photo, name, class and contact from the profile','School branding','A whole class or new admissions in one go','Print-ready layout','Reprint any card in seconds'],
+      ['Choose students or staff','Cards are generated from their profiles','Print and hand them out'],['Office staff','Management'],['Admissions','Bulk documents','Student profiles']),
+
+    M('com','Alerts','bell','SMS, email and app notifications to a class, a bus route, all parents or all staff.',
+      ['App, SMS and email','Target a class, route, group or everyone','Urgent notices go out straight away','Reaches parents, students and staff','A history of every alert sent'],
+      ['Write the message','Choose who receives it','It reaches the right people at once'],['Management','Office staff','Teachers','Parents'],['School wall','Events and holidays','Transport routes']),
+    M('com','School wall','spark','A digital noticeboard for achievements, events and announcements, with photos.',
+      ['Posts with text and an image','Achievements and event highlights','Visible to students, parents and staff','Past posts kept for reference','Shareable by the school community'],
+      ['The school posts an update','It appears on everyone’s wall','Families see it and share it'],['Management','Parents','Students','Teachers'],['Achievements','Events and holidays']),
+    M('com','Events and holidays','cal','A shared school calendar for events, holidays and important dates.',
+      ['The school calendar for the year','Events and holidays in one view','Morning alerts on the day','Visible on every app','Easy to update when plans change'],
+      ['Add events and holidays','Everyone sees them in the calendar','Alerts go out on the morning of the day'],['Management','Parents','Students','Teachers'],['Alerts','School wall']),
+    M('com','Achievements','star','Celebrate wins in academics, sports and activities, on profiles and on the school wall.',
+      ['Achievements recorded for each student','Academics, sports and activities','Shown on the student profile','Shared on the school wall','Part of the student’s record'],
+      ['A teacher records the achievement','It appears on the student’s profile','The school can share it on the wall'],['Teachers','Students','Parents'],['Student profiles','School wall']),
+    M('com','Feedback','chat','Parents and students send feedback straight to the school administration.',
+      ['Send feedback from the app','Goes straight to the administration','Parents and students can both use it','Helps the school act on concerns early'],
+      ['A parent or student writes in from the app','It reaches the administration','The school follows up'],['Parents','Students','Management'],['Alerts','About the school']),
+    M('com','About the school','home','Admission process, attendance rules, uniform, school hours and fee dates on one page for parents.',
+      ['Admission process','Attendance criteria and discipline policy','Uniform guidelines','Test and exam pattern','School hours, contacts and fee timelines'],
+      ['The school fills in its details once','Parents read them in the app','Update any time a policy changes'],['Parents','Students','Management'],['Events and holidays','Fee collection']),
+
+    M('ai','AI question papers','spark','Balanced question papers from your syllabus and question bank, in two versions: with answers and without.',
+      ['Choose chapters, difficulty and marks','Balanced across topics and learning outcomes','A version with answers and one without','Edit any question before printing','Built from your own question bank'],
+      ['Pick the chapters and paper format','AI drafts a balanced paper','The teacher reviews, edits and prints'],['Teachers','Management'],['Question bank','AI answer help','Exam schedules']),
+    M('ai','AI lesson plans','spark','Structured lesson plans with topics, activities and timings from a few simple inputs.',
+      ['Topic, outcomes and activities laid out','Timings for each part of the lesson','Adjust for different levels','Saved for reuse','The teacher stays in control of the final plan'],
+      ['Enter the topic and class','AI drafts a structured plan','The teacher adjusts it and saves it'],['Teachers'],['Syllabus tracking','Course content']),
+    M('ai','AI timetables','cal','Timetables that balance subjects, teacher availability and classrooms, with far fewer clashes.',
+      ['Considers teachers, rooms and subjects together','Fewer conflicts than planning by hand','Faster changes mid-term','Publishes to every class and teacher','Edit any period by hand'],
+      ['Set subjects, teachers and constraints','AI builds the timetable','Review, adjust and publish'],['Management'],['Timetable','Teacher profiles']),
+    M('ai','AI certificates','doc','Transfer and study certificates created instantly, accurate and in your school’s format.',
+      ['Transfer certificates','Study certificates','Details pulled from student records','Your letterhead and layout','Ready to print in seconds'],
+      ['Choose the student and the certificate','It is filled in from the record','Review and print'],['Office staff','Management'],['Student profiles','Alumni archive','Bulk documents']),
+    M('ai','AI answer help','spark','Suggested answers and reworded questions that help teachers build the question bank faster.',
+      ['Suggested answers for questions','Rewording for clarity','Ideas for new questions','Teachers approve every change','Speeds up question bank work'],
+      ['Add or pick a question','AI suggests an answer or new wording','The teacher accepts or edits it'],['Teachers'],['Question bank','AI question papers']),
+
+    M('auto','Bulk documents','box','Report cards, hall tickets, ID cards and certificates for a whole class or the whole school, in one run.',
+      ['Report cards for every student once marks are in','Hall tickets for an entire exam','ID cards for new admissions and staff','Certificates from the student record','All in your school’s branding'],
+      ['Choose the document and the classes','CampusWave generates them all at once','Download, print or share'],['Office staff','Management'],['Report cards','Hall tickets','ID cards']),
+    M('auto','Absentee alerts','bell','When attendance is marked, parents of absent students are told automatically.',
+      ['Triggered by attendance marking','App or SMS to the parent','The same morning, every day','No calls from the office needed','A record of every alert sent'],
+      ['The teacher marks attendance','Absent students are identified','Their parents are alerted'],['Parents','Teachers'],['Student attendance','Alerts']),
+    M('auto','Birthday greetings','cake','Birthday wishes go out to students and staff on the morning of their birthday, automatically.',
+      ['Wishes sent on the day','Students and staff included','Sent through the app','Nobody has to keep a list','A small touch families notice'],
+      ['Birthdays come from the profiles','Wishes go out in the morning','Families see them on the app'],['Students','Parents','Teachers'],['Student profiles','Alerts']),
+    M('auto','Daily reports','chart','A summary for the principal and management at the end of every school day.',
+      ['Student and staff attendance','Homework set and lessons completed','Fees collected that day','Transport and visitor highlights','Arrives without anyone compiling it'],
+      ['The day’s activity is gathered automatically','A summary report is prepared','It reaches management every evening'],['Management'],['Weekly class reviews','Weekly teacher reviews']),
+    M('auto','Weekly teacher reviews','brief','A weekly picture of each teacher’s classes: syllabus progress, homework, attendance and results.',
+      ['Syllabus coverage for each class taught','Homework set and reviewed','Attendance in their classes','Recent results','Shared with management every week'],
+      ['The week’s data is gathered','A review is prepared for each teacher','Management reviews it and follows up'],['Management','Teachers'],['Syllabus tracking','Daily reports']),
+    M('auto','Weekly class reviews','chart','A weekly report for every class covering attendance, performance, homework and syllabus progress.',
+      ['Attendance trend for the week','Subject performance','Homework completion','Syllabus progress','Students who need attention'],
+      ['The week’s class data is gathered','A review is prepared for each class','Class teachers and management act on it'],['Teachers','Management'],['Class reports','Result analysis'])
+  ];
+  const byName=Object.fromEntries(MODS.map(m=>[m.n,m]));
+  const inCat=c=>MODS.filter(m=>m.c===c);
+  $('modTotal').textContent=MODS.length;
+  const hsTabs=$('hsTabs'), hsGrid=$('hsGrid'), hsTitle=$('hsTitle'), hsCount=$('hsCount'), hsSpot=$('hsSpot');
+  const small=matchMedia('(max-width:640px)');
+  const tabBtns=Object.keys(CATS).map((k,i)=>{ const b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.id='hs-'+k; b.dataset.k=k; b.setAttribute('aria-controls','hsGrid');
+    b.innerHTML=`${CATS[k][0]}<small>${inCat(k).length}</small>`; b.setAttribute('aria-selected',i===0); b.tabIndex=i===0?0:-1; hsTabs.appendChild(b); return b; });
+  let curCat='aca', shown=[], spotI=0, timer=null, paused=false, inView=false;
+  function renderCat(k){
+    curCat=k;
+    tabBtns.forEach(b=>{ const on=b.dataset.k===k; b.setAttribute('aria-selected',on); b.tabIndex=on?0:-1;
+      if(on){ hsGrid.setAttribute('aria-labelledby',b.id); if(hsTabs.scrollWidth>hsTabs.clientWidth) hsTabs.scrollTo({left:b.offsetLeft-(hsTabs.clientWidth-b.offsetWidth)/2, behavior:reduce?'auto':'smooth'}); } });
+    shown=inCat(k);
+    hsTitle.textContent=CATS[k][0]; hsCount.textContent=shown.length+' modules'; $('hsDept').textContent=CATS[k][2];
+    hsGrid.innerHTML='';
+    shown.forEach((m,i)=>{ const t=document.createElement('button'); t.type='button'; t.className='tile'; t.style.setProperty('--k',i); t.style.setProperty('--c',CATS[m.c][1]);
+      t.innerHTML=`<span class="ti">${icon(m.i)}</span><span>${m.n}</span>`;
+      t.addEventListener('click',()=>{ setSpot(i,true); if(small.matches) openModule(m,t); }); hsGrid.appendChild(t); });
+  }
+  function setSpot(i,user){
+    if(!shown.length) return; spotI=(i+shown.length)%shown.length; const m=shown[spotI];
+    [...hsGrid.children].forEach((t,j)=>{ t.classList.toggle('spot',j===spotI); t.setAttribute('aria-pressed',j===spotI); });
+    $('spIco').innerHTML=icon(m.i); $('spCat').textContent=CATS[m.c][0]; $('spTitle').textContent=m.n; $('spText').innerHTML=bw(esc(m.d));
+    $('spPos').textContent=(spotI+1)+' of '+shown.length;
+    $('spFeats').innerHTML=m.f.slice(0,4).map(x=>`<li>${bw(x)}</li>`).join('');
+    $('spRoles').innerHTML=m.r.map(x=>`<span>${x}</span>`).join('');
+    $('spRel').innerHTML=m.w.filter(x=>byName[x]).map(x=>`<button type="button" data-go="${esc(x)}">${x}</button>`).join('');
+    hsSpot.classList.remove('swap'); void hsSpot.offsetWidth; hsSpot.classList.add('swap');
+    restartBar(); if(user) restartTimer();
+  }
+  function restartBar(){ const b=$('spBar'); b.classList.remove('run'); void b.offsetWidth; if(!paused && inView && !reduce && !dlg.open) b.classList.add('run'); }
+  function restartTimer(){ clearInterval(timer); if(reduce) return; timer=setInterval(()=>{ if(!paused && inView && !document.hidden && !dlg.open) setSpot(spotI+1); },7000); }
+  function goModule(name){ const m=byName[name]; if(!m) return; if(m.c!==curCat) renderCat(m.c); setSpot(shown.indexOf(m),true); }
+  hsSpot.addEventListener('click',e=>{ const g=e.target.closest('[data-go]'); if(g) goModule(g.dataset.go); });
+  $('spOpen').addEventListener('click',()=>openModule(shown[spotI],$('spOpen')));
+  $('spNext').addEventListener('click',()=>setSpot(spotI+1,true));
+  const tour=document.querySelector('.tour');
+  tour.addEventListener('pointerenter',e=>{ if(e.pointerType==='mouse'){ paused=true; $('spBar').classList.remove('run'); } });
+  tour.addEventListener('pointerleave',e=>{ if(e.pointerType==='mouse'){ paused=false; restartBar(); restartTimer(); } });
+  tour.addEventListener('focusin',()=>{ paused=true; $('spBar').classList.remove('run'); });
+  tour.addEventListener('focusout',e=>{ if(!tour.contains(e.relatedTarget)){ paused=false; restartBar(); restartTimer(); } });
+  tabBtns.forEach((b,i)=>{
+    b.addEventListener('click',()=>{ renderCat(b.dataset.k); setSpot(0,true); });
+    b.addEventListener('keydown',e=>{ const keys={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}; if(keys[e.key]){ e.preventDefault(); const n=tabBtns[(i+keys[e.key]+tabBtns.length)%tabBtns.length]; renderCat(n.dataset.k); setSpot(0,true); n.focus(); } });
+  });
+  onView(tour,(vis)=>{ inView=vis; if(vis) restartBar(); },{threshold:.35});
+
+  /* ---------- roles ---------- */
+  const ROLES={
+    management:{h:'The whole school on one screen.',p:'Attendance, academics, fees, staff and transport in one dashboard, with daily and weekly reports arriving on their own.',l:['Live attendance for every class and every staff member','Syllabus progress and results by class and subject','Fee collection and dues at a glance','Approve leave and visitors from your phone'],lab:'Management view · example',m:[['94%','students present today'],['3','classes behind on syllabus']],t:[['done','Daily report received, 5:00 pm'],['done','Weekly teacher reviews ready'],['','Approve 2 leave requests']]},
+    teachers:{h:'Less admin. More teaching.',p:'Attendance, homework, marks and lesson plans take minutes, with AI drafting the routine parts so you can focus on the class in front of you.',l:['Mark attendance and set homework from your phone','Draft question papers and lesson plans with AI','Enter marks once; report cards follow','Track syllabus coverage without a spreadsheet'],lab:'Teacher view · example',m:[['5','periods today'],['28/32','homework submitted']],t:[['done','Attendance marked for 8B'],['done','Unit test paper drafted'],['','Enter marks for the Science quiz']]},
+    students:{h:'Everything for school, in one app.',p:'Timetable, homework, notes, exam dates and results, in one login that is easy to follow.',l:['Today’s timetable and homework at a glance','Notes and resources for every chapter','Exam schedule, hall ticket and results','Achievements on the school wall'],lab:'Student view · example',m:[['3','tasks due this week'],['Mon','next exam']],t:[['done','Maths homework submitted'],['done','Chapter 4 notes opened'],['','Revise for Friday’s English test']]},
+    parents:{h:'Always in the loop.',p:'Attendance, homework, fees, results and school news reach you as they happen, without chasing anyone for updates.',l:['Same-day attendance and absence alerts','Homework and exam dates as soon as they’re set','Report cards and results on your phone','Fee reminders, receipts and transport alerts'],lab:'Parent view · example',m:[['8:02 am','arrived at school'],['1','new notice']],t:[['done','Term fee receipt received'],['done','Report card viewed'],['alert','Bus 4 running 10 minutes late']]}
+  };
+  const roleTabs=[...document.querySelectorAll('#roleTabs button')], panel=$('rolePanel'), rc=$('roleCopy');
+  const tickSvg='<svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>';
+  function setRole(key,focus){ const r=ROLES[key];
+    roleTabs.forEach(t=>{ const on=t.dataset.role===key; t.setAttribute('aria-selected',on); t.tabIndex=on?0:-1; if(on){ panel.setAttribute('aria-labelledby',t.id); if(focus) t.focus(); } });
+    rc.innerHTML=`<h3>${r.h}</h3><p class="lead">${r.p}</p><ul class="checks">${r.l.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+    rc.classList.remove('fade'); void rc.offsetWidth; rc.classList.add('fade');
+    $('rcLabel').textContent=r.lab;
+    $('rcMini').innerHTML=r.m.map(m=>`<div><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
+    $('rcTasks').innerHTML=r.t.map(t=>`<div class="rtask ${t[0]}"><span class="tick">${tickSvg}</span><span>${t[1]}</span></div>`).join('');
+    document.querySelectorAll('.role-photo img').forEach(im=>im.classList.toggle('on',im.dataset.role===key));
+    document.querySelectorAll('.rv-stats,.rv-card').forEach(el=>{ el.classList.remove('fade'); void el.offsetWidth; el.classList.add('fade'); });
+  }
+  roleTabs.forEach((t,i)=>{ t.addEventListener('click',()=>setRole(t.dataset.role));
+    t.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); const n=roleTabs[(i+(e.key==='ArrowRight'?1:-1)+roleTabs.length)%roleTabs.length]; setRole(n.dataset.role,true); } }); });
+  setRole('management');
+
+  /* ---------- promise switches flip on when seen ---------- */
+  document.querySelectorAll('.pcard').forEach((p,k)=>{ let done=false; onView(p,(vis)=>{ if(vis && !done){ done=true; setTimeout(()=>p.classList.add('on'),reduce?0:250+k*180); } },{threshold:.5}); });
+
+  /* ---------- dialogs ---------- */
+  const D={
+    papers:{i:'spark',c:'AI tools',t:'Question papers, drafted for you',x:'Pick the chapters, difficulty and total marks. CampusWave builds a balanced paper from your syllabus and question bank, ready for the teacher to review, edit and print.',l:['Two versions of every paper: with answers and without','Balanced across chapters, difficulty and learning outcomes','Built from your own question bank, which grows every term','AI can suggest answers and reword questions'],s:['Choose the chapters, marks and difficulty','Review the draft and swap any question','Print both versions or share them with colleagues'],r:['Teachers','Management'],w:['AI question papers','Question bank','AI answer help']},
+    plans:{i:'pencil',c:'AI tools',t:'Lesson plans in minutes',x:'Enter a topic and class, and CampusWave lays out a plan with outcomes, activities and timings. Teachers adjust it in their own words before saving.',l:['Topic, outcomes, activities and timings laid out','Easy to adapt for different levels','Saved and reusable next year','Linked to syllabus tracking'],s:['Enter the topic and class','Review the drafted plan','Adjust it and save it for the class'],r:['Teachers'],w:['AI lesson plans','Syllabus tracking','Course content']},
+    timetable:{i:'cal',c:'AI tools',t:'Timetables without clashes',x:'CampusWave balances subjects, teacher availability and classrooms to build a timetable with far fewer conflicts, and helps you update it when things change mid-term.',l:['Accounts for teachers, rooms and subjects together','Quick changes when a teacher is away','Every class and teacher sees their own schedule','Published to the app and the desktop at once'],s:['Set subjects, teachers and rooms','Generate the timetable','Review, adjust and publish'],r:['Management','Teachers'],w:['AI timetables','Timetable','Teacher profiles']},
+    docs:{i:'doc',c:'AI tools',t:'Certificates on demand',x:'Transfer certificates and study certificates are generated instantly from the student record, accurate and in your school’s own format.',l:['Your letterhead, seal and layout','Details pulled from the student record, with no retyping','Ready to print in seconds','Works for current and past students'],s:['Choose the student and the certificate','Check the filled-in details','Print or download it'],r:['Office staff','Management'],w:['AI certificates','Student profiles','Alumni archive']},
+    insights:{i:'chart',c:'AI tools',t:'Class performance, at a glance',x:'Marks, attendance and homework turn into simple graphs that management and teachers can act on, class by class.',l:['Class and subject performance trends','Attendance patterns spotted early','Homework completion for each class','Ready to share in staff and parent meetings'],s:['Marks and attendance are recorded as usual','Graphs update on their own','Teachers plan support where it’s needed'],r:['Management','Teachers'],w:['Result analysis','Class reports','Weekly class reviews']},
+    automation:{i:'gear',c:'Automation',t:'The routine paperwork runs itself',x:'Report cards, hall tickets, ID cards and certificates are generated for a whole class or the whole school in one run. Reviews and reports reach the right people on schedule, without anyone compiling them.',l:['Report cards for every student once marks are in','Hall tickets for an entire exam, in your branding','ID cards for new admissions and staff','Transfer and study certificates from the student record','Weekly performance reviews for every teacher and class','A daily report for the principal every evening','Absentee alerts to parents as soon as attendance is marked','Birthday wishes to students and staff each morning'],s:['Attendance, marks and records come in through the day','CampusWave generates documents, reviews and reports in bulk','They reach management, staff and parents automatically'],r:['Management','Office staff','Teachers','Parents'],w:['Bulk documents','Daily reports','Weekly teacher reviews','Weekly class reviews','Absentee alerts','Birthday greetings']},
+    alerts:{i:'bell',c:'Communication',t:'Messages that reach the right people',x:'Send one notice and it reaches exactly the right people: a class, a bus route, all parents or all staff, by app, SMS or email.',l:['App, SMS and email from one place','Morning alerts for holidays and events','Transport alerts for parents on a route','A school wall for achievements and events'],s:['Write the notice','Choose who should receive it','It arrives on their phones at once'],r:['Management','Office staff','Teachers','Parents'],w:['Alerts','Events and holidays','School wall']}
+  };
+  const dlg=$('dlg'), dlgBox=$('dlgBox'); let opener=null, dlgMod=null;
+  function renderDlg(o){
+    $('dlgIco').innerHTML=icon(o.i); $('dlgCat').textContent=o.c; $('dlgTitle').textContent=o.t; $('dlgText').innerHTML=bw(esc(o.x));
+    let h=`<div><span class="lbl">What you can do</span><ul class="checks two">${o.l.map(x=>`<li>${bw(x)}</li>`).join('')}</ul></div>`;
+    h+=`<div class="dlg-cols"><div class="dlg-box"><span class="lbl">How it works</span><ol class="howto">${o.s.map(x=>`<li>${bw(x)}</li>`).join('')}</ol></div><div><span class="lbl">Used by</span><div class="tags">${o.r.map(x=>`<span>${x}</span>`).join('')}</div></div></div>`;
+    const rel=(o.w||[]).filter(n=>byName[n]);
+    if(rel.length) h+=`<div><span class="lbl">${o.nav?'Works with':'Related modules'}</span><div class="rels">${rel.map(n=>{ const m=byName[n]; return `<button type="button" class="rel" data-go="${esc(n)}"><span class="ri">${icon(m.i)}</span><span><b>${m.n}</b><small>${bw(m.d)}</small></span></button>`; }).join('')}</div></div>`;
+    $('dlgBody').innerHTML=h;
+    $('dlgNav').hidden=!o.nav;
+    dlgBox.scrollTop=0;
+    if(!dlg.open){ if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open',''); $('spBar').classList.remove('run'); }
+    else $('dlgTitle').focus({preventScroll:true});
+  }
+  function openModule(m,btn){ if(btn) opener=btn; dlgMod=m; const list=inCat(m.c);
+    renderDlg({i:m.i,c:CATS[m.c][0]+' · '+(list.indexOf(m)+1)+' of '+list.length,t:m.n,x:m.d,l:m.f,s:m.h,r:m.r,w:m.w,nav:true}); }
+  function stepModule(d){ if(!dlgMod) return; const list=inCat(dlgMod.c), n=list[(list.indexOf(dlgMod)+d+list.length)%list.length]; goModule(n.n); openModule(n); }
+  function closeDlg(){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+  dlg.addEventListener('close',()=>{ dlgMod=null; restartBar(); if(opener && document.contains(opener)) opener.focus({preventScroll:true}); });
+  document.querySelectorAll('[data-dlg]').forEach(b=>b.addEventListener('click',()=>{ opener=b; dlgMod=null; renderDlg(D[b.dataset.dlg]); }));
+  $('dlgClose').onclick=closeDlg; $('dlgBack').onclick=closeDlg;
+  $('dlgPrev').onclick=()=>stepModule(-1); $('dlgNext').onclick=()=>stepModule(1);
+  $('dlgDemo').addEventListener('click',()=>{ opener=null; closeDlg(); });
+  dlg.addEventListener('click',e=>{ if(e.target===dlg){ closeDlg(); return; } const g=e.target.closest('[data-go]'); if(g){ const m=byName[g.dataset.go]; if(m){ goModule(m.n); openModule(m); } } });
+  dlg.addEventListener('keydown',e=>{ if(!dlgMod || e.target.closest('input,select,textarea')) return; if(e.key==='ArrowRight'){ e.preventDefault(); stepModule(1); } if(e.key==='ArrowLeft'){ e.preventDefault(); stepModule(-1); } });
+
+  /* ---------- demo form ---------- */
+  const form=$('demoForm'), out=$('formOut');
+  form.addEventListener('submit',e=>{ e.preventDefault();
+    const v=id=>$(id).value.trim();
+    const miss=['fName','fSchool','fPhone'].filter(id=>!v(id));
+    form.querySelectorAll('.err').forEach(n=>n.remove());
+    ['fName','fSchool','fPhone'].forEach(id=>$(id).removeAttribute('aria-invalid'));
+    if(miss.length){ const p=document.createElement('p'); p.className='err';
+      p.textContent='Please add your '+miss.map(id=>({fName:'name',fSchool:'school name',fPhone:'phone number'})[id]).join(', ')+'.';
+      miss.forEach(id=>$(id).setAttribute('aria-invalid','true'));
+      out.prepend(p); $(miss[0]).focus(); return; }
+    const msg=`Hi, I'd like a CampusWave demo.\nName: ${v('fName')}\nSchool: ${v('fSchool')}\nPhone: ${v('fPhone')}\nCity: ${v('fCity')||'-'}\nRole: ${v('fRole')}`;
+    const url='https://wa.me/919741821122?text='+encodeURIComponent(msg);
+    let link=$('waLink'); if(!link){ link=document.createElement('p'); link.id='waLink'; out.prepend(link); }
+    link.innerHTML=`Your message is ready. <a href="${url}" target="_blank" rel="noopener">Open WhatsApp to send it</a>.`;
+  });
+  $('copyPhone').addEventListener('click',e=>{
+    const b=e.currentTarget, done=()=>{ b.textContent='Copied'; setTimeout(()=>b.textContent='Copy',1600); };
+    const sel=()=>{ const r=document.createRange(); r.selectNodeContents($('phoneTxt')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Selected'; };
+    try{ navigator.clipboard.writeText('+91 97418 21122').then(done,sel); }catch(_){ sel(); }
+  });
+
+  /* ---------- nav, rail, landing ---------- */
+  const landing=$('landing'), siteNav=$('siteNav'), rail=$('rail'), demo=$('demo');
+  const secs=[...document.querySelectorAll('[data-rail]')], navLinks=[...document.querySelectorAll('.nav-links a, .menu a:not(.go)')];
+  const menuBtn=$('menuBtn'), menu=$('menu');
+  function setMenu(open){ menu.hidden=!open; menuBtn.setAttribute('aria-expanded',open); menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu'); }
+  menuBtn.addEventListener('click',()=>setMenu(menu.hidden));
+  menu.addEventListener('click',e=>{ if(e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click',e=>{ if(!menu.hidden && !e.target.closest('#menu,#menuBtn')) setMenu(false); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !menu.hidden){ setMenu(false); menuBtn.focus(); } });
+  addEventListener('resize',()=>{ if(innerWidth>1060 && !menu.hidden) setMenu(false); });
+  const dots=secs.map(s=>{ const a=document.createElement('a'); a.href='#'+s.id; a.dataset.label=s.dataset.rail; a.setAttribute('aria-label',s.dataset.rail); rail.appendChild(a); return a; });
+  function chromeFrame(){
+    const y=scrollY;
+    siteNav.classList.toggle('scrolled',y>8);
+    landing.style.setProperty('--h',clamp(y/Math.max(1,landing.offsetHeight)).toFixed(3));
+    const ir=intro.getBoundingClientRect(), dr=demo.getBoundingClientRect();
+    rail.classList.toggle('off',ir.top>innerHeight*.5);
+    let k=-1; secs.forEach((s,j)=>{ if(s.getBoundingClientRect().top<innerHeight*.5) k=j; });
+    const cur=(el,on)=>{ el.classList.toggle('on',on); if(on!==el.hasAttribute('aria-current')){ if(on) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current'); } };
+    dots.forEach((d,j)=>cur(d,j===k));
+    const id=k>=0?secs[k].id:''; navLinks.forEach(a=>cur(a,a.getAttribute('href')==='#'+id));
+    siteNav.classList.toggle('on-band',dr.top<34 && dr.bottom>34);
+  }
+  /* ---------- section stops: when a scroll ends close to the next section, glide the rest of the way ----------
+     Only stops ahead of where the gesture started count, so it never pulls you back once you have moved on. */
+  const stopEls=[...document.querySelectorAll('.snap, .snap-pt')];
+  function stops(){ const y=scrollY, out=stopEls.filter(el=>el.offsetParent!==null || el.classList.contains('snap-pt')).filter(el=>getComputedStyle(el).display!=='none').map(el=>Math.round(el.getBoundingClientRect().top+y));
+    out.push(document.documentElement.scrollHeight-innerHeight); return out; }
+  let restY=scrollY, gliding=false, touching=false, endTimer=null, focusMove=false;
+  addEventListener('focusin',()=>{ focusMove=true; });
+  for(const t of ['wheel','touchstart','pointerdown']) addEventListener(t,()=>{ focusMove=false; },{passive:true});
+  addEventListener('keydown',e=>{ if(e.key!=='Tab') focusMove=false; });
+  /* a control reached by keyboard is never left under the sticky header */
+  function clearOfHeader(){
+    const el=document.activeElement; if(!el || el===document.body || !el.matches(':focus-visible') || el.closest('#siteNav,#menu,dialog,.stage,.skip,.rail')) return;
+    const r=el.getBoundingClientRect(), clear=siteNav.getBoundingClientRect().bottom+16;
+    if(r.top<clear-1 && r.bottom>0){ focusMove=true; scrollBy({top:r.top-clear}); }
+  }
+  addEventListener('focusin',e=>{ const r=e.target.getBoundingClientRect?e.target.getBoundingClientRect():null; if(r && r.top>=-1 && r.bottom<=innerHeight) clearOfHeader(); });
+  function settle(){
+    const y=scrollY;
+    if(gliding){ gliding=false; restY=y; return; }
+    if(touching || reduce || dlg.open || focusMove){ const f=focusMove; focusMove=false; restY=y; if(f) clearOfHeader(); return; }
+    const moved=y-restY; if(Math.abs(moved)<8){ restY=y; return; }
+    const dir=Math.sign(moved), vh=innerHeight; let best=null, bestD=Infinity;
+    for(const T of stops()){
+      if(dir>0 ? T<=restY+4 : T>=restY-4) continue;
+      const ahead=(T-y)*dir, ok=ahead>=0 ? ahead<vh*.3 : -ahead<vh*.16, d=Math.abs(T-y);
+      if(ok && d<bestD){ best=T; bestD=d; }
+    }
+    restY=y;
+    if(best!==null && bestD>2){ gliding=true; scrollTo({top:best, behavior:'smooth'}); }
+  }
+  const hasScrollEnd='onscrollend' in window;
+  if(hasScrollEnd) addEventListener('scrollend',settle);
+  addEventListener('scroll',()=>{ if(!hasScrollEnd){ clearTimeout(endTimer); endTimer=setTimeout(settle,180); } },{passive:true});
+  addEventListener('touchstart',()=>{ touching=true; },{passive:true});
+  addEventListener('touchend',()=>{ touching=false; if(!hasScrollEnd){ clearTimeout(endTimer); endTimer=setTimeout(settle,180); } },{passive:true});
+  ['wheel','keydown','pointerdown'].forEach(t=>addEventListener(t,()=>{ if(gliding){ gliding=false; restY=scrollY; } },{passive:true}));
+
+  let ticking=false;
+  function frame(){ ticking=false; chromeFrame(); introFrame(); }
+  addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
+  addEventListener('resize',()=>{ measureIntro(); lastDone=-1; frame(); });
+  if('IntersectionObserver' in window){ const lo=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('paused',!e.isIntersecting))); document.querySelectorAll('.landing,.bridge,.intro,.ticker,#intelligence,.band').forEach(el=>lo.observe(el)); }
+  measureIntro();
+  renderCat('aca'); setSpot(0); restartTimer();
+  frame();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ measureIntro(); lastDone=-1; frame(); });
+})();
+</script>
+
+</body>
+</html>
