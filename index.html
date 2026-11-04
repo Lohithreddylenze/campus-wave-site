@@ -19,7 +19,7 @@
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://campus-wave.com/#org","name":"Aasarion","alternateName":["Off-Look Innovations LLP","Off-Look Innovations"],"url":"https://campus-wave.com/","logo":"https://campus-wave.com/img/apple-touch-icon.png","sameAs":["https://www.off-look-innovations.com/","https://in.linkedin.com/company/off-look-innovations","https://play.google.com/store/apps/details?id=com.offlook.school_app","https://apps.apple.com/in/app/off-look-innovations-school/id6760111711"],"email":"info@campus-wave.com","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"contactPoint":{"@type":"ContactPoint","telephone":"+91-97418-21122","contactType":"sales","availableLanguage":["en","kn"]}},
 {"@type":"WebSite","@id":"https://campus-wave.com/#website","url":"https://campus-wave.com/","name":"CampusWave","alternateName":"Campus Wave","publisher":{"@id":"https://campus-wave.com/#org"},"inLanguage":"en"},
-{"@type":"SoftwareApplication","@id":"https://campus-wave.com/#app","name":"CampusWave","alternateName":"Campus Wave school app","url":"https://campus-wave.com/","image":"https://campus-wave.com/img/og-cover.jpg","description":"The AI-powered school management app for future-ready schools: attendance, homework, exams and results, fees, transport, notices, AI-drafted question papers, timetables and certificates, for management, teachers, students and parents.","applicationCategory":"EducationalApplication","operatingSystem":"Android, iOS, Web","installUrl":["https://play.google.com/store/apps/details?id=com.offlook.school_app","https://apps.apple.com/in/app/off-look-innovations-school/id6760111711"],"privacyPolicy":"https://campus-wave.com/privacy.html","author":{"@id":"https://campus-wave.com/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"INR","description":"Free live demo; all 51 modules included in one plan"},"featureList":["Attendance marked on the teacher's phone","Homework posted with parent notification","AI-drafted question papers and lesson plans","Clash-free timetables","Fee receipts and reminders","Transport alerts by route","Report cards, hall tickets and certificates generated per class","Daily principal's report"],"areaServed":"IN"}
+{"@type":"SoftwareApplication","@id":"https://campus-wave.com/#app","name":"CampusWave","alternateName":"Campus Wave school app","url":"https://campus-wave.com/","image":"https://campus-wave.com/img/og-cover.jpg","description":"The AI-powered school management app for future-ready schools: attendance, homework, exams and results, fees, transport, notices, AI-drafted question papers, timetables and certificates, for management, teachers, students and parents.","applicationCategory":"EducationalApplication","operatingSystem":"Android, iOS, Web","installUrl":["https://play.google.com/store/apps/details?id=com.offlook.school_app","https://apps.apple.com/in/app/off-look-innovations-school/id6760111711"],"privacyPolicy":"https://campus-wave.com/privacy.html","author":{"@id":"https://campus-wave.com/#org"},"featureList":["Attendance marked on the teacher's phone","Homework posted with parent notification","AI-drafted question papers and lesson plans","Clash-free timetables","Fee receipts and reminders","Transport alerts by route","Report cards, hall tickets and certificates generated per class","Daily principal's report"],"areaServed":"IN"}
 ]}
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -30,7 +30,7 @@
 @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif.woff2) format('woff2')}
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-italic.woff2) format('woff2')}
 </style>
-<meta name="description" content="CampusWave by Aasarion (Off-Look Innovations, Bengaluru) is the AI-powered school management app for schools in India: attendance, homework, exams, fees, transport, AI-drafted question papers and parent updates in one app for management, teachers, students and parents. 51 modules, no extra bills. Book a free demo.">
+<meta name="description" content="CampusWave by Aasarion (Off-Look Innovations, Bengaluru) is the AI-powered school management app for schools in India: attendance, homework, exams, fees, transport, AI-drafted question papers and parent updates in one app for management, teachers, students and parents. 51 modules. Book a free demo.">
 <style>
 /* Light, soft-clay single page: photo landing with drifting mist, a sticky two-screen "school day",
    then raised neumorphic sections that settle into place as you scroll, ending in the demo band. */
@@ -162,7 +162,7 @@ p,ul,ol{margin:0}
 
 .landing h1{font-family:var(--f-accent); font-weight:400; font-size:var(--fs-display); line-height:1; letter-spacing:-.02em; color:var(--ink)}
 .landing h1 em{display:block; font-style:italic}
-.landing .lead{max-width:44ch; margin:0 auto; color:var(--text); font-weight:500; text-wrap:balance; font-size:var(--fs-lead)}
+.landing .lead{max-width:48ch; margin:0 auto; color:var(--text); font-weight:500; text-wrap:balance; font-size:var(--fs-lead)}
 .land-ctas{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
 
 
@@ -777,6 +777,10 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
 .seg button{min-height:44px}
 .foot ul li > *{min-height:44px; box-sizing:border-box}
 
+/* FAQ: the Yes or No sits on its own line, then the answer */
+.faq details p .ans{display:block; margin-bottom:10px; color:var(--ink)}
+.faq details p a{color:var(--iris); font-weight:600}
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none !important; transition-property:opacity,color,background-color,border-color,box-shadow,filter !important; transition-duration:.15s !important; transition-delay:0s !important}
   html{scroll-behavior:auto}
@@ -867,7 +871,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   <div class="mist m2" aria-hidden="true"></div>
   <div class="wrap land-copy">
     <h1>Ride the next wave <em>of learning.</em></h1>
-    <p class="lead"><span class="cw">Campus<span>Wave</span></span> is the AI-powered school app for <span class="nw">future-ready schools.</span></p>
+    <p class="lead"><strong>Powering the future of intelligent education. Meet <span class="cw">Campus<span>Wave</span></span>.</strong><br>An intelligent, fully customisable school platform that connects every part of your institution.</p>
     <div class="land-ctas">
       <a class="btn btn-light" href="#intro">See a school day</a>
       <a class="btn btn-ink" href="#demo">Book a demo</a>
@@ -948,10 +952,11 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
 <!-- WHY SWITCH -->
 <section class="sec snap" id="story" data-rail="Why switch">
   <div class="wrap">
-  <div class="sec-head reveal"><h2>Same school day, less paperwork.</h2></div>
+  <div class="sec-head reveal"><h2>Less administration. More education.</h2></div>
   <div class="story-grid">
     <div class="story-copy reveal">
-      <p class="lead">Most schools still run on paper registers, spreadsheets, WhatsApp groups and a fee ledger only one person understands. Flip the switch to see what changes.</p>
+      <p class="lead">Every school has a lot happening behind the scenes. From attendance and academics to fees, communication and administration, countless tasks compete for time and attention.</p>
+      <p class="lead"><span class="cw">Campus<span>Wave</span></span> brings everything together in one intelligent platform. Flip the switch to see how your school’s everyday operations transform.</p>
       <div class="seg cmp-seg" id="cmpSeg" role="group" aria-label="Compare the usual way with CampusWave">
         <button type="button" data-mode="old" aria-pressed="true">The usual way</button>
         <button type="button" data-mode="new" aria-pressed="false">With <span class="cw">Campus<span>Wave</span></span></button>
@@ -1188,14 +1193,14 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   <div class="wrap">
     <div class="sec-head split reveal">
       <div>
-        <h2>All modules, no extra bills.</h2>
+        <h2>Everything included, set up your way.</h2>
       </div>
-      <p class="lead">Every module is included, our team sets everything up for your school, and new features arrive at no extra cost.</p>
+      <p class="lead">Every module is included, our team sets everything up for your school, and new features arrive as they are released.</p>
     </div>
     <div class="promise reveal">
       <div class="pcard"><h3>Set up your way</h3><p>Your classes, subjects, fee structure, exam pattern, documents and branding, configured to match how your school already works.</p></div>
-      <div class="pcard"><h3>Every module included</h3><p>No per-module pricing and no feature limits. What you see on this page is what you get.</p></div>
-      <div class="pcard"><h3>Updates at no extra cost</h3><p>New features arrive on the app and the desktop software as they are released.</p></div>
+      <div class="pcard"><h3>Every module included</h3><p>No feature limits. What you see on this page is what you get.</p></div>
+      <div class="pcard"><h3>Updates arrive on their own</h3><p>New features reach the app and the desktop software as they are released.</p></div>
       <div class="pcard"><h3>Use what you have</h3><p>Runs on the phones, tablets, computers and classroom smart boards your school and families already own.</p></div>
     </div>
     <div class="start reveal" id="start">
@@ -1239,15 +1244,20 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
       <a class="ask" href="tel:+919741821122"><span class="ai"><svg class="ico"><use href="#i-phone"/></svg></span><span><b>+91 97418 21122</b><span>Call us, or message on WhatsApp</span></span></a>
     </div>
     <div class="faq reveal">
-      <details><summary>Do we need to buy new hardware?</summary><p>No. <span class="cw">Campus<span>Wave</span></span> runs on the phones, tablets, computers and classroom smart boards your school already has. Teachers, students and parents use the mobile app, and the school office uses the desktop software.</p></details>
-      <details><summary>Can parents and students use it on their phones?</summary><p>Yes. Everyone gets their own login on the mobile app, so a parent sees their child’s attendance, homework, results and notices, and a student sees their timetable, tasks and exam dates.</p></details>
-      <details><summary>Can it be customised for our school?</summary><p>Yes. Classes, subjects, fee structures, exam patterns, documents and branding are set up to match how your school already works, and we keep adapting as you grow.</p></details>
+      <details><summary>Do we need to buy new hardware?</summary><p><b class="ans">No.</b><span class="cw">Campus<span>Wave</span></span> runs on the phones, tablets, computers and classroom smart boards your school already has. Teachers, students and parents use the mobile app, and the school office uses the desktop software.</p></details>
+      <details><summary>Can parents and students use it on their phones?</summary><p><b class="ans">Yes.</b>Everyone gets their own login on the mobile app, so a parent sees their child’s attendance, homework, results and notices, and a student sees their timetable, tasks and exam dates.</p></details>
+      <details><summary>Is CampusWave suitable for all types of educational institutions?</summary><p><b class="ans">Yes.</b><span class="cw">Campus<span>Wave</span></span> can be adapted to suit different educational institutions, including schools and other academic organisations. Its features and workflows can be configured according to each institution’s requirements.</p></details>
+      <details><summary>How is CampusWave different from conventional school software?</summary><p>Unlike rigid, predefined software, <span class="cw">Campus<span>Wave</span></span> is designed around the institution’s operational requirements. It offers extensive customisation, AI-powered capabilities and an integrated ecosystem that connects administrators, teachers, parents and students.</p></details>
+      <details><summary>Can it be customised for our school?</summary><p><b class="ans">Yes.</b>Classes, subjects, fee structures, exam patterns, documents and branding are set up to match how your school already works, and we keep adapting as you grow.</p></details>
+      <details><summary>Can we generate customised report cards, certificates and other academic documents?</summary><p><b class="ans">Yes.</b>Institutional document formats, including marks cards, transfer certificates, study certificates, hall tickets and other academic records, can be configured to match the school’s requirements.</p></details>
+      <details><summary>Does CampusWave support financial accounting apart from fee collection?</summary><p><b class="ans">Yes.</b>The Finance suite extends beyond fee collection. It includes fee structures, instalment plans, concessions, outstanding dues, non-demand collections, payroll, expenses, banking, accounting ledgers, vouchers, financial statements and audit trails.</p></details>
       <details><summary>What happens to our existing records?</summary><p>Share your student, staff and class lists in our templates and our team loads them for you before go-live.</p></details>
-      <details><summary>Will you train our staff?</summary><p>Yes. We train office staff and teachers during setup, and our support team stays available after go-live.</p></details>
-      <details><summary>Are there extra charges for features or updates?</summary><p>No. Every module is included, and new features arrive at no extra cost.</p></details>
-      <details><summary>How long does it take to go live?</summary><p>Most schools are live within [X] days of sharing their data.</p></details>
+      <details><summary>Will you train our staff?</summary><p><b class="ans">Yes.</b>We train office staff and teachers during setup, and our support team stays available after go-live.</p></details>
+      <details><summary>How long does it take to go live?</summary><p>Most schools are live within 19 days of sharing their data.</p></details>
+      <details><summary>What happens if we require assistance after implementation?</summary><p>Our support team assists institutions with platform-related queries, technical issues and operational guidance. We also coordinate with the institution to address additional requirements and improvements.</p></details>
+      <details><summary>Can we request additional features after onboarding?</summary><p><b class="ans">Yes.</b><span class="cw">Campus<span>Wave</span></span> is built with flexibility in mind. Institutions can communicate additional requirements, and our team evaluates and works towards implementing suitable enhancements based on feasibility.</p></details>
       <details><summary>How is our data kept safe?</summary><p>Your data is stored on secure cloud infrastructure, and everyone signs in with their own login, so each person sees only what their role needs.</p></details>
-      <details><summary>What does it cost?</summary><p>Pricing depends on the size of your school. Book a demo and we’ll send you a clear quote.</p></details>
+      <details><summary>How can our school get started with CampusWave?</summary><p>Simply reach out to Aasarion through the <a href="#demo">demo form below</a> or on WhatsApp. Our team will understand your institution’s requirements, arrange a personalised demonstration and guide you through the proposal and onboarding process.</p></details>
     </div>
   </div>
 </section>
@@ -1263,7 +1273,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
       <div class="perks">
         <div class="perk"><span class="pi"><svg class="ico"><use href="#i-play"/></svg></span><div><b>A live walkthrough</b><span>Thirty minutes, at a time that suits you.</span></div></div>
         <div class="perk"><span class="pi"><svg class="ico"><use href="#i-users"/></svg></span><div><b>For your whole team</b><span>Bring your principal, office staff and teachers.</span></div></div>
-        <div class="perk"><span class="pi"><svg class="ico"><use href="#i-shield"/></svg></span><div><b>No obligation</b><span>A clear quote afterwards, only if you want one.</span></div></div>
+        <div class="perk"><span class="pi"><svg class="ico"><use href="#i-shield"/></svg></span><div><b>Built around your school</b><span>We walk through your own classes, timetable and questions.</span></div></div>
       </div>
     </div>
     <form class="form" id="demoForm" novalidate>
@@ -1346,7 +1356,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   /* ---------- feature ticker ---------- */
   const FEATS=[
     ['Attendance marking','Absentee alerts to parents','Staff attendance','Leave requests and approvals','Admissions','Student profiles','Alumni archive','Class and section setup','Class captains','Subject and chapter mapping','Syllabus coverage tracking','Lesson completion tracking','Timetable generation','Homework and tasks','Homework timetable','Lesson plan drafting','Course content','Resource sharing','Class reports','Remarks and conduct notes','Teacher profiles','Roles and permissions'],
-    ['Question bank','Question paper generation','Answer keys','Exam schedules','Hall tickets','Marks entry','Report cards','Result publishing','Result graphs','Weekly class reviews','Weekly teacher reviews','Daily principal report','Fee collection','Fee receipts','Fee reminders','Outstanding dues','Expense tracking','Bank accounts','Payroll','Payslips','Admin dashboard'],
+    ['Question bank','Question paper generation','Answer keys','Exam schedules','Hall tickets','Marks entry','Report cards','Result publishing','Result graphs','Weekly class reviews','Weekly teacher reviews','Daily principal report','Fee structures and instalments','Concessions and coupons','Fee collection','Fee receipts','Fee reminders','Outstanding dues','Non-demand collections','Chart of accounts and ledgers','Journals and contra entries','Bank reconciliation','Cheque management','Payroll','Expense tracking','Trial balance and balance sheet','Fee ageing analysis','Audit trail','Admin dashboard'],
     ['Transport routes','Stops and distances','Route-wise fees','Bus dispatch alerts','Bus delay alerts','Fleet management','Vehicle document expiry alerts','Driver records','Visitor entry log','Visitor approvals','Library catalogue','Book issue and return','Overdue fines','Inventory and stock','ID card generation','Transfer certificates','Study certificates','Birthday greetings','Smart board lessons','Morning school alerts','Holiday and event calendar','School wall posts','Achievements wall','Parent feedback']
   ];
   const COLS=['var(--iris)','var(--aqua)','var(--peach)','var(--mint)'];
@@ -1450,7 +1460,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     aca:['Academics','var(--iris)','Classes, subjects, the syllabus, timetables, homework and notes, connected so teachers plan once and everyone stays in step.'],
     exm:['Exams','var(--aqua)','From the exam calendar to the report card: schedules, the question bank, hall tickets, marks and results in one flow.'],
     ppl:['People','var(--peach)','Every student, teacher and staff member, from admission day to the alumni list, with attendance and leave built in.'],
-    fin:['Finance','var(--mint)','Fees, receipts, reminders, dues, expenses, bank accounts and payroll, kept in one set of books.'],
+    fin:['Finance','var(--mint)','Complete financial control, from collection to accounting: fee structures and collections, payroll, accounting, banking and financial statements, 14 core finance functions in one connected system.'],
     cmp:['Campus','var(--aqua)','Buses and routes, visitors, the library, stock and ID cards: the day-to-day running of the campus, on record.'],
     com:['Communication','var(--peach)','Alerts, the school wall, the calendar and feedback, so every notice reaches exactly the right people.'],
     ai:['AI tools','var(--iris)','Drafts for question papers, lesson plans, timetables and certificates that your staff review and approve.'],
@@ -1526,24 +1536,24 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
       ['Records of graduated and transferred students','Full history preserved','Easy to look up for reference','Useful for certificates and verification requests','Keeps current class lists clean'],
       ['A student graduates or leaves','Their record moves to the archive','Find it whenever it’s needed'],['Office staff','Management'],['Student profiles','AI certificates']),
 
-    M('fin','Fee collection','wallet','Collect fees by class and term, with a receipt generated for every payment.',
-      ['Fee structures for each class','Collect at the counter','Instant receipts','Payment history for every student','Dues update automatically'],
-      ['Set up the fee structure','Record payments as they come in','Receipts are issued and dues update'],['Accounts','Management','Parents'],['Fee reminders','Outstanding dues','Bank accounts']),
-    M('fin','Fee reminders','bell','Remind parents about pending fees in one go, by app, SMS or email.',
-      ['Reminders to parents with dues','Pick a class or the whole school','App, SMS or email','Receipts follow once paid','Fewer calls to the office'],
-      ['Choose who should be reminded','Send the reminder','Parents pay, and dues and receipts update'],['Accounts','Parents'],['Outstanding dues','Fee collection','Alerts']),
-    M('fin','Outstanding dues','chart','See exactly who owes what, class by class, at any moment.',
-      ['Pending fees by class and student','Totals for the term','Follow up with reminders','Ready for management reviews','Updated with every payment'],
-      ['Payments are recorded','Dues are recalculated straight away','The accounts team follows up'],['Accounts','Management'],['Fee reminders','Fee collection']),
-    M('fin','Expenses','wallet','Record school expenses as they happen and keep the books in order.',
-      ['Record expenses with category and date','Spending by category','Monthly summaries','One place for the accounts team','Part of financial reports for management'],
-      ['Record each expense','See spending by category','Review monthly summaries'],['Accounts','Management'],['Bank accounts','Outstanding dues']),
-    M('fin','Bank accounts','bank','Track the school’s bank accounts and transactions in one place.',
-      ['All school accounts listed','Transactions recorded against each account','Balances at a glance','Linked with fee collection and expenses','Reports for management'],
-      ['Add the school’s accounts','Transactions are recorded against them','Management reviews balances and reports'],['Accounts','Management'],['Fee collection','Expenses','Payroll']),
-    M('fin','Payroll','brief','Salary calculations, deductions and payslips for every staff member.',
-      ['Salary details for every staff member','Deductions and tax calculated','Payslips generated every month','Linked to staff records','Salary history kept'],
-      ['Set salary details once','Run payroll each month','Payslips are ready for staff'],['Accounts','Management','Teachers','Office staff'],['Staff records','Staff attendance','Bank accounts']),
+    M('fin','Fee administration','wallet','Structure every fee. Simplify every payment: flexible structures, instalment plans, concessions and academic-year configuration.',
+      ['Class-wise and student-specific fee structures','Customisable fee heads and instalments','Payment plans and collection schedules','Discounts, concessions and coupons','Academic and fiscal year configuration','Centralised financial setup wizard'],
+      ['Set up fee heads, structures and instalments for the year','Add concessions, coupons and payment plans','Collections and dues follow this structure automatically'],['Accounts','Management','Office staff'],['Fee collections','Financial accounting','Financial reports and audit']),
+    M('fin','Fee collections','bank','Every collection, every receipt, fully accounted for: regular fees and other school collections with accurate student-wise records.',
+      ['Student-wise and class-wise fee collection','Non-demand collections for books, uniforms, transport and other charges','Instant receipt generation','Fee reminders and payment follow-ups','Outstanding fee tracking','Collection analytics and reports','Complete student payment history'],
+      ['Record a payment at the counter or online','A receipt is issued and dues update straight away','Remind parents with pending fees in one go'],['Accounts','Management','Parents'],['Fee administration','Banking and reconciliation','Financial reports and audit']),
+    M('fin','Financial accounting','doc','A complete accounting system within your school platform: structured accounts, transaction management and full visibility of assets and liabilities.',
+      ['Configurable chart of accounts','Ledger creation and management','Bills, payments and receipts','Contra entries and journal entries','Asset and liability management','Refund and cheque management','Transaction-wise accounting records'],
+      ['Configure the chart of accounts and ledgers','Record bills, payments, receipts and journals','Every entry flows into the financial statements'],['Accounts','Management'],['Banking and reconciliation','Payroll and expenses','Financial reports and audit']),
+    M('fin','Banking and reconciliation','bank','Complete visibility into every financial transaction: institutional bank accounts, balances, cash and banking records.',
+      ['Multiple bank account management','Bank balance and account details','Cash book and bank book','Cheque tracking and management','Bank reconciliation','Transaction records and account statements'],
+      ['Add the school’s bank accounts','Transactions are recorded against each account','Reconcile the bank book against statements'],['Accounts','Management'],['Fee collections','Financial accounting','Financial reports and audit']),
+    M('fin','Payroll and expenses','brief','Simplify institutional expenses and salary processing through one centralised financial workflow.',
+      ['Monthly salary generation and processing','Payroll records','Expense tracking and management','Financial entries for salary and expenses','Asset and liability records','Accounting integration'],
+      ['Set salary details for every staff member once','Run payroll and record expenses each month','Entries post to the accounts automatically'],['Accounts','Management','Office staff'],['Financial accounting','Banking and reconciliation','Staff records']),
+    M('fin','Financial reports and audit','chart','Every number accounted for, every decision informed: financial statements, collection analysis and a transparent audit trail.',
+      ['Trial balance','Income and expenditure statement','Balance sheet','Receipts and payments statement','Day book, cash book and bank book','Fee ageing analysis','Fee receivable and payable checks','Financial exports and reports','Complete financial audit trail'],
+      ['Transactions are recorded across the finance modules','Statements are generated on demand','Management and auditors review the audit trail'],['Accounts','Management'],['Fee administration','Fee collections','Financial accounting','Banking and reconciliation','Payroll and expenses']),
 
     M('cmp','Transport routes','bus','Routes, stops, distances and the students on each bus, with route-wise fees.',
       ['Routes with stops and distances','Students assigned to each route','Route-wise transport fees','Pickup and drop details for parents','Route alerts to parents'],
@@ -1740,7 +1750,8 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     const msg=`Hi, I'd like a CampusWave demo.\nName: ${v('fName')}\nSchool: ${v('fSchool')}\nPhone: ${v('fPhone')}\nCity: ${v('fCity')||'-'}\nRole: ${v('fRole')}`;
     const url='https://wa.me/919741821122?text='+encodeURIComponent(msg);
     let link=$('waLink'); if(!link){ link=document.createElement('p'); link.id='waLink'; out.prepend(link); }
-    link.innerHTML=`Your message is ready. <a href="${url}" target="_blank" rel="noopener">Open WhatsApp to send it</a>.`;
+    link.innerHTML=`Opening WhatsApp… If nothing happens, <a href="${url}" target="_blank" rel="noopener">tap here to send your message</a>.`;
+    const win=window.open(url,'_blank'); if(win){ try{ win.opener=null; }catch(_){} } else location.href=url;
   });
   $('copyPhone').addEventListener('click',e=>{
     const b=e.currentTarget, done=()=>{ b.textContent='Copied'; setTimeout(()=>b.textContent='Copy',1600); };
