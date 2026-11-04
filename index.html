@@ -146,15 +146,18 @@ p,ul,ol{margin:0}
 .landing::before{content:""; position:absolute; inset:0; z-index:-1; background:
   linear-gradient(180deg,rgba(246,245,252,.92) 0%,rgba(246,245,252,.74) 24%,rgba(246,245,252,.50) 44%,rgba(246,245,252,.22) 60%,rgba(246,245,252,0) 72%),
   linear-gradient(0deg,var(--base) 0%,rgba(239,237,249,.92) 10%,rgba(239,237,249,.55) 24%,rgba(239,237,249,0) 42%)}
-.mist{position:absolute; left:0; right:0; pointer-events:none; background:url(img/mist.webp) repeat-x; background-size:auto 100%; will-change:background-position}
-.mist.m0{top:-4%; height:74%; opacity:.34; background-size:auto 115%; animation:mistdrift 110s linear infinite, mistwave 14s ease-in-out infinite}
-.mist.m1{top:34%; height:20%; opacity:.18; animation:mistdrift 140s linear infinite, mistwave 18s ease-in-out infinite -6s}
-.mist.m2{top:50%; height:14%; opacity:.12; background-size:auto 150%; background-position:-900px 0; animation:mistdrift2 200s linear infinite, mistwave 16s ease-in-out infinite -3s; filter:blur(2px)}
-.mist.m3{top:22%; height:12%; opacity:.10; background-size:auto 160%; background-position:-1500px 0; animation:mistdrift3 170s linear infinite}
-@keyframes mistdrift{from{background-position:0 0} to{background-position:-2400px 0}}
-@keyframes mistdrift2{from{background-position:-900px 0} to{background-position:-3300px 0}}
-@keyframes mistdrift3{from{background-position:-1500px 0} to{background-position:-3900px 0}}
-@keyframes mistwave{0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)}}
+.mist{position:absolute; left:0; right:0; overflow:hidden; pointer-events:none; mix-blend-mode:screen}
+.mist i{position:absolute; top:0; bottom:0; left:0; width:200%; background:url(img/mist-a.webp) repeat-x; background-size:50% 100%; will-change:transform; animation:mistdrift 80s linear infinite}
+.mist.m0{top:-8%; height:62%; opacity:.62; animation:mistwave 16s ease-in-out infinite}
+.mist.m0 i{animation-duration:74s}
+.mist.m1{top:26%; height:34%; opacity:.42; animation:mistwave 20s ease-in-out infinite -7s}
+.mist.m1 i{background-image:url(img/mist-b.webp); animation-duration:112s; animation-delay:-40s}
+.mist.m2{top:44%; height:28%; opacity:.30; filter:blur(3px); animation:mistwave 18s ease-in-out infinite -3s}
+.mist.m2 i{background-image:url(img/mist-a.webp); animation-duration:150s; animation-delay:-95s; transform-origin:center; scale:-1 1}
+.mist.m3{bottom:4%; height:30%; opacity:.26; filter:blur(2px)}
+.mist.m3 i{background-image:url(img/mist-b.webp); animation-duration:190s; animation-delay:-60s}
+@keyframes mistdrift{from{translate:0 0} to{translate:-50% 0}}
+@keyframes mistwave{0%,100%{transform:translateY(0)} 50%{transform:translateY(12px)}}
 .land-copy{position:absolute; left:0; right:0; top:clamp(96px,15vh,150px); display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(14px,2vh,22px); opacity:calc(1 - var(--h,0)*1.6); transform:translateY(calc(var(--h,0)*-60px))}
 .land-copy::before{content:""; position:absolute; left:50%; top:46%; width:min(1100px,110%); height:130%; translate:-50% -50%; z-index:-1; background:radial-gradient(closest-side,rgba(248,247,253,.7),rgba(248,247,253,.36) 55%,transparent); pointer-events:none}
 
@@ -168,7 +171,7 @@ p,ul,ol{margin:0}
 
 
 
-@media (max-width:640px){ .landing .scene img{object-position:42% 60%} .mist{background-size:auto 80%} }
+@media (max-width:640px){ .landing .scene img{object-position:42% 60%} .mist i{width:300%; background-size:33.333% 100%} @keyframes mistdrift{from{translate:0 0} to{translate:-33.333% 0}} }
 
 /* ---------- bridge ---------- */
 .bridge{position:relative; z-index:3; padding-block:0 8px}
@@ -865,10 +868,10 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
 <!-- LANDING -->
 <section class="landing snap" id="landing" aria-label="Welcome">
   <div class="scene"><img src="img/campus.webp" srcset="img/campus-1200.webp 1200w, img/campus.webp 2400w" sizes="100vw" alt="A school campus with spires, sports grounds and an amphitheatre in a misty hill valley" fetchpriority="high"></div>
-  <div class="mist m0" aria-hidden="true"></div>
-  <div class="mist m3" aria-hidden="true"></div>
-  <div class="mist m1" aria-hidden="true"></div>
-  <div class="mist m2" aria-hidden="true"></div>
+  <div class="mist m0" aria-hidden="true"><i></i></div>
+  <div class="mist m3" aria-hidden="true"><i></i></div>
+  <div class="mist m1" aria-hidden="true"><i></i></div>
+  <div class="mist m2" aria-hidden="true"><i></i></div>
   <div class="wrap land-copy">
     <h1>Powering the future of <em>intelligent education.</em></h1>
     <p class="lead"><strong>Meet <span class="cw">Campus<span>Wave</span></span>.</strong> An intelligent, fully customisable school platform that connects every part of your institution.</p>
