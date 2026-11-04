@@ -50,7 +50,7 @@
   --press-sm:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi);
   --r-lg:32px; --r-md:22px;
   --text:#2A2650;
-  --fs-sm:14px; --fs-ui:var(--fs-sm); --fs-body:17px; --fs-lead:var(--fs-body); --fs-sub:clamp(24px,2vw,28px); --fs-h2:clamp(30px,3.6vw,52px); --fs-display:clamp(46px,7vw,96px);
+  --fs-sm:14px; --fs-ui:var(--fs-sm); --fs-body:17px; --fs-lead:var(--fs-body); --fs-sub:clamp(24px,2vw,28px); --fs-h2:clamp(30px,3.6vw,52px); --fs-display:clamp(40px,6.2vw,84px);
 }
 @property --v{syntax:'<number>'; inherits:false; initial-value:0}
 *{box-sizing:border-box}
@@ -162,7 +162,7 @@ p,ul,ol{margin:0}
 
 .landing h1{font-family:var(--f-accent); font-weight:400; font-size:var(--fs-display); line-height:1; letter-spacing:-.02em; color:var(--ink)}
 .landing h1 em{display:block; font-style:italic}
-.landing .lead{max-width:48ch; margin:0 auto; color:var(--text); font-weight:500; text-wrap:balance; font-size:var(--fs-lead)}
+.landing .lead{max-width:46ch; margin:0 auto; color:var(--text); font-weight:500; text-wrap:balance; font-size:var(--fs-lead)}
 .land-ctas{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
 
 
@@ -870,8 +870,8 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   <div class="mist m1" aria-hidden="true"></div>
   <div class="mist m2" aria-hidden="true"></div>
   <div class="wrap land-copy">
-    <h1>Ride the next wave <em>of learning.</em></h1>
-    <p class="lead"><strong>Powering the future of intelligent education. Meet <span class="cw">Campus<span>Wave</span></span>.</strong><br>An intelligent, fully customisable school platform that connects every part of your institution.</p>
+    <h1>Powering the future of <em>intelligent education.</em></h1>
+    <p class="lead"><strong>Meet <span class="cw">Campus<span>Wave</span></span>.</strong> An intelligent, fully customisable school platform that connects every part of your institution.</p>
     <div class="land-ctas">
       <a class="btn btn-light" href="#intro">See a school day</a>
       <a class="btn btn-ink" href="#demo">Book a demo</a>
@@ -1222,8 +1222,8 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     </div>
     <div class="proof reveal">
       <figure class="quote">
-        <blockquote>“[A line from a principal about what changed for their school after CampusWave.]”</blockquote>
-        <figcaption class="who"><span class="avatar"><svg class="ico"><use href="#i-users"/></svg></span><span><b>[Principal name]</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">[School name], [City]</span></span></figcaption>
+        <blockquote>“<span class="cw">Campus<span>Wave</span></span> has made many of our day-to-day tasks easier and more organised. The team has always been approachable and willing to understand our requirements. We are happy to have been associated with them right from the beginning and wish them the very best.”</blockquote>
+        <figcaption class="who"><span class="avatar"><svg class="ico"><use href="#i-users"/></svg></span><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">Vinayaka Public School</span></span></figcaption>
       </figure>
       <div class="stats">
         <div class="stat"><b>[XX]+</b><span>schools riding the wave</span></div>
@@ -1298,7 +1298,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   <div class="wrap">
     <a class="foot-name" href="#top" aria-label="CampusWave home"><svg viewBox="0 0 1870 335" aria-hidden="true"><use href="#wm" width="1870" height="335"/></svg></a>
     <div class="foot-grid">
-      <div class="foot-about"><img class="brand-mark" src="img/logo-mark.webp" alt="" width="68" height="44"><p>The AI-powered school app for future-ready schools. A product of Aasarion.</p></div>
+      <div class="foot-about"><img class="brand-mark" src="img/logo-mark.webp" alt="" width="68" height="44"><p>The AI-powered school app for future-ready schools.<br>A product by Aasarion.</p></div>
       <div><h4>Explore</h4><ul><li><a href="#intro">The school day</a></li><li><a href="#story">Why switch</a></li><li><a href="#intelligence">AI tools</a></li><li><a href="#modules">Modules</a></li><li><a href="#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="tel:+919741821122">+91 97418 21122</a></li><li><a href="mailto:info@campus-wave.com">info@campus-wave.com</a></li><li><span style="color:var(--muted)">Bengaluru, India</span></li></ul></div>
       <div><h4>Get the app</h4><ul><li><a href="https://play.google.com/store/apps/details?id=com.offlook.school_app&amp;hl=en_IN" target="_blank" rel="noopener">Google Play</a></li><li><a href="https://apps.apple.com/in/app/off-look-innovations-school/id6760111711" target="_blank" rel="noopener">App Store</a></li><li><a href="https://in.linkedin.com/company/off-look-innovations" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
@@ -1629,6 +1629,8 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
       ['The week’s class data is gathered','A review is prepared for each class','Class teachers and management act on it'],['Teachers','Management'],['Class reports','Result analysis'])
   ];
   const byName=Object.fromEntries(MODS.map(m=>[m.n,m]));
+  const SMALL=new Set(['and','of','the','for','to','in','on','by','with']);
+  const TC=s=>s.split(' ').map((w,i)=>(i&&SMALL.has(w))?w:w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
   const inCat=c=>MODS.filter(m=>m.c===c);
   $('modTotal').textContent=MODS.length;
   const hsTabs=$('hsTabs'), hsGrid=$('hsGrid'), hsTitle=$('hsTitle'), hsCount=$('hsCount'), hsSpot=$('hsSpot');
@@ -1644,17 +1646,17 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     hsTitle.textContent=CATS[k][0]; hsCount.textContent=shown.length+' modules'; $('hsDept').textContent=CATS[k][2];
     hsGrid.innerHTML='';
     shown.forEach((m,i)=>{ const t=document.createElement('button'); t.type='button'; t.className='tile'; t.style.setProperty('--k',i); t.style.setProperty('--c',CATS[m.c][1]);
-      t.innerHTML=`<span class="ti">${icon(m.i)}</span><span>${m.n}</span>`;
+      t.innerHTML=`<span class="ti">${icon(m.i)}</span><span>${TC(m.n)}</span>`;
       t.addEventListener('click',()=>{ setSpot(i,true); if(small.matches) openModule(m,t); }); hsGrid.appendChild(t); });
   }
   function setSpot(i,user){
     if(!shown.length) return; spotI=(i+shown.length)%shown.length; const m=shown[spotI];
     [...hsGrid.children].forEach((t,j)=>{ t.classList.toggle('spot',j===spotI); t.setAttribute('aria-pressed',j===spotI); });
-    $('spIco').innerHTML=icon(m.i); $('spCat').textContent=CATS[m.c][0]; $('spTitle').textContent=m.n; $('spText').innerHTML=bw(esc(m.d));
+    $('spIco').innerHTML=icon(m.i); $('spCat').textContent=CATS[m.c][0]; $('spTitle').textContent=TC(m.n); $('spText').innerHTML=bw(esc(m.d));
     $('spPos').textContent=(spotI+1)+' of '+shown.length;
     $('spFeats').innerHTML=m.f.slice(0,4).map(x=>`<li>${bw(x)}</li>`).join('');
     $('spRoles').innerHTML=m.r.map(x=>`<span>${x}</span>`).join('');
-    $('spRel').innerHTML=m.w.filter(x=>byName[x]).map(x=>`<button type="button" data-go="${esc(x)}">${x}</button>`).join('');
+    $('spRel').innerHTML=m.w.filter(x=>byName[x]).map(x=>`<button type="button" data-go="${esc(x)}">${TC(x)}</button>`).join('');
     hsSpot.classList.remove('swap'); void hsSpot.offsetWidth; hsSpot.classList.add('swap');
     restartBar(); if(user) restartTimer();
   }
@@ -1717,7 +1719,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     let h=`<div><span class="lbl">What you can do</span><ul class="checks two">${o.l.map(x=>`<li>${bw(x)}</li>`).join('')}</ul></div>`;
     h+=`<div class="dlg-cols"><div class="dlg-box"><span class="lbl">How it works</span><ol class="howto">${o.s.map(x=>`<li>${bw(x)}</li>`).join('')}</ol></div><div><span class="lbl">Used by</span><div class="tags">${o.r.map(x=>`<span>${x}</span>`).join('')}</div></div></div>`;
     const rel=(o.w||[]).filter(n=>byName[n]);
-    if(rel.length) h+=`<div><span class="lbl">${o.nav?'Works with':'Related modules'}</span><div class="rels">${rel.map(n=>{ const m=byName[n]; return `<button type="button" class="rel" data-go="${esc(n)}"><span class="ri">${icon(m.i)}</span><span><b>${m.n}</b><small>${bw(m.d)}</small></span></button>`; }).join('')}</div></div>`;
+    if(rel.length) h+=`<div><span class="lbl">${o.nav?'Works with':'Related modules'}</span><div class="rels">${rel.map(n=>{ const m=byName[n]; return `<button type="button" class="rel" data-go="${esc(n)}"><span class="ri">${icon(m.i)}</span><span><b>${TC(m.n)}</b><small>${bw(m.d)}</small></span></button>`; }).join('')}</div></div>`;
     $('dlgBody').innerHTML=h;
     $('dlgNav').hidden=!o.nav;
     dlgBox.scrollTop=0;
@@ -1725,7 +1727,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     else $('dlgTitle').focus({preventScroll:true});
   }
   function openModule(m,btn){ if(btn) opener=btn; dlgMod=m; const list=inCat(m.c);
-    renderDlg({i:m.i,c:CATS[m.c][0]+' · '+(list.indexOf(m)+1)+' of '+list.length,t:m.n,x:m.d,l:m.f,s:m.h,r:m.r,w:m.w,nav:true}); }
+    renderDlg({i:m.i,c:CATS[m.c][0]+' · '+(list.indexOf(m)+1)+' of '+list.length,t:TC(m.n),x:m.d,l:m.f,s:m.h,r:m.r,w:m.w,nav:true}); }
   function stepModule(d){ if(!dlgMod) return; const list=inCat(dlgMod.c), n=list[(list.indexOf(dlgMod)+d+list.length)%list.length]; goModule(n.n); openModule(n); }
   function closeDlg(){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
   dlg.addEventListener('close',()=>{ dlgMod=null; restartBar(); if(opener && document.contains(opener)) opener.focus({preventScroll:true}); });
