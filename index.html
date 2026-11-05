@@ -542,18 +542,21 @@ p,ul,ol{margin:0}
 @media (max-width:560px){ .promise{grid-template-columns:1fr} }
 
 /* ---------- proof ---------- */
-.proof{display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:stretch}
-.quote{margin:0; padding:clamp(28px,4vw,44px); border-radius:var(--r-lg); box-shadow:var(--raise); display:flex; flex-direction:column; gap:22px; justify-content:space-between}
-.quote blockquote{margin:0; font-family:var(--f-accent); font-size:var(--fs-sub); line-height:1.3}
+.proof{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch}
+.quote{margin:0; padding:clamp(24px,2.6vw,34px); border-radius:var(--r-lg); box-shadow:var(--raise); display:flex; flex-direction:column; gap:22px; justify-content:space-between}
+.quote blockquote{margin:0; font-family:var(--f-accent); font-size:clamp(17px,1.35vw,21px); line-height:1.38; text-wrap:pretty}
 .quote .who{display:flex; align-items:center; gap:14px}
-.avatar{width:52px; height:52px; border-radius:50%; box-shadow:var(--press-sm); display:grid; place-items:center; color:var(--faint); flex:none}
-.stats{display:grid; gap:18px}
+.avatar{width:52px; height:52px; border-radius:50%; box-shadow:var(--press-sm); display:grid; place-items:center; color:var(--faint); flex:none; object-fit:cover; background:#fff; padding:3px; border:2px solid #fff}
+.stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:20px}
 .stat{padding:22px 26px; border-radius:var(--r-md); box-shadow:var(--press); display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
 .stat b{font-family:var(--f-display); font-weight:600; font-size:var(--fs-sub); color:var(--iris); letter-spacing:-.03em}
 .stat span{font-size:var(--fs-body); color:var(--muted)}
-.logos{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin-top:24px}
-.logos span{height:64px; border-radius:18px; box-shadow:var(--press-sm); display:grid; place-items:center; color:var(--faint); font-size:var(--fs-sm); font-weight:600}
-@media (max-width:860px){ .proof{grid-template-columns:1fr} .logos{grid-template-columns:repeat(3,minmax(0,1fr))} .logos span:nth-child(n+4){display:none} }
+.logos-head{margin:40px 0 14px; text-align:center; font-size:var(--fs-sm); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
+.logos{display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:12px}
+.logos span{height:88px; border-radius:18px; box-shadow:var(--press-sm); background:#fff; display:grid; place-items:center; padding:6px; overflow:hidden}
+.logos img{width:100%; height:100%; object-fit:contain}
+@media (max-width:1100px){ .logos{grid-template-columns:repeat(5,minmax(0,1fr))} }
+@media (max-width:860px){ .proof{grid-template-columns:1fr} .stats{grid-template-columns:1fr; gap:12px} .logos{grid-template-columns:repeat(3,minmax(0,1fr))} .logos span{height:76px} }
 
 /* ---------- faq ---------- */
 .faq-grid{display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.3fr); gap:clamp(32px,5vw,72px); align-items:start}
@@ -1226,15 +1229,24 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     <div class="proof reveal">
       <figure class="quote">
         <blockquote>“<span class="cw">Campus<span>Wave</span></span> has made many of our day-to-day tasks easier and more organised. The team has always been approachable and willing to understand our requirements. We are happy to have been associated with them right from the beginning and wish them the very best.”</blockquote>
-        <figcaption class="who"><span class="avatar"><svg class="ico"><use href="#i-users"/></svg></span><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">Vinayaka Public School</span></span></figcaption>
+        <figcaption class="who"><img class="avatar" src="img/schools/vinayaka-avatar.webp" alt="" width="52" height="52" loading="lazy"><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">Vinayaka Public School</span></span></figcaption>
       </figure>
-      <div class="stats">
-        <div class="stat"><b>[XX]+</b><span>schools riding the wave</span></div>
-        <div class="stat"><b>[XX,XXX]</b><span>students and teachers</span></div>
-        <div class="stat"><b>[X] yrs</b><span>building software for schools</span></div>
-      </div>
+      <figure class="quote">
+        <blockquote>“National Pride School has been working in collaboration with <span class="cw">Campus<span>Wave</span></span> for the past one year. It is a very user-friendly platform, not only for the management but also for the parents. From attendance and homework to fee payments and communication, everything is managed smoothly in one place. It has made our school administration more efficient and has kept our parents well-informed and connected. We are happy with the support and service provided by the <span class="cw">Campus<span>Wave</span></span> team and look forward to continuing this association.”</blockquote>
+        <figcaption class="who"><img class="avatar" src="img/schools/national-pride-avatar.webp" alt="" width="52" height="52" loading="lazy"><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">National Pride School</span></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“The app is user-friendly, informative, and helpful in maintaining smooth communication between the school, teachers, and parents. It helps us share announcements, circulars, attendance updates, homework, examination details and students’ academic progress in an organised manner. The customisation has made school administration more systematic, efficient and transparent. We appreciate the support and efforts of the <span class="cw">Campus<span>Wave</span></span> team in understanding our school’s requirements and providing suitable solutions.”</blockquote>
+        <figcaption class="who"><img class="avatar" src="img/schools/geethanjali-avatar.webp" alt="" width="52" height="52" loading="lazy"><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">Geethanjali Public School, Doddaballapur</span></span></figcaption>
+      </figure>
     </div>
-    <div class="logos reveal" aria-label="Partner school logos (placeholders)"><span>[School logo]</span><span>[School logo]</span><span>[School logo]</span><span>[School logo]</span><span>[School logo]</span></div>
+    <div class="stats reveal">
+      <div class="stat"><b>[XX]+</b><span>schools riding the wave</span></div>
+      <div class="stat"><b>[XX,XXX]</b><span>students and teachers</span></div>
+      <div class="stat"><b>[X] yrs</b><span>building software for schools</span></div>
+    </div>
+    <p class="logos-head reveal">Schools already on the wave</p>
+    <div class="logos reveal" aria-label="Client school logos"><span><img src="img/schools/national-pride.webp" alt="National Pride School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/de-preethi.webp" alt="De Preethi Public School, Chintamani" width="360" height="200" loading="lazy"></span><span><img src="img/schools/geethanjali.webp" alt="Geethanjali Public School, Doddaballapur" width="360" height="200" loading="lazy"></span><span><img src="img/schools/eqube.webp" alt="EQube International School, Hosakote" width="360" height="200" loading="lazy"></span><span><img src="img/schools/hbr.webp" alt="HBR" width="360" height="200" loading="lazy"></span><span><img src="img/schools/ncphs.webp" alt="NCPHS" width="360" height="200" loading="lazy"></span><span><img src="img/schools/school-7.webp" alt="Client school" width="360" height="200" loading="lazy"></span><span><img src="img/schools/vinayaka.webp" alt="Vinayaka Public School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/vr-international.webp" alt="VR International School" width="360" height="200" loading="lazy"></span></div>
   </div>
 </section>
 
