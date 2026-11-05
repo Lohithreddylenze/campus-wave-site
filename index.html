@@ -1816,42 +1816,13 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     const id=k>=0?secs[k].id:''; navLinks.forEach(a=>cur(a,a.getAttribute('href')==='#'+id));
     siteNav.classList.toggle('on-band',dr.top<34 && dr.bottom>34);
   }
-  /* ---------- section stops: when a scroll ends close to the next section, glide the rest of the way ----------
-     Only stops ahead of where the gesture started count, so it never pulls you back once you have moved on. */
-  const stopEls=[...document.querySelectorAll('.snap, .snap-pt')];
-  function stops(){ const y=scrollY, out=stopEls.filter(el=>el.offsetParent!==null || el.classList.contains('snap-pt')).filter(el=>getComputedStyle(el).display!=='none').map(el=>Math.round(el.getBoundingClientRect().top+y));
-    out.push(document.documentElement.scrollHeight-innerHeight); return out; }
-  let restY=scrollY, gliding=false, touching=false, endTimer=null, focusMove=false;
-  addEventListener('focusin',()=>{ focusMove=true; });
-  for(const t of ['wheel','touchstart','pointerdown']) addEventListener(t,()=>{ focusMove=false; },{passive:true});
-  addEventListener('keydown',e=>{ if(e.key!=='Tab') focusMove=false; });
   /* a control reached by keyboard is never left under the sticky header */
   function clearOfHeader(){
     const el=document.activeElement; if(!el || el===document.body || !el.matches(':focus-visible') || el.closest('#siteNav,#menu,dialog,.stage,.skip,.rail')) return;
     const r=el.getBoundingClientRect(), clear=siteNav.getBoundingClientRect().bottom+16;
-    if(r.top<clear-1 && r.bottom>0){ focusMove=true; scrollBy({top:r.top-clear}); }
+    if(r.top<clear-1 && r.bottom>0) scrollBy({top:r.top-clear});
   }
   addEventListener('focusin',e=>{ const r=e.target.getBoundingClientRect?e.target.getBoundingClientRect():null; if(r && r.top>=-1 && r.bottom<=innerHeight) clearOfHeader(); });
-  function settle(){
-    const y=scrollY;
-    if(gliding){ gliding=false; restY=y; return; }
-    if(touching || reduce || dlg.open || focusMove){ const f=focusMove; focusMove=false; restY=y; if(f) clearOfHeader(); return; }
-    const moved=y-restY; if(Math.abs(moved)<8){ restY=y; return; }
-    const dir=Math.sign(moved), vh=innerHeight; let best=null, bestD=Infinity;
-    for(const T of stops()){
-      if(dir>0 ? T<=restY+4 : T>=restY-4) continue;
-      const ahead=(T-y)*dir, ok=ahead>=0 ? ahead<vh*.3 : -ahead<vh*.16, d=Math.abs(T-y);
-      if(ok && d<bestD){ best=T; bestD=d; }
-    }
-    restY=y;
-    if(best!==null && bestD>2){ gliding=true; scrollTo({top:best, behavior:'smooth'}); }
-  }
-  const hasScrollEnd='onscrollend' in window;
-  if(hasScrollEnd) addEventListener('scrollend',settle);
-  addEventListener('scroll',()=>{ if(!hasScrollEnd){ clearTimeout(endTimer); endTimer=setTimeout(settle,180); } },{passive:true});
-  addEventListener('touchstart',()=>{ touching=true; },{passive:true});
-  addEventListener('touchend',()=>{ touching=false; if(!hasScrollEnd){ clearTimeout(endTimer); endTimer=setTimeout(settle,180); } },{passive:true});
-  ['wheel','keydown','pointerdown'].forEach(t=>addEventListener(t,()=>{ if(gliding){ gliding=false; restY=scrollY; } },{passive:true}));
 
   let ticking=false;
   function frame(){ ticking=false; chromeFrame(); introFrame(); }
