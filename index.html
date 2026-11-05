@@ -542,21 +542,24 @@ p,ul,ol{margin:0}
 @media (max-width:560px){ .promise{grid-template-columns:1fr} }
 
 /* ---------- proof ---------- */
-.proof{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch}
+.qscroll,.lscroll{overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); margin-inline:-20px; padding-inline:20px}
+.qtrack{display:flex; gap:20px; width:max-content; padding-block:14px; animation:slide 64s linear infinite}
+.qscroll:hover .qtrack,.lscroll:hover .ltrack{animation-play-state:paused}
+.qtrack .quote{flex:0 0 min(460px,84vw)}
 .quote{margin:0; padding:clamp(24px,2.6vw,34px); border-radius:var(--r-lg); box-shadow:var(--raise); display:flex; flex-direction:column; gap:22px; justify-content:space-between}
 .quote blockquote{margin:0; font-family:var(--f-accent); font-size:clamp(17px,1.35vw,21px); line-height:1.38; text-wrap:pretty}
 .quote .who{display:flex; align-items:center; gap:14px}
 .avatar{width:52px; height:52px; border-radius:50%; box-shadow:var(--press-sm); display:grid; place-items:center; color:var(--faint); flex:none; object-fit:cover; background:#fff; padding:3px; border:2px solid #fff}
-.stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:20px}
-.stat{padding:22px 26px; border-radius:var(--r-md); box-shadow:var(--press); display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:14px}
+.stat .num{font-variant-numeric:tabular-nums}
+.stat{padding:22px 26px; border-radius:var(--r-md); box-shadow:var(--press); display:flex; flex-direction:column; gap:4px}
 .stat b{font-family:var(--f-display); font-weight:600; font-size:var(--fs-sub); color:var(--iris); letter-spacing:-.03em}
-.stat span{font-size:var(--fs-body); color:var(--muted)}
+.stat > span{font-size:var(--fs-body); color:var(--muted)}
 .logos-head{margin:40px 0 14px; text-align:center; font-size:var(--fs-sm); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
-.logos{display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:12px}
-.logos span{height:88px; border-radius:18px; box-shadow:var(--press-sm); background:#fff; display:grid; place-items:center; padding:6px; overflow:hidden}
-.logos img{width:100%; height:100%; object-fit:contain}
-@media (max-width:1100px){ .logos{grid-template-columns:repeat(5,minmax(0,1fr))} }
-@media (max-width:860px){ .proof{grid-template-columns:1fr} .stats{grid-template-columns:1fr; gap:12px} .logos{grid-template-columns:repeat(3,minmax(0,1fr))} .logos span{height:76px} }
+.ltrack{display:flex; gap:16px; width:max-content; padding-block:12px; animation:slide 48s linear infinite}
+.ltrack span{width:200px; height:116px; flex:none; border-radius:20px; box-shadow:var(--press-sm); background:#fff; display:grid; place-items:center; padding:10px; overflow:hidden}
+.ltrack img{width:100%; height:100%; object-fit:contain}
+@media (max-width:860px){ .stats{grid-template-columns:1fr; gap:12px} .ltrack span{width:160px; height:96px} .ltrack{animation-duration:36s} .qtrack{animation-duration:48s} }
 
 /* ---------- faq ---------- */
 .faq-grid{display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.3fr); gap:clamp(32px,5vw,72px); align-items:start}
@@ -1226,7 +1229,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
     <div class="sec-head reveal">
       <h2>Heard from the principal’s office.</h2>
     </div>
-    <div class="proof reveal">
+    <div class="qscroll reveal" aria-label="What principals say"><div class="qtrack" id="qtrack">
       <figure class="quote">
         <blockquote>“<span class="cw">Campus<span>Wave</span></span> has made many of our day-to-day tasks easier and more organised. The team has always been approachable and willing to understand our requirements. We are happy to have been associated with them right from the beginning and wish them the very best.”</blockquote>
         <figcaption class="who"><img class="avatar" src="img/schools/vinayaka-avatar.webp" alt="" width="52" height="52" loading="lazy"><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">Vinayaka Public School</span></span></figcaption>
@@ -1239,14 +1242,14 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
         <blockquote>“The app is user-friendly, informative, and helpful in maintaining smooth communication between the school, teachers, and parents. It helps us share announcements, circulars, attendance updates, homework, examination details and students’ academic progress in an organised manner. The customisation has made school administration more systematic, efficient and transparent. We appreciate the support and efforts of the <span class="cw">Campus<span>Wave</span></span> team in understanding our school’s requirements and providing suitable solutions.”</blockquote>
         <figcaption class="who"><img class="avatar" src="img/schools/geethanjali-avatar.webp" alt="" width="52" height="52" loading="lazy"><span><b>Principal</b><br><span style="color:var(--faint); font-size:var(--fs-sm)">Geethanjali Public School, Doddaballapur</span></span></figcaption>
       </figure>
-    </div>
-    <div class="stats reveal">
-      <div class="stat"><b>[XX]+</b><span>schools riding the wave</span></div>
-      <div class="stat"><b>[XX,XXX]</b><span>students and teachers</span></div>
-      <div class="stat"><b>[X] yrs</b><span>building software for schools</span></div>
+    </div></div>
+    <div class="stats reveal" id="stats">
+      <div class="stat"><b><span class="num" data-count="26">0</span>+</b><span>schools riding the wave</span></div>
+      <div class="stat"><b><span class="num" data-count="32000">0</span>+</b><span>students and teachers impacted</span></div>
+      <div class="stat"><b><span class="num" data-count="5">0</span> yrs</b><span>building software for schools</span></div>
     </div>
     <p class="logos-head reveal">Schools already on the wave</p>
-    <div class="logos reveal" aria-label="Client school logos"><span><img src="img/schools/national-pride.webp" alt="National Pride School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/de-preethi.webp" alt="De Preethi Public School, Chintamani" width="360" height="200" loading="lazy"></span><span><img src="img/schools/geethanjali.webp" alt="Geethanjali Public School, Doddaballapur" width="360" height="200" loading="lazy"></span><span><img src="img/schools/eqube.webp" alt="EQube International School, Hosakote" width="360" height="200" loading="lazy"></span><span><img src="img/schools/hbr.webp" alt="HBR" width="360" height="200" loading="lazy"></span><span><img src="img/schools/ncphs.webp" alt="NCPHS" width="360" height="200" loading="lazy"></span><span><img src="img/schools/school-7.webp" alt="Client school" width="360" height="200" loading="lazy"></span><span><img src="img/schools/vinayaka.webp" alt="Vinayaka Public School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/vr-international.webp" alt="VR International School" width="360" height="200" loading="lazy"></span></div>
+    <div class="lscroll reveal" aria-label="Client school logos"><div class="ltrack" id="ltrack"><span><img src="img/schools/national-pride.webp" alt="National Pride School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/de-preethi.webp" alt="De Preethi Public School, Chintamani" width="360" height="200" loading="lazy"></span><span><img src="img/schools/geethanjali.webp" alt="Geethanjali Public School, Doddaballapur" width="360" height="200" loading="lazy"></span><span><img src="img/schools/eqube.webp" alt="EQube International School, Hosakote" width="360" height="200" loading="lazy"></span><span><img src="img/schools/hbr.webp" alt="HBR" width="360" height="200" loading="lazy"></span><span><img src="img/schools/ncphs.webp" alt="NCPHS" width="360" height="200" loading="lazy"></span><span><img src="img/schools/school-7.webp" alt="Client school" width="360" height="200" loading="lazy"></span><span><img src="img/schools/vinayaka.webp" alt="Vinayaka Public School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/vr-international.webp" alt="VR International School" width="360" height="200" loading="lazy"></span><span><img src="img/schools/st-marys.webp" alt="St Mary’s School, Hebbagodi" width="360" height="200" loading="lazy"></span></div></div>
   </div>
 </section>
 
@@ -1377,6 +1380,20 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   const COLS=['var(--iris)','var(--aqua)','var(--peach)','var(--mint)'];
   FEATS.forEach((row,r)=>{ const html=row.map((t,i)=>`<span class="feat"><i style="background:${COLS[(i+r)%4]}"></i>${t}</span>`).join(''); $('tk'+(r+1)).innerHTML=html+html; });
   $('tkList').innerHTML=FEATS.flat().map(t=>`<li>${t}</li>`).join('');
+
+  /* ---------- proof: looping tracks and counting stats ---------- */
+  ['qtrack','ltrack'].forEach(id=>{ const t=$(id); if(t) t.innerHTML=t.innerHTML+t.innerHTML; });
+  const fmt=n=>n.toLocaleString('en-IN');
+  let counted=false;
+  onView($('stats'),vis=>{
+    if(!vis||counted) return; counted=true;
+    document.querySelectorAll('#stats .num').forEach(el=>{
+      const end=+el.dataset.count; if(reduce){ el.textContent=fmt(end); return; }
+      const dur=1800+Math.min(1200,end/40), t0=performance.now();
+      const tick=now=>{ const p=Math.min(1,(now-t0)/dur), v=Math.round(end*(1-Math.pow(1-p,3))); el.textContent=fmt(v); if(p<1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.4});
 
   /* ---------- reveal on arrival ---------- */
   if('IntersectionObserver' in window && !reduce){
@@ -1840,7 +1857,7 @@ main :is(a[href],button,summary,input,select,textarea,[tabindex]),.foot :is(a[hr
   function frame(){ ticking=false; chromeFrame(); introFrame(); }
   addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
   addEventListener('resize',()=>{ measureIntro(); lastDone=-1; frame(); });
-  if('IntersectionObserver' in window){ const lo=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('paused',!e.isIntersecting))); document.querySelectorAll('.landing,.bridge,.intro,.ticker,#intelligence,.band').forEach(el=>lo.observe(el)); }
+  if('IntersectionObserver' in window){ const lo=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('paused',!e.isIntersecting))); document.querySelectorAll('.landing,.bridge,.intro,.ticker,#intelligence,.band,#proof').forEach(el=>lo.observe(el)); }
   measureIntro();
   renderCat('aca'); setSpot(0); restartTimer();
   frame();
